@@ -9,6 +9,8 @@
   <script src="https://unpkg.com/lucide@0.394.0/dist/umd/lucide.min.js"></script>
   <link rel="stylesheet" href="css/design-system.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     /* Page-specific overrides */
     .dash-page { display: none; }
@@ -1095,18 +1097,7 @@
           <div class="card">
             <div class="card-header"><h4>Outlet Map — Pakistan</h4></div>
             <div class="card-body" style="padding:0;">
-              <div class="map-container" style="height:450px;">
-                <div class="map-placeholder">
-                  <div style="font-size:64px;opacity:0.3;"><i data-lucide="map" style="width:48px;height:48px;color:var(--text-tertiary);opacity:0.5;"></i></div>
-                  <p style="margin-top:8px;">Interactive Map</p>
-                  <p class="text-sm">Leaflet.js integration point</p>
-                </div>
-                <!-- Simulated city dots -->
-                <div class="map-dot large" style="background:var(--positive);top:35%;left:62%;" title="Lahore — ₨ 22.8M"></div>
-                <div class="map-dot large" style="background:var(--info);top:72%;left:38%;" title="Karachi — ₨ 12.1M"></div>
-                <div class="map-dot" style="background:var(--warning);top:28%;left:55%;" title="Islamabad — ₨ 8.2M"></div>
-                <div class="map-dot" style="background:var(--positive);top:42%;left:55%;" title="Faisalabad — ₨ 4.1M"></div>
-              </div>
+              <div id="outletMap" style="height:450px;width:100%;border-radius:0 0 var(--radius-md) var(--radius-md);"></div>
             </div>
           </div>
           <div class="card">
@@ -3547,6 +3538,40 @@
   /* ======== Initialize Lucide Icons ======== */
   document.addEventListener('DOMContentLoaded', function() {
     if (typeof lucide !== 'undefined') lucide.createIcons();
+    
+    /* ======== Initialize Outlet Map ======== */
+    if (typeof L !== 'undefined' && document.getElementById('outletMap')) {
+      var map = L.map('outletMap').setView([30.3753, 69.3451], 5);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+      
+      var outlets = [
+        { name: 'DHA Phase 5', city: 'Lahore', lat: 31.4697, lng: 74.4063, revenue: '₨ 5.8M', status: 'green' },
+        { name: 'Fortress Stadium', city: 'Lahore', lat: 31.5204, lng: 74.3587, revenue: '₨ 5.2M', status: 'green' },
+        { name: 'Bahria Town', city: 'Lahore', lat: 31.3669, lng: 74.1801, revenue: '₨ 3.9M', status: 'green' },
+        { name: 'Gulberg', city: 'Lahore', lat: 31.5127, lng: 74.3456, revenue: '₨ 3.1M', status: 'red' },
+        { name: 'Model Town', city: 'Lahore', lat: 31.4836, lng: 74.3152, revenue: '₨ 2.4M', status: 'red' },
+        { name: 'Clifton', city: 'Karachi', lat: 24.8138, lng: 67.0227, revenue: '₨ 4.7M', status: 'green' },
+        { name: 'Defence (KHI)', city: 'Karachi', lat: 24.7943, lng: 67.0700, revenue: '₨ 3.6M', status: 'green' },
+        { name: 'Zamzama', city: 'Karachi', lat: 24.8074, lng: 67.0344, revenue: '₨ 2.8M', status: 'green' },
+        { name: 'F-7 Markaz', city: 'Islamabad', lat: 33.7215, lng: 73.0582, revenue: '₨ 4.1M', status: 'amber' },
+        { name: 'Blue Area', city: 'Islamabad', lat: 33.7104, lng: 73.0622, revenue: '₨ 3.4M', status: 'green' }
+      ];
+      
+      var colors = { green: '#10B981', amber: '#F59E0B', red: '#EF4444' };
+      
+      outlets.forEach(function(o) {
+        var marker = L.circleMarker([o.lat, o.lng], {
+          radius: 10,
+          fillColor: colors[o.status],
+          color: '#fff',
+          weight: 2,
+          fillOpacity: 0.9
+        }).addTo(map);
+        marker.bindPopup('<strong>' + o.name + '</strong><br>' + o.city + '<br>Revenue: ' + o.revenue);
+      });
+    }
   });
 
   /* ======== NAVIGATION ======== */
