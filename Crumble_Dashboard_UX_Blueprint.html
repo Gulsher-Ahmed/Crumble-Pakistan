@@ -1,0 +1,2539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crumble Pakistan — Dashboard UI/UX Blueprint</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #fafbfc;
+    --surface: #ffffff;
+    --text: #1a1a2e;
+    --text-secondary: #64748b;
+    --accent: #E8500A;
+    --accent-light: #fff3ed;
+    --navy: #1a1a2e;
+    --navy-light: #2d2d5e;
+    --border: #e2e8f0;
+    --green: #059669;
+    --red: #dc2626;
+    --amber: #d97706;
+    --purple: #7c3aed;
+    --blue: #2563eb;
+    --teal: #0d9488;
+    --pink: #db2777;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 15px; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === COVER === */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; color: white; padding: 4rem 2rem;
+    position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(232,80,10,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(124,58,237,0.06) 0%, transparent 40%);
+  }
+  .cover h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: -1px; position: relative; }
+  .cover h2 { font-size: 1.4rem; font-weight: 400; opacity: 0.85; margin-top: 0.5rem; position: relative; }
+  .cover .subtitle { font-size: 1rem; opacity: 0.6; margin-top: 2rem; position: relative; }
+  .cover .accent-bar { width: 80px; height: 4px; background: var(--accent); margin: 1.5rem auto; position: relative; }
+  .cover .meta { font-size: 0.8rem; opacity: 0.4; margin-top: 3rem; position: relative; }
+
+  /* === LAYOUT === */
+  .doc { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+
+  /* === TOC === */
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; margin: 2rem 0 3rem; }
+  .toc h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--navy); }
+  .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; }
+  .toc-item { font-size: 0.85rem; padding: 0.35rem 0; border-bottom: 1px solid #f1f5f9; }
+  .toc-item .num { font-family: 'DM Mono', monospace; color: var(--accent); font-weight: 600; margin-right: 0.5rem; }
+
+  /* === SECTIONS === */
+  .section { margin-bottom: 4rem; }
+  .section-label {
+    font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 600;
+    color: var(--accent); text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+  }
+  .section > h2 {
+    font-size: 1.8rem; font-weight: 800; color: var(--navy); margin-bottom: 0.5rem;
+    letter-spacing: -0.5px; line-height: 1.2;
+  }
+  .section > .lead { font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 800px; }
+
+  h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin: 2rem 0 0.8rem; }
+  h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin: 1.5rem 0 0.5rem; }
+  h5 { font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin: 1.2rem 0 0.5rem; }
+
+  p { margin-bottom: 1rem; }
+  ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+  li { margin-bottom: 0.3rem; }
+
+  strong { font-weight: 700; }
+  em { color: var(--text-secondary); }
+
+  code {
+    font-family: 'DM Mono', monospace; font-size: 0.82rem;
+    background: #f1f5f9; padding: 0.15rem 0.4rem; border-radius: 4px;
+  }
+
+  /* === CARDS === */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem;
+  }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-navy { border-left: 4px solid var(--navy); }
+  .card-purple { border-left: 4px solid var(--purple); }
+  .card-green { border-left: 4px solid var(--green); }
+  .card-blue { border-left: 4px solid var(--blue); }
+  .card-teal { border-left: 4px solid var(--teal); }
+  .card-amber { border-left: 4px solid var(--amber); }
+  .card-pink { border-left: 4px solid var(--pink); }
+  .card h4 { margin-top: 0; }
+
+  .card-grid { display: grid; gap: 1rem; }
+  .card-grid-2 { grid-template-columns: 1fr 1fr; }
+  .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .card-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+  /* === TABLES === */
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.85rem; }
+  thead { background: #f8fafc; }
+  th { font-weight: 700; text-align: left; padding: 0.6rem 0.8rem; border-bottom: 2px solid var(--border); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); }
+  td { padding: 0.55rem 0.8rem; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  tr:hover { background: #fafbfc; }
+
+  /* === CALLOUTS === */
+  .callout { border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1.5rem 0; font-size: 0.9rem; }
+  .callout-blue { background: #eff6ff; border-left: 4px solid var(--blue); }
+  .callout-amber { background: #fffbeb; border-left: 4px solid var(--amber); }
+  .callout-green { background: #f0fdf4; border-left: 4px solid var(--green); }
+  .callout-navy { background: #f0f1f8; border-left: 4px solid var(--navy); }
+  .callout-accent { background: var(--accent-light); border-left: 4px solid var(--accent); }
+
+  /* === TAGS === */
+  .tag { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px; margin-right: 0.3rem; }
+  .tag-exec { background: #ede9fe; color: #6d28d9; }
+  .tag-ops { background: #fef3c7; color: #92400e; }
+  .tag-role { background: #e0f2fe; color: #0369a1; }
+  .tag-priority { background: #fce7f3; color: #be185d; }
+
+  /* === WIREFRAME === */
+  .wireframe {
+    background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 10px;
+    padding: 1.5rem; margin: 1rem 0; font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; color: #475569; line-height: 1.5; white-space: pre;
+    overflow-x: auto;
+  }
+
+  /* === DIVIDER === */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+  /* === DASHBOARD SPEC === */
+  .dash-spec { margin: 2rem 0 3rem; }
+  .dash-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: white; padding: 1.5rem 2rem; border-radius: 10px 10px 0 0;
+  }
+  .dash-header h3 { color: white; margin: 0; font-size: 1.2rem; }
+  .dash-header .dash-id { font-family: 'DM Mono', monospace; font-size: 0.7rem; opacity: 0.6; }
+  .dash-header .dash-tags { margin-top: 0.5rem; }
+  .dash-body { background: var(--surface); border: 1px solid var(--border); border-top: none; border-radius: 0 0 10px 10px; padding: 2rem; }
+
+  .ops-header {
+    background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+  }
+
+  /* === PRINT === */
+  @media print {
+    .cover { min-height: auto; padding: 3rem; page-break-after: always; }
+    .section { page-break-inside: avoid; }
+    .dash-spec { page-break-inside: avoid; }
+  }
+
+  @media (max-width: 768px) {
+    .card-grid-2, .card-grid-3, .card-grid-4 { grid-template-columns: 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .wireframe { font-size: 0.65rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <h1>DASHBOARD UI/UX BLUEPRINT</h1>
+  <div class="accent-bar"></div>
+  <h2>Crumble Pakistan — Enterprise Dashboard Ecosystem</h2>
+  <p class="subtitle">Complete UI/UX System Design, Information Architecture,<br>Screen Specifications & Design System</p>
+  <p class="meta">Prepared by Gulsher Zahid | BI Strategy Consultant | March 2026 | Confidential</p>
+</div>
+
+<div class="doc">
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>TABLE OF CONTENTS</h2>
+  <div class="toc-grid">
+    <div class="toc-item"><span class="num">01</span> Overall UI/UX Strategy & Philosophy</div>
+    <div class="toc-item"><span class="num">02</span> Information Architecture & Sitemap</div>
+    <div class="toc-item"><span class="num">03</span> Role-Based Experience Design</div>
+    <div class="toc-item"><span class="num">04</span> Global Navigation Design</div>
+    <div class="toc-item"><span class="num">05</span> Global Filter System</div>
+    <div class="toc-item"><span class="num">06</span> Design System Specification</div>
+    <div class="toc-item"><span class="num">07</span> Reusable Component Library</div>
+    <div class="toc-item"><span class="num">08</span> Dashboard Specs: Executive Layer (A–H)</div>
+    <div class="toc-item"><span class="num">09</span> Dashboard Specs: Operational Layer (I–R)</div>
+    <div class="toc-item"><span class="num">10</span> Drill-Down & Interaction Model</div>
+    <div class="toc-item"><span class="num">11</span> Alert & Exception Design Patterns</div>
+    <div class="toc-item"><span class="num">12</span> States & System Feedback</div>
+    <div class="toc-item"><span class="num">13</span> Responsive & Device Behavior</div>
+    <div class="toc-item"><span class="num">14</span> Accessibility & Usability</div>
+    <div class="toc-item"><span class="num">15</span> Low-Fidelity Wireframe Guidance</div>
+    <div class="toc-item"><span class="num">16</span> High-Fidelity Visual Direction</div>
+    <div class="toc-item"><span class="num">17</span> Screen Inventory</div>
+    <div class="toc-item"><span class="num">18</span> Implementation Priority</div>
+  </div>
+</div>
+<!-- SECTION 01: OVERALL UI/UX STRATEGY -->
+<div class="section">
+  <div class="section-label">Section 01</div>
+  <h2>Overall UI/UX Strategy & Philosophy</h2>
+  <p class="lead">A dashboard ecosystem designed as two distinct but unified experiences: an executive intelligence platform for leadership decision-making, and a real-time operational control layer for field teams.</p>
+
+  <h3>1.1 — Core UX Philosophy</h3>
+  <p>The Crumble dashboard ecosystem is not a reporting tool. It is a <strong>decision-support operating system</strong> — a product that different users live inside for different purposes. The design philosophy rests on five pillars:</p>
+
+  <div class="card-grid card-grid-3">
+    <div class="card card-accent">
+      <h4>Clarity Over Decoration</h4>
+      <p style="font-size:0.85rem;margin:0;">Every pixel earns its place. No chart exists without a decision it informs. No metric appears without context (trend, comparison, threshold).</p>
+    </div>
+    <div class="card card-navy">
+      <h4>Actionability Over Information</h4>
+      <p style="font-size:0.85rem;margin:0;">Operational screens must answer "What do I do next?" Executive screens must answer "What changed and why?"</p>
+    </div>
+    <div class="card card-purple">
+      <h4>Layered Complexity</h4>
+      <p style="font-size:0.85rem;margin:0;">Surface layer is scannable in 3 seconds. First click reveals trends and comparisons. Second click reaches root-cause detail. Depth is available; it is never forced.</p>
+    </div>
+    <div class="card card-green">
+      <h4>Exception-First Design</h4>
+      <p style="font-size:0.85rem;margin:0;">When everything is normal, the screen confirms it calmly. When something breaks threshold, the UI makes it impossible to miss — through color, position, motion, or persistent alert.</p>
+    </div>
+    <div class="card card-blue">
+      <h4>Context-Rich Metrics</h4>
+      <p style="font-size:0.85rem;margin:0;">No number exists alone. Every KPI shows: current value, trend direction, variance from target/prior period, and severity classification.</p>
+    </div>
+    <div class="card card-teal">
+      <h4>Unified but Differentiated</h4>
+      <p style="font-size:0.85rem;margin:0;">Executive and operational layers share one design system (typography, color, components) but diverge in density, refresh cadence, interaction model, and visual emphasis.</p>
+    </div>
+  </div>
+
+  <h3>1.2 — Two Product Experiences, One System</h3>
+
+  <table>
+    <thead><tr><th>Dimension</th><th>Executive Layer</th><th>Operational Layer</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Primary Goal</strong></td><td>Strategic awareness, trend analysis, anomaly detection</td><td>Real-time action, queue management, status monitoring</td></tr>
+      <tr><td><strong>Typical User</strong></td><td>CEO, CFO, CMO, Regional Manager</td><td>Outlet Manager, Shift Lead, Production Manager, Inventory Controller</td></tr>
+      <tr><td><strong>Time Horizon</strong></td><td>Day / Week / Month / Quarter</td><td>Now / Hour / Shift / Day</td></tr>
+      <tr><td><strong>Refresh Rate</strong></td><td>Every 15–60 minutes</td><td>Real-time or every 30–60 seconds</td></tr>
+      <tr><td><strong>Information Density</strong></td><td>Medium — scannability over density</td><td>High — density over aesthetics</td></tr>
+      <tr><td><strong>Visual Tone</strong></td><td>Premium, calm, structured</td><td>Functional, high-contrast, status-driven</td></tr>
+      <tr><td><strong>Interaction Depth</strong></td><td>3–4 click drill-downs into root cause</td><td>1–2 click actions and acknowledgements</td></tr>
+      <tr><td><strong>Color Mode</strong></td><td>Dark mode primary (executive gravity)</td><td>Light mode primary (readability under varied lighting)</td></tr>
+      <tr><td><strong>Primary Device</strong></td><td>Desktop, mobile summary</td><td>Desktop, tablet, wallboard</td></tr>
+      <tr><td><strong>Key Patterns</strong></td><td>KPI cards, trend charts, ranking tables, anomaly callouts, AI insights</td><td>Queue lists, timer cards, action panels, status chips, alert banners</td></tr>
+    </tbody>
+  </table>
+
+  <h3>1.3 — Dashboard Usage Model</h3>
+  <div class="callout callout-navy">
+    <strong>Morning Cadence (Executives):</strong> CEO opens Executive Command Center → scans health score → reviews overnight anomalies → drills into Marketing ROI or Outlet Performance → closes within 5–8 minutes with full situational awareness.
+  </div>
+  <div class="callout callout-accent">
+    <strong>Shift Cadence (Operations):</strong> Outlet Manager opens Live Operations Board → checks pending orders and queue depth → reviews Bake Planner for next 2 hours → acknowledges inventory alerts → glances at waste tracker → repeats every 30–60 minutes throughout shift.
+  </div>
+  <div class="callout callout-blue">
+    <strong>Campaign Review (Marketing):</strong> CMO opens Marketing ROI Dashboard → filters to current LTO campaign → compares platform performance → reviews creative fatigue indicators → checks geo response → exports report for leadership meeting.
+  </div>
+
+  <h3>1.4 — LTO-Centric Design Integration</h3>
+  <p>Crumble's monthly limited-time offer (LTO) product launch is a business-defining event that ripples across every department. The UX must treat the LTO cycle as a <strong>first-class temporal dimension</strong>, not an afterthought:</p>
+  <ul>
+    <li><strong>Every dashboard</strong> must support filtering by "Current LTO" / "Previous LTOs" / "Core Menu Only"</li>
+    <li><strong>Launch timelines</strong> appear as visual overlays on trend charts (vertical markers showing launch date)</li>
+    <li><strong>Pre/Post comparison</strong> logic is built into every metric: "performance before launch vs during launch vs after launch"</li>
+    <li><strong>LTO Health Card</strong> appears on the Executive Command Center showing days since launch, demand curve, city response, and go/no-go signal for permanence</li>
+    <li><strong>Production and inventory</strong> dashboards show LTO-specific stock, thaw schedules, and waste risk</li>
+  </ul>
+</div>
+
+<hr class="divider">
+<!-- SECTION 02: INFORMATION ARCHITECTURE -->
+<div class="section">
+  <div class="section-label">Section 02</div>
+  <h2>Information Architecture & Sitemap</h2>
+  <p class="lead">A modular, drill-down-friendly architecture that separates executive intelligence from operational control while maintaining connected navigation paths.</p>
+
+  <h3>2.1 — Top-Level Module Hierarchy</h3>
+  <div class="wireframe">
+CRUMBLE DASHBOARD ECOSYSTEM
+├── EXECUTIVE LAYER
+│   ├── A. Executive Command Center .............. Strategic health, KPIs, anomalies
+│   ├── B. Finance & ERP ......................... P&L, margins, cost control, budget
+│   ├── C. Outlet / City Performance ............. Location comparison, geo intelligence
+│   ├── D. Product / Menu / LTO Intelligence ..... SKU performance, launch tracking
+│   ├── E. Customer / Loyalty / Retention ........ CLV, churn, cohorts, segments
+│   ├── F. Marketing ROI & Brand Virality ........ ROAS, campaigns, organic, geo response
+│   ├── G. Supply Chain / Production / Inventory .. Network stock, production, dispatch
+│   └── H. Service Quality / Brand Experience .... SLA, complaints, sentiment, freshness
+│
+├── OPERATIONAL LAYER
+│   ├── I. Outlet Live Operations Board .......... Real-time queue, orders, alerts
+│   ├── J. Hourly Bake Planner ................... Forecast, bake/thaw recommendations
+│   ├── K. Central Kitchen / Production Tower .... Batch status, dispatch, yield
+│   ├── L. Inventory & Replenishment ............. Stock levels, transfers, exceptions
+│   ├── M. Order Fulfillment / Digital Orders .... Pipeline, SLAs, cancellations
+│   ├── N. Waste / Quality / Freshness ........... Loss tracking, root cause, compliance
+│   ├── O. Workforce / Shift Performance ......... Labor, productivity, scheduling
+│   ├── P. CRM / Loyalty Operations .............. Enrollments, campaigns, win-back
+│   ├── Q. Campaign / Creative Operations ........ Spend pacing, fatigue, creative cards
+│   └── R. Data Quality / Integration Monitor .... Feeds, sync, mapping, incidents
+│
+├── SUPPORTING SCREENS
+│   ├── Login / Role-Based Landing ............... Role detection → auto-redirect
+│   ├── Alert Center ............................. All active alerts, acknowledge, escalate
+│   ├── AI Insights Panel ........................ AI-generated observations, recommendations
+│   ├── Notifications Center ..................... Activity log, threshold breaches, updates
+│   ├── Outlet Detail Page ....................... Deep-dive into single outlet
+│   ├── SKU Detail Page .......................... Deep-dive into single product
+│   ├── Campaign Detail Page ..................... Deep-dive into single campaign
+│   ├── Customer Segment Detail .................. Deep-dive into segment behavior
+│   └── Settings / Preferences ................... Saved views, defaults, notification prefs
+│
+└── ADMIN LAYER
+    ├── User Management .......................... Roles, permissions, access audit
+    ├── Data Source Configuration ................. Connection manager, refresh schedules
+    └── Alert Rule Configuration ................. Threshold definitions, routing rules
+  </div>
+
+  <h3>2.2 — Primary Drill-Down Paths</h3>
+  <p>The IA supports six primary drill chains that users traverse naturally:</p>
+
+  <table>
+    <thead><tr><th>Drill Path</th><th>Levels</th><th>Primary Users</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Geographic</strong></td><td>Chain → City → Outlet → Daypart → Order</td><td>CEO, COO, Regional Manager</td></tr>
+      <tr><td><strong>Product</strong></td><td>Chain → Category → SKU → Outlet → Waste/Margin/Sales</td><td>CEO, Product Manager, Production</td></tr>
+      <tr><td><strong>Campaign</strong></td><td>Campaign → Creative → City → Sessions → Orders</td><td>CMO, Performance Marketing</td></tr>
+      <tr><td><strong>Customer</strong></td><td>Segment → Channel → Outlet → Repeat Behavior</td><td>CRM Manager, CMO</td></tr>
+      <tr><td><strong>Production</strong></td><td>Batch → Dispatch → Outlet Receipt → Bake Performance</td><td>Production Manager, Inventory Controller</td></tr>
+      <tr><td><strong>Service</strong></td><td>Issue Type → Outlet → Shift → Queue → Root Cause</td><td>COO, Outlet Manager, QA</td></tr>
+    </tbody>
+  </table>
+
+  <h3>2.3 — Page Grouping & Tab Structure</h3>
+  <p>Within each dashboard, content is organized into <strong>tab groups</strong> that progressively deepen analysis:</p>
+
+  <div class="card-grid card-grid-2">
+    <div class="card card-accent">
+      <h4>Executive Pattern</h4>
+      <p style="font-size:0.85rem;">Tab 1: <strong>Overview</strong> (KPIs + key visuals)<br>
+      Tab 2: <strong>Analysis</strong> (trends, comparisons)<br>
+      Tab 3: <strong>Detail</strong> (tables, drill-down)<br>
+      Tab 4: <strong>Anomalies & AI</strong> (exceptions, insights)</p>
+    </div>
+    <div class="card card-amber">
+      <h4>Operational Pattern</h4>
+      <p style="font-size:0.85rem;">Tab 1: <strong>Live Status</strong> (current state, queues)<br>
+      Tab 2: <strong>Action</strong> (recommendations, tasks)<br>
+      Tab 3: <strong>Exceptions</strong> (breaches, alerts)<br>
+      Tab 4: <strong>History</strong> (shift/day review)</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+<!-- SECTION 03: ROLE-BASED EXPERIENCE DESIGN -->
+<div class="section">
+  <div class="section-label">Section 03</div>
+  <h2>Role-Based Experience Design</h2>
+  <p class="lead">Each role enters the system through a purpose-built landing page with pre-configured filters, relevant KPIs, and role-appropriate information density.</p>
+
+  <table>
+    <thead><tr><th>Role</th><th>Default Landing</th><th>Priority KPIs</th><th>Primary Actions</th><th>Density</th><th>Time Horizon</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Founder / CEO</strong></td><td>Executive Command Center</td><td>Revenue, Margin, Growth, ROAS, LTO Health, Outlet Rankings, Anomalies</td><td>Drill-down, Compare periods, Review AI insights</td><td>Medium</td><td>Day / Week / Month</td></tr>
+      <tr><td><strong>COO</strong></td><td>Outlet / City Performance</td><td>SLA, Queue depth, Waste %, Service score, Outlet health, Staffing</td><td>Drill to outlet, Review exceptions, Compare outlets</td><td>Medium-High</td><td>Day / Week</td></tr>
+      <tr><td><strong>CFO</strong></td><td>Finance & ERP</td><td>Gross margin, Prime cost, Food cost, Labor cost, Budget variance, P&L</td><td>Period comparison, Cost center drill, Export reports</td><td>High</td><td>Month / Quarter</td></tr>
+      <tr><td><strong>CMO</strong></td><td>Marketing ROI & Virality</td><td>ROAS, CPO, MER, Creative performance, Virality index, LTO campaign lift</td><td>Platform compare, Campaign drill, Geo response</td><td>Medium</td><td>Day / Week / Campaign</td></tr>
+      <tr><td><strong>Regional Ops Manager</strong></td><td>Outlet / City (filtered to region)</td><td>City revenue, Outlet rankings, SLA breaches, Waste, Staffing gaps</td><td>City/outlet compare, Exception triage, Shift review</td><td>Medium-High</td><td>Day / Week</td></tr>
+      <tr><td><strong>Outlet Manager</strong></td><td>Outlet Live Operations Board</td><td>Pending orders, Queue depth, Baked stock, SLA risk, Waste today, Staff on shift</td><td>Acknowledge alerts, Check bake plan, Review waste</td><td>Very High</td><td>Now / Hour / Shift</td></tr>
+      <tr><td><strong>Shift Lead</strong></td><td>Hourly Bake Planner</td><td>Next-hour forecast, Bake recommendation, Shelf timers, Waste risk</td><td>Execute bake plan, Log waste, Update stock counts</td><td>Very High</td><td>Now / Hour</td></tr>
+      <tr><td><strong>Production Manager</strong></td><td>Central Kitchen Control Tower</td><td>Batch status, Yield, QC failures, Dispatch queue, Outlet demand</td><td>Manage batches, Resolve QC, Prioritize dispatch</td><td>Very High</td><td>Shift / Day</td></tr>
+      <tr><td><strong>Inventory Controller</strong></td><td>Inventory & Replenishment</td><td>Stockout risk, Days on hand, Transfer status, Expiry risk, Min/max breaches</td><td>Create transfers, Resolve exceptions, Review coverage</td><td>High</td><td>Day / Week</td></tr>
+      <tr><td><strong>CRM Manager</strong></td><td>CRM / Loyalty Operations</td><td>Enrollments, Active rate, Redemption, Churn risk, Win-back eligible</td><td>Review segments, Trigger campaigns, Analyze retention</td><td>Medium</td><td>Week / Month</td></tr>
+      <tr><td><strong>Perf. Marketing Mgr</strong></td><td>Campaign / Creative Ops</td><td>Spend pacing, Frequency, Fatigue score, ROAS by creative, Anomalies</td><td>Pause/boost campaigns, Review creatives, UTM audit</td><td>High</td><td>Day / Week</td></tr>
+      <tr><td><strong>Data / BI Admin</strong></td><td>Data Quality Monitor</td><td>Source freshness, Sync failures, Mapping errors, Duplicates, Incidents</td><td>Resolve incidents, Check feeds, Audit mappings</td><td>Very High</td><td>Real-time / Day</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.1 — Role-Based Landing Logic</h3>
+  <div class="callout callout-blue">
+    <strong>Automatic Routing:</strong> Upon login, the system detects the user's role and redirects to their designated landing page with pre-applied filters (e.g., Regional Manager sees only their assigned cities; Outlet Manager sees only their outlet). Users can always navigate freely to any module they have permission to access.
+  </div>
+
+  <h3>3.2 — Permission Tiers</h3>
+  <div class="card-grid card-grid-3">
+    <div class="card card-navy">
+      <h4>Tier 1: Full Access</h4>
+      <p style="font-size:0.85rem;margin:0;">CEO, COO, CFO<br>All modules, all data, all exports, admin settings</p>
+    </div>
+    <div class="card card-accent">
+      <h4>Tier 2: Department Access</h4>
+      <p style="font-size:0.85rem;margin:0;">CMO, CRM Manager, Production Manager<br>Full access to own domain + read-only cross-domain</p>
+    </div>
+    <div class="card card-green">
+      <h4>Tier 3: Location-Scoped</h4>
+      <p style="font-size:0.85rem;margin:0;">Outlet Manager, Shift Lead<br>Own outlet/shift data only, operational screens only</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+<!-- SECTION 04: GLOBAL NAVIGATION DESIGN -->
+<div class="section">
+  <div class="section-label">Section 04</div>
+  <h2>Global Navigation Design</h2>
+  <p class="lead">A collapsible left sidebar with icon+label navigation, grouped by layer, with persistent global controls in the top bar.</p>
+
+  <h3>4.1 — Navigation Structure</h3>
+  <div class="wireframe">
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ TOP BAR (56px height, always visible)                                        │
+│ ┌──────┐  ┌─────────────────────┐     ┌─────────┐ ┌──────┐ ┌──────┐ ┌────┐ │
+│ │ LOGO │  │ Global Search (⌘K)  │     │ Alerts  │ │ AI   │ │ Bell │ │User│ │
+│ │Crumble│  │ Type to search...   │     │ 3 active│ │Insight│ │  12  │ │ GZ │ │
+│ └──────┘  └─────────────────────┘     └─────────┘ └──────┘ └──────┘ └────┘ │
+├──────┬───────────────────────────────────────────────────────────────────────┤
+│ SIDE │  STICKY FILTER BAR                                                    │
+│ BAR  │  Date: Last 7 Days ▼  | City: All ▼  | Outlet: All ▼  | Compare: Off │
+│ 220px│───────────────────────────────────────────────────────────────────────│
+│      │                                                                       │
+│ ■ ── │  PAGE CONTENT AREA                                                    │
+│ EXEC │                                                                       │
+│ ─────│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐     │
+│ □ Cmd│  │  KPI Card   │ │  KPI Card   │ │  KPI Card   │ │  KPI Card   │     │
+│ □ Fin│  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘     │
+│ □ Out│                                                                       │
+│ □ Pro│  ┌───────────────────────────┐ ┌─────────────────────────────────┐     │
+│ □ Cus│  │                           │ │                                 │     │
+│ □ Mkt│  │   Primary Chart           │ │   Secondary Chart / Table       │     │
+│ □ SCM│  │   (60% width)             │ │   (40% width)                   │     │
+│ □ Svc│  │                           │ │                                 │     │
+│ ─────│  └───────────────────────────┘ └─────────────────────────────────┘     │
+│ ■ ── │                                                                       │
+│ OPS  │  ┌─────────────────────────────────────────────────────────────────┐   │
+│ ─────│  │   Data Table with Drill-Down                                    │   │
+│ □ Liv│  │                                                                 │   │
+│ □ Bak│  └─────────────────────────────────────────────────────────────────┘   │
+│ □ Kit│                                                                       │
+│ □ Inv│                                                                       │
+│ □ Ord│                                                                       │
+│ □ Was│                                                                       │
+│ □ Wor│                                                                       │
+│ □ CRM│                                                                       │
+│ □ Cam│                                                                       │
+│ □ Dat│                                                                       │
+│ ─────│                                                                       │
+│ ⚙Set │                                                                       │
+└──────┴───────────────────────────────────────────────────────────────────────┘
+  </div>
+
+  <h3>4.2 — Sidebar Behavior</h3>
+  <table>
+    <thead><tr><th>Behavior</th><th>Specification</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Expanded State</strong></td><td>220px wide, icon + label + active indicator. Module groups have section headers ("EXECUTIVE", "OPERATIONS").</td></tr>
+      <tr><td><strong>Collapsed State</strong></td><td>64px wide, icon only with tooltip on hover. Triggered by toggle button or responsive breakpoint.</td></tr>
+      <tr><td><strong>Active Indicator</strong></td><td>Left 3px accent-colored bar + background highlight on active item.</td></tr>
+      <tr><td><strong>Hover State</strong></td><td>Subtle background fill + 150ms transition. In collapsed mode, shows expanded tooltip with label.</td></tr>
+      <tr><td><strong>Scroll</strong></td><td>Sidebar scrolls independently from content area if items exceed viewport height.</td></tr>
+      <tr><td><strong>Keyboard</strong></td><td>Arrow keys navigate items, Enter activates, Tab moves to content area.</td></tr>
+      <tr><td><strong>Badge Counts</strong></td><td>Alert Center and Notifications show unread/active count badges (red dot or numeric).</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.3 — Top Bar Components</h3>
+  <table>
+    <thead><tr><th>Component</th><th>Behavior</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Global Search (Cmd+K)</strong></td><td>Command palette overlay. Search across outlets, SKUs, campaigns, customers, metrics. Returns categorized results. Auto-navigates to detail pages.</td></tr>
+      <tr><td><strong>Active Alerts Button</strong></td><td>Shows count of unacknowledged alerts. Click opens Alert Center slide-over panel. Pulsing animation when critical alerts exist.</td></tr>
+      <tr><td><strong>AI Insights Button</strong></td><td>Opens AI Insights panel. Shows most recent AI-generated observations. Dot indicator when new insights available.</td></tr>
+      <tr><td><strong>Notifications Bell</strong></td><td>Standard notification dropdown. System events, threshold breaches, data refresh confirmations. Categorized by severity.</td></tr>
+      <tr><td><strong>User Avatar</strong></td><td>Dropdown: Profile, Role info, Saved Views, Switch Role (if multi-role), Preferences, Logout.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 05: GLOBAL FILTER SYSTEM -->
+<div class="section">
+  <div class="section-label">Section 05</div>
+  <h2>Global Filter System</h2>
+  <p class="lead">A consistent, sticky filter bar that persists across navigation with smart defaults, saved views, and role-scoped presets.</p>
+
+  <h3>5.1 — Filter Taxonomy</h3>
+  <table>
+    <thead><tr><th>Filter</th><th>Scope</th><th>Type</th><th>Default</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Date Range</strong></td><td>Global</td><td>Preset + Custom calendar</td><td>Last 7 Days</td><td>Presets: Today, Yesterday, Last 7D, Last 30D, This Month, Last Month, This Quarter, YTD, Custom</td></tr>
+      <tr><td><strong>Compare Period</strong></td><td>Global</td><td>Toggle + auto-match</td><td>Off</td><td>When enabled: Previous Period, Same Period Last Year, Custom. Adds comparison row to all KPI cards.</td></tr>
+      <tr><td><strong>City</strong></td><td>Global</td><td>Multi-select dropdown</td><td>All</td><td>Auto-scoped by role (Regional Manager sees only assigned cities)</td></tr>
+      <tr><td><strong>Outlet</strong></td><td>Global</td><td>Searchable multi-select</td><td>All</td><td>Dependent on City filter. Outlet Manager locked to their outlet.</td></tr>
+      <tr><td><strong>Channel</strong></td><td>Global</td><td>Multi-select chips</td><td>All</td><td>Walk-in, Website, App, Blink (3rd party delivery)</td></tr>
+      <tr><td><strong>Product Category</strong></td><td>Page-local</td><td>Multi-select</td><td>All</td><td>Cookies, Cookies + Ice Cream, Shakes</td></tr>
+      <tr><td><strong>SKU</strong></td><td>Page-local</td><td>Searchable dropdown</td><td>All</td><td>Dependent on Category. Includes LTO badge for limited-time products.</td></tr>
+      <tr><td><strong>LTO Month / Launch</strong></td><td>Page-local</td><td>Dropdown</td><td>Current LTO</td><td>Filters data to specific monthly launch period. Available: "Current LTO", "Previous LTOs", "Core Menu Only", specific months.</td></tr>
+      <tr><td><strong>Campaign</strong></td><td>Page-local</td><td>Searchable dropdown</td><td>All Active</td><td>Marketing pages only. Groups by: Active, Paused, Completed.</td></tr>
+      <tr><td><strong>Platform</strong></td><td>Page-local</td><td>Multi-select chips</td><td>All</td><td>Meta, TikTok, LinkedIn, Google, Organic</td></tr>
+      <tr><td><strong>Customer Segment</strong></td><td>Page-local</td><td>Dropdown</td><td>All</td><td>CRM/Loyalty pages. Pre-defined segments + custom.</td></tr>
+      <tr><td><strong>Shift</strong></td><td>Page-local</td><td>Dropdown</td><td>Current Shift</td><td>Operations pages. Morning, Afternoon, Evening, Night.</td></tr>
+      <tr><td><strong>Daypart</strong></td><td>Page-local</td><td>Multi-select</td><td>All</td><td>Breakfast, Lunch, Afternoon, Evening, Late Night (post-11PM)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 — Filter Bar Behavior</h3>
+  <ul>
+    <li><strong>Sticky positioning:</strong> Filter bar sticks below the top bar on scroll. Content scrolls beneath it.</li>
+    <li><strong>Collapse on mobile:</strong> Collapses to a "Filters (3)" chip that expands to a bottom sheet on tap.</li>
+    <li><strong>Active filter indicators:</strong> Applied filters show as colored chips. "Clear All" button appears when any non-default filter is active.</li>
+    <li><strong>Saved Views:</strong> Users can save current filter + page combinations as named views (e.g., "My Islamabad Weekly Review"). Accessible from user menu or filter bar.</li>
+    <li><strong>Role Defaults:</strong> On login, filters auto-apply based on role scope. Outlet Manager: locked to outlet. Regional Manager: locked to assigned cities.</li>
+    <li><strong>URL State:</strong> All filters are reflected in URL parameters, enabling bookmarking and sharing of specific views.</li>
+    <li><strong>Reset:</strong> "Reset to Defaults" restores role-based default filter state.</li>
+  </ul>
+</div>
+
+<hr class="divider">
+<!-- SECTION 06: DESIGN SYSTEM -->
+<div class="section">
+  <div class="section-label">Section 06</div>
+  <h2>Design System Specification</h2>
+  <p class="lead">A comprehensive design language that maintains consistency across 20+ dashboard screens while supporting both executive and operational visual modes.</p>
+
+  <h3>6.1 — Color System</h3>
+
+  <h4>Primary Palette</h4>
+  <table>
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>--brand-primary</code></td><td>#E8500A (Crumble Orange)</td><td>Primary actions, active states, brand accent, CTAs</td></tr>
+      <tr><td><code>--navy</code></td><td>#1A1A2E</td><td>Executive dark mode background, sidebar, headers</td></tr>
+      <tr><td><code>--navy-light</code></td><td>#2D2D5E</td><td>Executive card backgrounds in dark mode</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Semantic Colors</h4>
+  <table>
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>--positive</code></td><td>#059669 (Green)</td><td>Up trends, good performance, within target, healthy stock</td></tr>
+      <tr><td><code>--negative</code></td><td>#DC2626 (Red)</td><td>Down trends, below target, critical alerts, stockout</td></tr>
+      <tr><td><code>--warning</code></td><td>#D97706 (Amber)</td><td>Approaching threshold, caution, degrading performance</td></tr>
+      <tr><td><code>--info</code></td><td>#2563EB (Blue)</td><td>Informational, neutral change, system messages</td></tr>
+      <tr><td><code>--neutral</code></td><td>#64748B (Slate)</td><td>Flat trend, no change, secondary labels</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Chart Palette (Categorical)</h4>
+  <table>
+    <thead><tr><th>Slot</th><th>Color</th><th>Default Mapping</th></tr></thead>
+    <tbody>
+      <tr><td>Series 1</td><td>#2563EB (Blue)</td><td>Primary metric / Walk-in channel</td></tr>
+      <tr><td>Series 2</td><td>#E8500A (Orange)</td><td>Secondary metric / Website channel</td></tr>
+      <tr><td>Series 3</td><td>#7C3AED (Purple)</td><td>Tertiary metric / App channel</td></tr>
+      <tr><td>Series 4</td><td>#0D9488 (Teal)</td><td>Quaternary metric / 3rd party delivery</td></tr>
+      <tr><td>Series 5</td><td>#DB2777 (Pink)</td><td>Highlight / LTO-specific data</td></tr>
+      <tr><td>Series 6</td><td>#CA8A04 (Gold)</td><td>Additional series</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-amber">
+    <strong>Non-Color-Dependent Rule:</strong> All status communication must be reinforced with a secondary indicator beyond color: icon (check/warning/x), pattern (solid/dashed), text label ("On Track" / "At Risk" / "Critical"), or position. This ensures accessibility for color-vision-deficient users.
+  </div>
+
+  <h3>6.2 — Typography</h3>
+  <table>
+    <thead><tr><th>Element</th><th>Font</th><th>Weight</th><th>Size</th><th>Line Height</th></tr></thead>
+    <tbody>
+      <tr><td>Page Title (H1)</td><td>Inter</td><td>800</td><td>24px</td><td>1.2</td></tr>
+      <tr><td>Section Title (H2)</td><td>Inter</td><td>700</td><td>18px</td><td>1.3</td></tr>
+      <tr><td>Card Title (H3)</td><td>Inter</td><td>600</td><td>14px</td><td>1.4</td></tr>
+      <tr><td>KPI Value (Large)</td><td>DM Mono</td><td>700</td><td>28px</td><td>1.1</td></tr>
+      <tr><td>KPI Value (Compact)</td><td>DM Mono</td><td>600</td><td>20px</td><td>1.1</td></tr>
+      <tr><td>Body Text</td><td>Inter</td><td>400</td><td>14px</td><td>1.6</td></tr>
+      <tr><td>Table Data</td><td>Inter</td><td>400</td><td>13px</td><td>1.4</td></tr>
+      <tr><td>Label / Caption</td><td>Inter</td><td>500</td><td>11px</td><td>1.3</td></tr>
+      <tr><td>Monospace Data</td><td>DM Mono</td><td>400</td><td>13px</td><td>1.4</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.3 — Spacing & Layout Grid</h3>
+  <table>
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>--space-xs</code></td><td>4px</td><td>Tight inner padding, inline element gaps</td></tr>
+      <tr><td><code>--space-sm</code></td><td>8px</td><td>Card inner padding (compact), list item gaps</td></tr>
+      <tr><td><code>--space-md</code></td><td>16px</td><td>Standard card padding, section gaps</td></tr>
+      <tr><td><code>--space-lg</code></td><td>24px</td><td>Large section margins, card-to-card gaps</td></tr>
+      <tr><td><code>--space-xl</code></td><td>32px</td><td>Page section separators</td></tr>
+      <tr><td>Content Grid</td><td>12-column</td><td>Responsive grid with 16px gutters. Cards snap to 3/4/6/12 column spans.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.4 — Elevation & Shadows</h3>
+  <table>
+    <thead><tr><th>Level</th><th>Shadow</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td>Level 0</td><td>none</td><td>Flat elements, table rows</td></tr>
+      <tr><td>Level 1</td><td>0 1px 3px rgba(0,0,0,0.08)</td><td>Cards, filter chips</td></tr>
+      <tr><td>Level 2</td><td>0 4px 12px rgba(0,0,0,0.1)</td><td>Dropdowns, popovers, hover-lifted cards</td></tr>
+      <tr><td>Level 3</td><td>0 8px 24px rgba(0,0,0,0.15)</td><td>Modals, drawers, command palette</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.5 — Density Modes</h3>
+  <div class="card-grid card-grid-2">
+    <div class="card card-navy">
+      <h4>Comfortable (Executive Default)</h4>
+      <p style="font-size:0.85rem;margin:0;">Larger cards (min-height 120px), 24px card gaps, 16px inner padding, 28px KPI values. Optimized for scannability and premium feel. Used on Executive Command Center, Marketing ROI, Customer/Loyalty.</p>
+    </div>
+    <div class="card card-amber">
+      <h4>Compact (Operations Default)</h4>
+      <p style="font-size:0.85rem;margin:0;">Smaller cards (min-height 80px), 12px card gaps, 12px inner padding, 20px KPI values. Optimized for maximum information density. Used on Live Ops Board, Bake Planner, Inventory, Data Quality.</p>
+    </div>
+  </div>
+
+  <h3>6.6 — Chart Styling Rules</h3>
+  <ul>
+    <li><strong>Line charts:</strong> 2px stroke, dot markers on hover only, area fill at 5% opacity. Grid lines at 1px #e2e8f0.</li>
+    <li><strong>Bar charts:</strong> 8px radius on top corners, 4px gap between bars. Highlight bar on hover with tooltip.</li>
+    <li><strong>Donut charts:</strong> Use only when showing composition of 3–5 segments. Inner label shows total. Legend below chart.</li>
+    <li><strong>Heatmaps:</strong> 5-step sequential palette (lightest to darkest of one hue). Used for daypart analysis, geo performance.</li>
+    <li><strong>Sparklines:</strong> 1.5px stroke, no axes, no grid. In-line within KPI cards or table cells. Green/red coloring based on trend direction.</li>
+    <li><strong>Tables:</strong> Alternating row shading off by default. Hover highlight on. Sortable columns with arrow indicators. Pinned headers on scroll.</li>
+    <li><strong>LTO Overlays:</strong> Vertical dashed line with label on time-series charts marking LTO launch dates. Pink/magenta color to distinguish from standard annotations.</li>
+  </ul>
+
+  <h3>6.7 — Iconography</h3>
+  <p>Use a single icon library consistently throughout: <strong>Lucide Icons</strong> (open-source, consistent stroke weight, scales well at small sizes). Supplement with custom status icons for operational states only where Lucide lacks coverage.</p>
+  <ul>
+    <li>Navigation icons: 20px, 1.5px stroke</li>
+    <li>Inline icons: 16px, 1.5px stroke</li>
+    <li>Status icons: 14px, filled variants for critical states</li>
+    <li>No decorative icons — every icon must convey meaning</li>
+  </ul>
+</div>
+
+<hr class="divider">
+<!-- SECTION 07: REUSABLE COMPONENT LIBRARY -->
+<div class="section">
+  <div class="section-label">Section 07</div>
+  <h2>Reusable Component Library</h2>
+  <p class="lead">A catalog of 30+ reusable components that form the building blocks of every dashboard screen.</p>
+
+  <h3>7.1 — Data Display Components</h3>
+  <table>
+    <thead><tr><th>Component</th><th>Structure</th><th>Variants</th><th>Used In</th></tr></thead>
+    <tbody>
+      <tr><td><strong>KPI Card</strong></td><td>Label + Large Value + Trend Arrow + Variance % + Sparkline (optional) + Target indicator</td><td>Standard (120px), Compact (80px), Mini (inline), Dark-mode</td><td>Every dashboard top row</td></tr>
+      <tr><td><strong>Trend Card</strong></td><td>Title + Line/Area chart + Period labels + Comparison toggle</td><td>Single-metric, Multi-metric, With-annotations (LTO markers)</td><td>Sales trends, marketing spend, retention curves</td></tr>
+      <tr><td><strong>Variance Card</strong></td><td>Metric label + Actual vs Target + Variance bar + Severity chip</td><td>Horizontal bar, Bullet chart, Simple text</td><td>Finance dashboard, budget tracking</td></tr>
+      <tr><td><strong>Ranking Table</strong></td><td>Ranked list with position badge + metric + mini bar + trend</td><td>Outlets, Products, Campaigns, Cities</td><td>Exec Command Center, Outlet Performance</td></tr>
+      <tr><td><strong>Comparison Table</strong></td><td>Multi-column sortable table with conditional formatting + inline sparklines</td><td>Standard, Heatmap-cells, With-action-column</td><td>Outlet comparison, campaign matrix, SKU analysis</td></tr>
+      <tr><td><strong>Insight Card</strong></td><td>AI icon + Natural language insight text + Severity tag + Link to detail</td><td>Single-line, Expanded (with chart), Dismissible</td><td>AI Insights Panel, Exec Command Center</td></tr>
+      <tr><td><strong>Recommendation Card</strong></td><td>Action icon + Recommendation text + Confidence bar + Accept/Dismiss buttons</td><td>Standard, Urgent (red border), Time-sensitive (countdown)</td><td>Bake Planner, Marketing Ops, Inventory</td></tr>
+      <tr><td><strong>Metric Popover</strong></td><td>Metric definition + Calculation formula + Data source + Last updated</td><td>On-hover (click on mobile)</td><td>Every KPI across all dashboards</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 — Operational Components</h3>
+  <table>
+    <thead><tr><th>Component</th><th>Structure</th><th>Variants</th><th>Used In</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Queue Card</strong></td><td>Order ID + Items + Channel badge + Timer (age) + Status chip + SLA risk indicator</td><td>Compact (list), Expanded (detail), Critical (red pulse)</td><td>Live Ops Board, Order Fulfillment</td></tr>
+      <tr><td><strong>Timer Card</strong></td><td>Item name + Countdown timer + Status (fresh/warning/expired) + Action button</td><td>Shelf timer, Bake timer, Order age timer</td><td>Bake Planner, Freshness Dashboard</td></tr>
+      <tr><td><strong>Status Chip</strong></td><td>Colored dot + Label</td><td>Green (On Track), Amber (At Risk), Red (Critical), Blue (Info), Gray (Inactive)</td><td>Every operational screen</td></tr>
+      <tr><td><strong>Live Feed Table</strong></td><td>Auto-scrolling table with new-row animation + timestamp + event type + action</td><td>Orders, Alerts, Production events, Inventory movements</td><td>Live Ops, Production Tower, Alert Center</td></tr>
+      <tr><td><strong>Action Panel</strong></td><td>Context title + Summary metrics + Action buttons (primary/secondary) + Notes field</td><td>Right-side drawer, Inline expandable, Modal</td><td>Inventory actions, Alert acknowledgement, QC resolution</td></tr>
+      <tr><td><strong>Alert Banner</strong></td><td>Severity icon + Message + Timestamp + Dismiss/Acknowledge button</td><td>Critical (red, persistent), Warning (amber, auto-dismiss 30s), Info (blue, auto-dismiss 10s)</td><td>Top of operational pages</td></tr>
+      <tr><td><strong>Stock Level Bar</strong></td><td>Horizontal bar showing current level vs min/max thresholds + color zones</td><td>Single-item, Stacked (multi-SKU), With-projected-depletion</td><td>Inventory Dashboard, Outlet Ops</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.3 — Filter & Navigation Components</h3>
+  <table>
+    <thead><tr><th>Component</th><th>Structure</th><th>Behavior</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Date Picker</strong></td><td>Preset pills + Custom calendar (dual month) + Compare toggle</td><td>Click preset applies instantly. Custom opens calendar overlay. Compare adds second date range.</td></tr>
+      <tr><td><strong>Multi-Select Dropdown</strong></td><td>Trigger button + Dropdown with search + Checkbox list + Apply/Clear</td><td>Search filters list instantly. "Select All" at top. Applied selections shown as chips.</td></tr>
+      <tr><td><strong>Segmented Control</strong></td><td>2–5 options in pill bar</td><td>Instant toggle. Used for chart view switching (Daily/Weekly/Monthly) or mode switching (Amount/Percentage).</td></tr>
+      <tr><td><strong>Saved View Selector</strong></td><td>Dropdown listing saved views + "Save Current" + "Manage"</td><td>Select applies all saved filters. Pin icon marks default view.</td></tr>
+      <tr><td><strong>Sticky Filter Bar</strong></td><td>Horizontal bar with filter chips + active indicators + Reset button</td><td>Sticks below top bar. Shows count of active filters. Collapse to chip on mobile.</td></tr>
+      <tr><td><strong>Tab Bar</strong></td><td>Horizontal tabs with underline indicator</td><td>Within-page navigation. Preserves filter state. Updates URL hash. Badge counts on tabs with alerts.</td></tr>
+      <tr><td><strong>Breadcrumb</strong></td><td>Path trail below page title</td><td>Shows drill-down path. Each level clickable to navigate back. Shows on detail pages.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.4 — Visualization Components</h3>
+  <table>
+    <thead><tr><th>Component</th><th>Best Used For</th><th>Configuration</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Map Widget</strong></td><td>City/outlet geographic distribution with performance overlay</td><td>Pakistan map with city markers. Size = revenue, Color = performance vs target. Click marker → outlet detail.</td></tr>
+      <tr><td><strong>Heatmap Grid</strong></td><td>Daypart x Day-of-week analysis, City x SKU performance</td><td>5-step sequential color. Hover shows exact value. Row/column totals.</td></tr>
+      <tr><td><strong>Waterfall Chart</strong></td><td>Gross-to-net sales bridge, P&L build-up</td><td>Positive bars (green), Negative bars (red), Total bars (blue). Labeled connectors.</td></tr>
+      <tr><td><strong>Scatter/Bubble Plot</strong></td><td>Popularity vs Profitability matrix, Outlet efficiency clustering</td><td>X/Y axes with quadrant labels. Bubble size = volume. Color = category.</td></tr>
+      <tr><td><strong>Funnel Chart</strong></td><td>Customer acquisition funnel, order completion funnel</td><td>Horizontal funnel with stage labels, counts, and drop-off percentages between stages.</td></tr>
+      <tr><td><strong>Gantt/Timeline Bar</strong></td><td>Batch production schedule, campaign timeline, LTO lifecycle</td><td>Horizontal time bars with status coloring. Today-line marker. Drag-to-zoom.</td></tr>
+      <tr><td><strong>Sankey Flow</strong></td><td>Customer journey, channel-to-outlet flow, production-to-dispatch</td><td>Flow thickness = volume. Hover highlights path. Max 3 levels deep.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.5 — Interaction & Feedback Components</h3>
+  <table>
+    <thead><tr><th>Component</th><th>Trigger</th><th>Behavior</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Hover Tooltip</strong></td><td>Mouse hover on data point, chart element, or info icon</td><td>150ms delay. Shows exact value, comparison, and definition. Dismisses on mouse leave.</td></tr>
+      <tr><td><strong>Right-Side Detail Drawer</strong></td><td>Row click in table, marker click on map, item click in list</td><td>Slides in from right (400px wide). Shows full detail view. Can be pinned open. Close button + Escape key.</td></tr>
+      <tr><td><strong>Compare Toggle</strong></td><td>Toggle switch in filter bar or per-chart</td><td>Adds comparison data series/row. Prior period shown as dashed line on charts, secondary row in KPI cards.</td></tr>
+      <tr><td><strong>Export Menu</strong></td><td>Export button (per-page or per-widget)</td><td>Options: PDF, Excel, CSV, PNG (chart image), Scheduled email. Respects current filters.</td></tr>
+      <tr><td><strong>Snapshot Share</strong></td><td>Share button in top actions</td><td>Captures current view state + filters → generates shareable link or sends as image to WhatsApp/email.</td></tr>
+      <tr><td><strong>Pin/Bookmark</strong></td><td>Pin icon on any KPI card or chart</td><td>Pinned items appear in user's personal "Pinned Metrics" section on their landing page.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="divider">
+<!-- SECTION 08: EXECUTIVE DASHBOARD SPECS -->
+<div class="section">
+  <div class="section-label">Section 08</div>
+  <h2>Dashboard Specifications — Executive Layer</h2>
+  <p class="lead">Detailed UX specifications for the eight executive/management dashboards. Each spec covers purpose, layout, components, interactions, and wireframe guidance.</p>
+
+  <!-- === A. EXECUTIVE COMMAND CENTER === -->
+  <div class="dash-spec">
+    <div class="dash-header">
+      <div class="dash-id">Dashboard A</div>
+      <h3>Executive Command Center</h3>
+      <div class="dash-tags">
+        <span class="tag tag-exec">Executive Layer</span>
+        <span class="tag tag-role">CEO</span>
+        <span class="tag tag-role">COO</span>
+        <span class="tag tag-role">CFO</span>
+        <span class="tag tag-priority">Priority 1 — Build First</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Provide the Founder with a single-screen, scannable view of total business health. In under 10 seconds, the CEO should know: "Is the business healthy today? What changed? What needs attention?" This is the daily intelligence briefing in dashboard form.</p>
+
+      <h4>Layout Structure</h4>
+      <div class="wireframe">
+┌────────────────────────────────────────────────────────────────────────┐
+│ STICKY FILTER BAR: Date | City | Compare Period | Channel             │
+├────────────────────────────────────────────────────────────────────────┤
+│                                                                        │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐    │
+│  │ Revenue  │ │ Gross    │ │ Orders   │ │ ROAS     │ │ Health   │    │
+│  │ PKR 4.2M │ │ Margin   │ │ 12,847   │ │ 3.8x     │ │ Score    │    │
+│  │ +8% ↑    │ │ 64% ↑    │ │ +12% ↑   │ │ +0.4 ↑   │ │ 87/100   │    │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘    │
+│                                                                        │
+│  ┌─────────────────────────────────┐ ┌─────────────────────────────┐  │
+│  │ Revenue Trend (30-day line)     │ │ AI "What Changed" Panel     │  │
+│  │ with LTO launch markers         │ │ ┌─ Revenue up 8% driven    │  │
+│  │ Compare period as dashed line   │ │ │  by Islamabad growth      │  │
+│  │                                 │ │ ├─ TikTok ROAS dropped 22% │  │
+│  │                                 │ │ ├─ LTO Day 8: demand curve │  │
+│  │                                 │ │ │  above forecast           │  │
+│  │                                 │ │ └─ Faisalabad waste spiked │  │
+│  └─────────────────────────────────┘ └─────────────────────────────┘  │
+│                                                                        │
+│  ┌──────────────────┐ ┌──────────────────┐ ┌─────────────────────┐    │
+│  │ Channel Mix      │ │ Outlet Rankings  │ │ LTO Health Card     │    │
+│  │ Donut + Legend   │ │ Top 5 / Bottom 5 │ │ Product: Choc Lava  │    │
+│  │ Walk-in 47%      │ │ with trend arrows│ │ Day 12 of 30        │    │
+│  │ Blink   31%      │ │ Revenue + Margin │ │ Demand: Above Fcst  │    │
+│  │ Digital 22%      │ │ Drill → Outlet   │ │ City response chart │    │
+│  └──────────────────┘ └──────────────────┘ └─────────────────────┘    │
+│                                                                        │
+│  ┌─────────────────────────────┐ ┌───────────────────────────────────┐│
+│  │ City Performance Matrix     │ │ Active Alerts (Top 3)            ││
+│  │ 4 cities: Rev, Margin,     │ │ ● Critical: Lahore stockout     ││
+│  │ Growth, SLA — heatmap cells│ │ ● Warning: TikTok ROAS decline  ││
+│  │ Click → City detail         │ │ ● Info: Dynamics sync delayed   ││
+│  └─────────────────────────────┘ └───────────────────────────────────┘│
+│                                                                        │
+│  ┌────────────────────────────────────────────────────────────────────┐│
+│  │ Marketing Efficiency Snapshot                                      ││
+│  │ Platform: Meta | Google | TikTok — Spend, Revenue, ROAS mini bars ││
+│  └────────────────────────────────────────────────────────────────────┘│
+└────────────────────────────────────────────────────────────────────────┘
+      </div>
+
+      <h4>Main Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Components</th><th>Visual Type</th><th>Interaction</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Top KPI Row</strong></td><td>5x KPI Cards (Revenue, Margin, Orders, ROAS, Health Score)</td><td>Large value + trend arrow + sparkline</td><td>Click → drill to relevant module. Hover → metric definition popover.</td></tr>
+          <tr><td><strong>Revenue Trend</strong></td><td>Trend Card with LTO overlays</td><td>Area chart with comparison line</td><td>Hover for daily values. Toggle daily/weekly. LTO markers clickable → LTO detail.</td></tr>
+          <tr><td><strong>AI Insights Panel</strong></td><td>4–6 Insight Cards, auto-generated</td><td>Text-based with severity icons</td><td>Click insight → navigates to relevant dashboard with pre-applied filters.</td></tr>
+          <tr><td><strong>Channel Mix</strong></td><td>Donut chart + legend</td><td>Donut with center total</td><td>Click segment → filters all charts to that channel.</td></tr>
+          <tr><td><strong>Outlet Rankings</strong></td><td>Ranking Table (Top 5 / Bottom 5 toggle)</td><td>Horizontal bars + rank badges</td><td>Click outlet → Right-side drawer with outlet summary.</td></tr>
+          <tr><td><strong>LTO Health Card</strong></td><td>Custom card: product image, demand curve mini-chart, city heatmap, day counter</td><td>Card with embedded micro-charts</td><td>Click → LTO Intelligence Dashboard filtered to current launch.</td></tr>
+          <tr><td><strong>City Matrix</strong></td><td>Comparison Table with heatmap cells</td><td>4-row matrix table</td><td>Click city → Outlet/City Performance filtered.</td></tr>
+          <tr><td><strong>Active Alerts</strong></td><td>Compact alert list (top 3 by severity)</td><td>Status chips + text</td><td>Click → Alert Center. Acknowledge inline.</td></tr>
+          <tr><td><strong>Marketing Snapshot</strong></td><td>Compact platform comparison row</td><td>Mini horizontal bars per platform</td><td>Click → Marketing ROI Dashboard.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>States</h4>
+      <ul>
+        <li><strong>Loading:</strong> Skeleton shimmer on all cards. KPI cards load first (fastest query), then charts, then tables.</li>
+        <li><strong>Empty:</strong> "No data for selected period" with suggestion to adjust date range.</li>
+        <li><strong>Error:</strong> Failed widget shows inline error card with retry button. Other widgets continue loading independently.</li>
+        <li><strong>Stale Data:</strong> Yellow banner below filter bar: "Data last refreshed 45 minutes ago. Next refresh in 15 minutes."</li>
+      </ul>
+
+      <h4>Mobile Considerations</h4>
+      <p>KPI cards stack into a scrollable horizontal carousel. AI Insights Panel moves below KPI row. Charts stack vertically. Outlet Rankings becomes a compact numbered list. LTO Health Card renders as simplified card without city heatmap.</p>
+    </div>
+  </div>
+
+  <!-- === B. FINANCE & ERP === -->
+  <div class="dash-spec">
+    <div class="dash-header">
+      <div class="dash-id">Dashboard B</div>
+      <h3>Finance & ERP Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-exec">Executive Layer</span>
+        <span class="tag tag-role">CFO</span>
+        <span class="tag tag-role">CEO</span>
+        <span class="tag tag-priority">Priority 3</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Enable the CFO and Founder to review financial performance with precision: P&L, margin analysis, cost tracking, budget variance, and reconciliation status. This is a structured, trustworthy financial review interface — not a flashy dashboard.</p>
+
+      <h4>Tab Structure</h4>
+      <p><strong>Tab 1: P&L Overview</strong> | <strong>Tab 2: Cost Analysis</strong> | <strong>Tab 3: Budget vs Actual</strong> | <strong>Tab 4: Reconciliation</strong></p>
+
+      <h4>Tab 1 — P&L Overview Layout</h4>
+      <div class="wireframe">
+┌────────────────────────────────────────────────────────────────────────┐
+│ KPI Row: Gross Sales | Net Sales | Gross Margin | Prime Cost |        │
+│          Operating Profit | Net Profit Margin                         │
+├────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────┐ ┌──────────────────────┐   │
+│ │ Sales Waterfall Chart                  │ │ Margin Trend         │   │
+│ │ Gross → Discounts → Returns → Taxes   │ │ Line: Gross vs Net   │   │
+│ │ → Net Sales                            │ │ margin over 12 months│   │
+│ └────────────────────────────────────────┘ └──────────────────────┘   │
+│                                                                        │
+│ ┌────────────────────────────────────────────────────────────────────┐ │
+│ │ P&L Statement Table (Expandable/Collapsible Row Groups)            │ │
+│ │ Revenue                                                            │ │
+│ │   ├── Gross Sales        PKR 12.4M    +8%     vs Budget: +2%      │ │
+│ │   ├── Discounts         (PKR 0.8M)   +12%     vs Budget: +4%      │ │
+│ │   └── Net Revenue        PKR 11.6M    +7%                          │ │
+│ │ Cost of Goods                                                      │ │
+│ │   ├── Food Cost          PKR 3.9M     34%     vs Target: 33%      │ │
+│ │   ├── Packaging          PKR 0.4M     3.4%                        │ │
+│ │   └── Total COGS         PKR 4.3M     37%                          │ │
+│ │ Gross Profit             PKR 7.3M     63%                          │ │
+│ │ Operating Expenses                                                  │ │
+│ │   ├── Labor              PKR 2.1M     18%     vs Budget: 17%      │ │
+│ │   ├── Rent               PKR 1.2M     10%                          │ │
+│ │   ├── Marketing          PKR 1.8M     16%                          │ │
+│ │   └── Other OpEx         PKR 0.8M     7%                           │ │
+│ │ Operating Profit         PKR 1.4M     12%     vs Budget: 14%      │ │
+│ └────────────────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────────────┘
+      </div>
+
+      <h4>Key Components</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Interaction</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sales Waterfall</strong></td><td>Waterfall chart (positive green, negative red, total blue)</td><td>Hover shows value and percentage. Click bar → drill to line items.</td></tr>
+          <tr><td><strong>P&L Table</strong></td><td>Expandable tree table with conditional formatting</td><td>Click row group to expand/collapse. Variance cells colored: green (favorable), red (unfavorable). Sort by any column.</td></tr>
+          <tr><td><strong>Budget vs Actual</strong> (Tab 3)</td><td>Bullet charts per cost category + variance table</td><td>Filter by outlet, city, or cost center. Export to Excel.</td></tr>
+          <tr><td><strong>Reconciliation</strong> (Tab 4)</td><td>Status checklist with pass/fail indicators</td><td>POS vs BI reconciliation, Bank vs System, Inventory count vs System. Click item → detail drawer.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Design Notes</h4>
+      <ul>
+        <li>This dashboard prioritizes <strong>tabular precision</strong> over visual flash. Financial users trust numbers in tables more than in charts.</li>
+        <li>All monetary values right-aligned, formatted with thousands separators.</li>
+        <li>Percentage columns use inline bar-in-cell visualization for quick scanning.</li>
+        <li>Period selector defaults to "This Month" with "vs Last Month" comparison enabled.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <!-- === C. OUTLET / CITY PERFORMANCE === -->
+  <div class="dash-spec">
+    <div class="dash-header">
+      <div class="dash-id">Dashboard C</div>
+      <h3>Outlet / City Performance Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-exec">Executive Layer</span>
+        <span class="tag tag-role">CEO</span>
+        <span class="tag tag-role">COO</span>
+        <span class="tag tag-role">Regional Manager</span>
+        <span class="tag tag-priority">Priority 1</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Compare outlet and city performance visually and numerically. Answer: "Which outlets are thriving? Which are struggling? Why?" Support geographic strategy decisions including expansion planning, staffing optimization, and local marketing allocation.</p>
+
+      <h4>Tab Structure</h4>
+      <p><strong>Tab 1: Map & Rankings</strong> | <strong>Tab 2: City Comparison</strong> | <strong>Tab 3: Daypart Analysis</strong> | <strong>Tab 4: SLA & Service</strong></p>
+
+      <h4>Tab 1 — Map & Rankings Layout</h4>
+      <div class="wireframe">
+┌────────────────────────────────────────────────────────────────────────┐
+│ ┌────────────────────────────────┐ ┌────────────────────────────────┐ │
+│ │ Pakistan Map                   │ │ Outlet Scorecard Grid          │ │
+│ │                                │ │ ┌────────────────────────────┐ │ │
+│ │   ISB ●(3)    LHR ●(4)       │ │ │ F-7 Islamabad              │ │ │
+│ │                                │ │ │ Rev: 1.2M | Margin: 68%   │ │ │
+│ │   RWP ●(2)    FSD ●(2)       │ │ │ SLA: 94% | Waste: 2.1%    │ │ │
+│ │                                │ │ │ Health: ■■■■■■■■□□ 82     │ │ │
+│ │ Marker size = revenue          │ │ └────────────────────────────┘ │ │
+│ │ Marker color = vs target       │ │ ┌────────────────────────────┐ │ │
+│ │ Click marker → zoom + outlets │ │ │ Gulberg Lahore             │ │ │
+│ └────────────────────────────────┘ │ │ Rev: 0.9M | Margin: 61%   │ │ │
+│                                     │ │ ...                        │ │ │
+│                                     │ └────────────────────────────┘ │ │
+│                                     │ (All 11 outlets, scrollable)  │ │
+│                                     └────────────────────────────────┘ │
+│                                                                        │
+│ ┌────────────────────────────────────────────────────────────────────┐ │
+│ │ Outlet Ranking Table (Sortable)                                    │ │
+│ │ Rank | Outlet | City | Revenue | Margin | Orders | AOV | SLA |    │ │
+│ │ Growth | Waste % | Health Score | Trend Sparkline                  │ │
+│ └────────────────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────────────┘
+      </div>
+
+      <h4>Key Components</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Interaction</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Map</strong></td><td>Pakistan map with proportional markers</td><td>Click city marker → zoom in, show outlets. Click outlet → detail drawer. Hover → mini tooltip.</td></tr>
+          <tr><td><strong>Outlet Scorecards</strong></td><td>Grid of compact cards (3 per row)</td><td>Click card → Outlet Detail Page. Color-coded health bar. LTO badge if outlet is launch-relevant.</td></tr>
+          <tr><td><strong>Ranking Table</strong></td><td>Full-width sortable table with sparklines</td><td>Sort by any column. Click row → drawer. Conditional formatting on variance columns.</td></tr>
+          <tr><td><strong>City Comparison</strong> (Tab 2)</td><td>Side-by-side city cards with matching KPI rows</td><td>Select 2–4 cities to compare. Radar chart overlay showing multi-dimensional performance.</td></tr>
+          <tr><td><strong>Daypart Heatmap</strong> (Tab 3)</td><td>Outlet x Daypart heatmap grid</td><td>Rows: outlets, Columns: dayparts. Color intensity = revenue or orders. Click cell → filtered detail.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Drill-Down Flow</h4>
+      <p>Map click → City → Outlet list → Outlet scorecard click → <strong>Outlet Detail Page</strong> (full deep-dive with hourly trends, staff, inventory, SLA, waste, recent orders).</p>
+    </div>
+  </div>
+
+  <!-- === D. PRODUCT / MENU / LTO INTELLIGENCE === -->
+  <div class="dash-spec">
+    <div class="dash-header">
+      <div class="dash-id">Dashboard D</div>
+      <h3>Product / Menu / LTO Intelligence Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-exec">Executive Layer</span>
+        <span class="tag tag-role">CEO</span>
+        <span class="tag tag-role">Product Manager</span>
+        <span class="tag tag-role">Production Manager</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Reveal which products drive revenue, margin, excitement, and waste. Provide a structured framework for evaluating monthly LTO launches, comparing against core menu, and making data-backed decisions about permanence, seasonality, or retirement.</p>
+
+      <h4>Tab Structure</h4>
+      <p><strong>Tab 1: Menu Overview</strong> | <strong>Tab 2: LTO Launch Tracker</strong> | <strong>Tab 3: SKU Deep Dive</strong> | <strong>Tab 4: Cannibalization & Attach</strong></p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Interaction</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Category Mix</strong></td><td>Stacked bar: Cookies vs Cookies+IceCream vs Shakes — revenue and margin</td><td>Click category → filter all charts. Toggle amount vs percentage.</td></tr>
+          <tr><td><strong>SKU Ranking</strong></td><td>Sortable table: SKU, Category, Revenue, Units, Margin, Velocity, Waste, LTO badge</td><td>Sort by any metric. Click SKU → SKU Detail Page. LTO items visually distinguished with badge and pink left border.</td></tr>
+          <tr><td><strong>Popularity vs Profitability Matrix</strong></td><td>Scatter plot: X = Units Sold, Y = Margin %. Quadrants labeled: Star / Workhorse / Puzzle / Underperformer</td><td>Hover shows SKU detail. Click → SKU detail drawer. Bubble size = revenue. Color = category.</td></tr>
+          <tr><td><strong>LTO Launch Tracker</strong> (Tab 2)</td><td>Timeline of monthly LTOs with performance cards</td><td>Horizontal timeline: each month's LTO as a card showing demand curve, peak day, city rank, and recommendation (keep/retire). Click card → full LTO analysis.</td></tr>
+          <tr><td><strong>LTO Demand Curve</strong></td><td>Line chart: daily orders for current LTO over its lifecycle</td><td>Overlaid with forecast line and confidence band. Compare against previous LTOs via dropdown.</td></tr>
+          <tr><td><strong>Cannibalization View</strong> (Tab 4)</td><td>Sankey or grouped bar: did LTO steal from core menu or generate incremental demand?</td><td>Shows core menu performance pre/during/post LTO launch. Net impact calculation.</td></tr>
+          <tr><td><strong>Attach Rate</strong></td><td>Matrix: LTO product paired with other items in orders</td><td>What do customers buy with the LTO? Identifies upsell opportunities.</td></tr>
+          <tr><td><strong>Waste by SKU</strong></td><td>Bar chart ranked by waste value, with waste % label</td><td>Click bar → waste detail by outlet and daypart.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === E. CUSTOMER / LOYALTY / RETENTION === -->
+  <div class="dash-spec">
+    <div class="dash-header">
+      <div class="dash-id">Dashboard E</div>
+      <h3>Customer / Loyalty / Retention Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-exec">Executive Layer</span>
+        <span class="tag tag-role">CEO</span>
+        <span class="tag tag-role">CMO</span>
+        <span class="tag tag-role">CRM Manager</span>
+        <span class="tag tag-priority">Priority 3</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Reveal customer value, loyalty health, and behavioral patterns. Answer: "Are we acquiring customers profitably? Are they coming back? Who are our most valuable segments? Where are we losing people?"</p>
+
+      <h4>Tab Structure</h4>
+      <p><strong>Tab 1: Overview</strong> | <strong>Tab 2: Cohort Analysis</strong> | <strong>Tab 3: Segments</strong> | <strong>Tab 4: Loyalty Program</strong></p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Key Insight</th></tr></thead>
+        <tbody>
+          <tr><td><strong>New vs Repeat Split</strong></td><td>Stacked area chart over time</td><td>Is the repeat ratio improving? Is growth coming from retention or acquisition?</td></tr>
+          <tr><td><strong>Retention Curve</strong></td><td>Retention line chart: % of cohort still active at month 1, 2, 3... 12</td><td>Where is the biggest drop? Compare cohorts by acquisition channel.</td></tr>
+          <tr><td><strong>CLV Distribution</strong></td><td>Histogram: customer lifetime value distribution</td><td>What percentage of customers are high-value? How is the distribution shifting?</td></tr>
+          <tr><td><strong>Churn Risk Meter</strong></td><td>KPI card + segmented bar showing at-risk customer count</td><td>How many customers are likely to churn in the next 30 days?</td></tr>
+          <tr><td><strong>Cohort Matrix</strong> (Tab 2)</td><td>Heatmap: acquisition month x activity month</td><td>Classic retention cohort analysis. Color intensity = retention rate.</td></tr>
+          <tr><td><strong>First-to-Second Order</strong></td><td>Funnel: First order → Second order → Regular → Loyal</td><td>Conversion rates at each stage. Median days between stages.</td></tr>
+          <tr><td><strong>Segment Cards</strong> (Tab 3)</td><td>Cards per segment: High Value, Regular, At Risk, Lapsed, New</td><td>Each card shows count, CLV, frequency, preferred channel, top products.</td></tr>
+          <tr><td><strong>NPS / CSAT Trend</strong></td><td>Line chart with score zones (Detractor / Passive / Promoter)</td><td>Overall satisfaction trajectory. Breakout by city on hover.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Interaction Logic</h4>
+      <p>Click any segment card → filters all charts to that segment. Click cohort cell → shows individual customer list in drawer. Retention curve supports channel overlay (Walk-in vs Digital vs Blink acquisition).</p>
+    </div>
+  </div>
+  <!-- === F. MARKETING ROI & BRAND VIRALITY === -->
+  <div class="dash-spec">
+    <div class="dash-header">
+      <div class="dash-id">Dashboard F</div>
+      <h3>Marketing ROI & Brand Virality Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-exec">Executive Layer</span>
+        <span class="tag tag-role">CMO</span>
+        <span class="tag tag-role">Perf. Marketing</span>
+        <span class="tag tag-role">CEO</span>
+        <span class="tag tag-priority">Priority 1</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Connect every rupee of marketing spend to actual business outcomes. Support both paid and organic performance analysis. Make virality measurable, not anecdotal. This is where marketing accountability lives.</p>
+
+      <h4>Tab Structure</h4>
+      <p><strong>Tab 1: Paid Performance</strong> | <strong>Tab 2: Organic & Virality</strong> | <strong>Tab 3: Campaign Drill-Down</strong> | <strong>Tab 4: LTO Campaign Overlay</strong></p>
+
+      <h4>Tab 1 — Paid Performance Layout</h4>
+      <div class="wireframe">
+┌────────────────────────────────────────────────────────────────────────┐
+│ KPI Row: Total Spend | Revenue Attributed | ROAS | MER | CPO | CPA   │
+├────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────┐ │
+│ │ Platform Performance Matrix (Table)                                │ │
+│ │ Platform | Spend | Revenue | ROAS | Orders | CPO | CPA | Trend    │ │
+│ │ Meta     | 800K  | 3.2M    | 4.0x | 2,400  | 333 | 125 | ↑       │ │
+│ │ TikTok   | 500K  | 1.4M    | 2.8x | 1,100  | 455 | 180 | ↓       │ │
+│ │ Google   | 300K  | 1.1M    | 3.7x | 850    | 353 | 140 | →       │ │
+│ │ LinkedIn | 100K  | 0.2M    | 2.0x | 150    | 667 | 280 | ↑       │ │
+│ └────────────────────────────────────────────────────────────────────┘ │
+│                                                                        │
+│ ┌──────────────────────────────┐ ┌──────────────────────────────────┐ │
+│ │ Spend vs Revenue Trend       │ │ ROAS by Platform Trend          │ │
+│ │ Dual-axis: Spend bars +     │ │ Multi-line: Meta, TikTok,       │ │
+│ │ Revenue line over time       │ │ Google ROAS weekly              │ │
+│ └──────────────────────────────┘ └──────────────────────────────────┘ │
+│                                                                        │
+│ ┌──────────────────────────────┐ ┌──────────────────────────────────┐ │
+│ │ Funnel: Impressions →        │ │ Geo Response Map                │ │
+│ │ Clicks → Sessions → Cart →  │ │ City markers sized by response  │ │
+│ │ Purchase (with drop-off %)  │ │ Color = ROAS. Click → city      │ │
+│ └──────────────────────────────┘ └──────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────────────┘
+      </div>
+
+      <h4>Tab 2 — Organic & Virality</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Key Insight</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Virality Cards</strong></td><td>Top 3 viral posts: thumbnail, platform, reach, engagement rate, estimated order impact</td><td>What's actually going viral? Does it convert?</td></tr>
+          <tr><td><strong>Content-to-Order Correlation</strong></td><td>Scatter plot: Post engagement (X) vs Order volume in following 48 hours (Y)</td><td>Which content types drive actual orders, not just likes?</td></tr>
+          <tr><td><strong>Organic vs Paid Split</strong></td><td>Stacked area: traffic and orders from organic vs paid over time</td><td>Is organic growing? Are we less dependent on paid?</td></tr>
+          <tr><td><strong>Content Lag Impact</strong></td><td>Time-series with offset: post publish date → order impact peak</td><td>How many hours/days after a post goes viral do orders peak?</td></tr>
+          <tr><td><strong>Meme / Humor Content Index</strong></td><td>Card with engagement comparison: meme content vs product content vs promotional</td><td>Quantifies the brand's meme-driven content strategy effectiveness.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Tab 4 — LTO Campaign Overlay</h4>
+      <p>Timeline chart showing: LTO launch date, campaign start/end dates, daily spend, daily orders — all overlaid. Allows marketing team to see exactly how campaign timing and spend correlate with LTO demand curve. Filter by specific LTO month.</p>
+    </div>
+  </div>
+
+  <!-- === G. SUPPLY CHAIN / PRODUCTION / INVENTORY === -->
+  <div class="dash-spec">
+    <div class="dash-header">
+      <div class="dash-id">Dashboard G</div>
+      <h3>Supply Chain / Production / Network Inventory Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-exec">Executive Layer</span>
+        <span class="tag tag-role">COO</span>
+        <span class="tag tag-role">Production Manager</span>
+        <span class="tag tag-role">Inventory Controller</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Track the full Kitchen → Production → Dispatch → Outlet chain. Provide network-level visibility into stock position, production efficiency, transfer health, and supply risks. This is the management-level supply chain view (operational detail lives in dashboards K and L).</p>
+
+      <h4>Tab Structure</h4>
+      <p><strong>Tab 1: Network Overview</strong> | <strong>Tab 2: Production Efficiency</strong> | <strong>Tab 3: Stock Health</strong> | <strong>Tab 4: Vendor & Supply</strong></p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Interaction</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Network Flow Diagram</strong></td><td>Sankey: Kitchen → Production Batches → Dispatch → Outlets</td><td>Hover on flow → volume and timing. Click outlet node → stock detail.</td></tr>
+          <tr><td><strong>Stock Position Matrix</strong></td><td>Table: Outlet x SKU category → Days on Hand → Risk color</td><td>Green (&gt;3 days), Amber (1–3 days), Red (&lt;1 day). Click cell → replenishment drawer.</td></tr>
+          <tr><td><strong>Production Plan vs Actual</strong></td><td>Grouped bar chart: planned vs actual output by batch/SKU</td><td>Shows yield variance. Red highlight on significant underperformance.</td></tr>
+          <tr><td><strong>Transfer Performance</strong></td><td>KPI cards: On-time %, Avg transit time, Pending transfers, Overdue count</td><td>Click overdue → list of overdue transfers with ETA and impact assessment.</td></tr>
+          <tr><td><strong>Outlet Replenishment Risk</strong></td><td>Ranked list: outlets by projected stockout time</td><td>Most urgent at top. Action button to create emergency transfer. Flag icon for LTO items.</td></tr>
+          <tr><td><strong>Vendor Scorecard</strong> (Tab 4)</td><td>Table: Vendor, On-time %, Quality score, Price variance, Volume</td><td>Sort by any dimension. Click vendor → detail drawer with order history.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === H. SERVICE QUALITY / BRAND EXPERIENCE === -->
+  <div class="dash-spec">
+    <div class="dash-header">
+      <div class="dash-id">Dashboard H</div>
+      <h3>Service Quality / Brand Experience Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-exec">Executive Layer</span>
+        <span class="tag tag-role">COO</span>
+        <span class="tag tag-role">CEO</span>
+        <span class="tag tag-role">Regional Manager</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Connect operational performance to customer satisfaction. Answer: "Are we delivering the brand experience we promise? Where are we failing? What's causing it?" Combines hard service metrics (wait time, accuracy) with soft CX metrics (reviews, sentiment).</p>
+
+      <h4>Tab Structure</h4>
+      <p><strong>Tab 1: Service Metrics</strong> | <strong>Tab 2: Customer Feedback</strong> | <strong>Tab 3: Outlet Comparison</strong> | <strong>Tab 4: Root Causes</strong></p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Key Insight</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Service Time KPIs</strong></td><td>KPI cards: Avg wait time, SLA compliance %, Peak wait, Late-night avg wait</td><td>Are we meeting the 4–5 minute target? How bad does it get after 11PM?</td></tr>
+          <tr><td><strong>SLA Trend</strong></td><td>Line chart: daily SLA % with target line</td><td>Is service improving or degrading over time?</td></tr>
+          <tr><td><strong>Accuracy & Refund</strong></td><td>KPI cards: Order accuracy %, Refund rate, Refund value</td><td>How often do we get orders wrong? What's the cost?</td></tr>
+          <tr><td><strong>Complaint Analysis</strong></td><td>Pareto chart: complaint categories ranked by frequency</td><td>What's the #1 complaint? Is it consistent across outlets?</td></tr>
+          <tr><td><strong>Freshness Compliance</strong></td><td>Heatmap: Outlet x Daypart → % of orders served within freshness window</td><td>Are late-night outlets more likely to serve stale product?</td></tr>
+          <tr><td><strong>Review Sentiment</strong> (Tab 2)</td><td>Sentiment trend line + word cloud of themes</td><td>What are customers saying? Is sentiment improving?</td></tr>
+          <tr><td><strong>Late-Night Service Card</strong></td><td>Dedicated section: 11PM–Close metrics — avg wait, orders served, waste, customer comments</td><td>Late-night is a unique challenge for Crumble. This card makes it visible.</td></tr>
+          <tr><td><strong>Outlet Service Comparison</strong> (Tab 3)</td><td>Radar chart: compare 2–4 outlets across 6 service dimensions</td><td>Multi-dimensional comparison that goes beyond single metrics.</td></tr>
+          <tr><td><strong>Root Cause Drill</strong> (Tab 4)</td><td>Issue → Outlet → Shift → Queue → Cause tree</td><td>Click any service issue to trace it back through operational data.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Design Notes</h4>
+      <p>The late-night service section is critical for Crumble. After 11PM, the business model fundamentally changes: pre-baked stock reduces, wait times increase, waste risk changes. The UI must call this out as a <strong>distinct operating mode</strong> with its own KPIs and thresholds, not just filter it as another daypart.</p>
+    </div>
+  </div>
+
+</div><!-- end section 08 -->
+
+<hr class="divider">
+<!-- SECTION 09: OPERATIONAL DASHBOARD SPECS -->
+<div class="section">
+  <div class="section-label">Section 09</div>
+  <h2>Dashboard Specifications — Operational Layer</h2>
+  <p class="lead">Ten operational dashboards designed for real-time action, high information density, and functional clarity. These screens are where decisions happen in the moment.</p>
+
+  <!-- === I. OUTLET LIVE OPERATIONS BOARD === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard I</div>
+      <h3>Outlet Live Operations Board</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">Outlet Manager</span>
+        <span class="tag tag-role">Shift Lead</span>
+        <span class="tag tag-priority">Priority 1 — Build First</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>A real-time command screen for the outlet team. It answers: "What's happening right now? What's coming? What needs attention?" Must work on wallboard displays, tablets, and desktops. Minimal decoration, maximum signal.</p>
+
+      <h4>Layout Structure</h4>
+      <div class="wireframe">
+┌────────────────────────────────────────────────────────────────────────┐
+│ OUTLET: F-7 Islamabad          SHIFT: Evening (4PM-11PM)    🟢 LIVE  │
+├────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐    │
+│ │ Pending  │ │ Avg Wait │ │ Baked    │ │ Frozen   │ │ Waste    │    │
+│ │ Orders   │ │  Time    │ │ Stock    │ │ Stock    │ │ Today    │    │
+│ │   12     │ │  6 min   │ │  34 pcs  │ │  120 pcs │ │  2.1%    │    │
+│ │ ■ Normal │ │ ● At Risk│ │ ■ OK     │ │ ■ Low    │ │ ■ Good   │    │
+│ └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘    │
+│                                                                        │
+│ ┌──────────────────────────────────┐ ┌──────────────────────────────┐ │
+│ │ LIVE ORDER QUEUE                 │ │ STAFF ON SHIFT               │ │
+│ │ ┌────────────────────────────┐   │ │ ● Ahmed K. (Shift Lead)     │ │
+│ │ │ #1847 | Walk-in | 2 min   │   │ │ ● Sara R. (Counter)         │ │
+│ │ │ 3x Choc Chip, 1x Shake   │   │ │ ● Hassan M. (Baker)         │ │
+│ │ │ Status: Baking ●          │   │ │ ● Fatima A. (Kitchen)       │ │
+│ │ └────────────────────────────┘   │ │ Total: 4/5 staffed          │ │
+│ │ ┌────────────────────────────┐   │ │                              │ │
+│ │ │ #1848 | Blink | 8 min !! │   │ ├──────────────────────────────┤ │
+│ │ │ 6x LTO Choc Lava         │   │ │ URGENT ALERTS               │ │
+│ │ │ Status: SLA Risk ●●●     │   │ │ ⚠ LTO stock below 10 units │ │
+│ │ └────────────────────────────┘   │ │ ⚠ Wait time exceeding SLA  │ │
+│ │ ┌────────────────────────────┐   │ │ ● Bake plan: recommend 24  │ │
+│ │ │ #1849 | App | 1 min       │   │ │   more Choc Chip in 15 min │ │
+│ │ │ 2x Red Velvet + Ice Cream│   │ │                              │ │
+│ │ │ Status: Accepted ●        │   │ │ [View All Alerts]            │ │
+│ │ └────────────────────────────┘   │ └──────────────────────────────┘ │
+│ └──────────────────────────────────┘                                   │
+│                                                                        │
+│ ┌────────────────────────────────────────────────────────────────────┐ │
+│ │ HOURLY PERFORMANCE BAR                                             │ │
+│ │ 4PM ████░  5PM █████  6PM ██████  7PM ████████  8PM ███░░ (now)  │ │
+│ │ Revenue vs hourly target. Green = on track. Red = below.           │ │
+│ └────────────────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────────────┘
+      </div>
+
+      <h4>Key Components</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Component Type</th><th>Refresh Rate</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><strong>KPI Strip</strong></td><td>5x Compact KPI Cards with status chips</td><td>30 seconds</td><td>Status chip auto-updates: Normal/At Risk/Critical based on thresholds.</td></tr>
+          <tr><td><strong>Live Order Queue</strong></td><td>Live Feed Table with timer cards</td><td>Real-time (WebSocket)</td><td>New orders animate in from top. Timer turns amber at 5min, red at 8min. SLA risk orders pulse.</td></tr>
+          <tr><td><strong>Staff Panel</strong></td><td>Roster list with status dots</td><td>Shift start</td><td>Green = active, Gray = on break. Shortfall highlighted in red.</td></tr>
+          <tr><td><strong>Urgent Alerts</strong></td><td>Alert Banner stack</td><td>Real-time</td><td>Most critical at top. Acknowledge button dismisses. Max 5 visible, "View All" link.</td></tr>
+          <tr><td><strong>Hourly Performance</strong></td><td>Horizontal progress bars</td><td>5 minutes</td><td>Each hour block fills as revenue accrues. Color codes against hourly target.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Wallboard Mode</h4>
+      <p>Activated via URL parameter <code>?mode=wallboard</code>. Hides sidebar and filter bar. Increases font sizes by 40%. Auto-cycles between Order Queue view and Performance view every 30 seconds. No interaction needed — purely display.</p>
+
+      <h4>Late-Night Mode Behavior</h4>
+      <p>After 11PM, the board automatically adjusts: "Baked Stock" KPI shows reduced target threshold. A "Late Night" badge appears in the header. Bake Planner recommendations shift to smaller batch suggestions. Wait time SLA threshold increases from 5 min to 15 min with appropriate messaging.</p>
+    </div>
+  </div>
+
+  <!-- === J. HOURLY BAKE PLANNER === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard J</div>
+      <h3>Hourly Bake Planner</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">Shift Lead</span>
+        <span class="tag tag-role">Outlet Manager</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Help outlet teams decide <strong>what to bake, when, and how much</strong>. This is a recommendation-first interface: the system provides AI-driven suggestions, and the team executes. Balances freshness, speed, waste reduction, and customer satisfaction.</p>
+
+      <h4>Layout Structure</h4>
+      <div class="wireframe">
+┌────────────────────────────────────────────────────────────────────────┐
+│ BAKE PLANNER — F-7 Islamabad          Next 8 Hours | Confidence: 87% │
+├────────────────────────────────────────────────────────────────────────┤
+│ TIME BLOCKS:                                                           │
+│ ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐          │
+│ │ NOW–5PM    │ │ 5PM–6PM    │ │ 6PM–7PM    │ │ 7PM–8PM    │   ...   │
+│ │ ──────────│ │ ──────────│ │ ──────────│ │ ──────────│          │
+│ │ Fcst: 45   │ │ Fcst: 62   │ │ Fcst: 78   │ │ Fcst: 85   │          │
+│ │ orders     │ │ orders     │ │ orders     │ │ orders     │          │
+│ │            │ │            │ │ ★ Peak    │ │            │          │
+│ │ BAKE NOW:  │ │ BAKE BY:   │ │ BAKE BY:   │ │ BAKE BY:   │          │
+│ │ ChocChip 12│ │ ChocChip 18│ │ LTO      24│ │ RedVelvet 8│          │
+│ │ LTO      8 │ │ RedVelv  6 │ │ ChocChip 20│ │ Shakes   12│          │
+│ │ Shakes   4 │ │ LTO     12 │ │ DblChoc  10│ │            │          │
+│ │            │ │            │ │            │ │ THAW:      │          │
+│ │ THAW:      │ │ THAW:      │ │            │ │ LTO      15│          │
+│ │ LTO     15 │ │ DblChoc 10 │ │            │ │            │          │
+│ └────────────┘ └────────────┘ └────────────┘ └────────────┘          │
+│                                                                        │
+│ SHELF TIMERS:                                                          │
+│ ┌────────────────────────────────────────────────────────────────────┐ │
+│ │ Choc Chip  ████████████░░░░  38 min left  ■ Fresh                 │ │
+│ │ Red Velvet █████████░░░░░░░  22 min left  ● Watch                 │ │
+│ │ LTO Lava   ████░░░░░░░░░░░   8 min left  ● Urgent — Bake/Discard│ │
+│ │ Dbl Choc   ░░░░░░░░░░░░░░░   Expired     ● Log Waste            │ │
+│ └────────────────────────────────────────────────────────────────────┘ │
+│                                                                        │
+│ ┌─────────────────────────────────┐ ┌─────────────────────────────┐   │
+│ │ Expected Sell-Through Chart     │ │ Waste Risk Projection       │   │
+│ │ Bar: Baked qty vs forecast       │ │ If demand is 20% below:     │   │
+│ │ demand per hour per SKU          │ │ projected waste value: PKR X│   │
+│ └─────────────────────────────────┘ └─────────────────────────────┘   │
+└────────────────────────────────────────────────────────────────────────┘
+      </div>
+
+      <h4>Key Design Decisions</h4>
+      <ul>
+        <li><strong>Recommendation-first:</strong> The system tells you what to do. Bake quantities are pre-calculated. The user's job is to execute, not calculate.</li>
+        <li><strong>Confidence indicator:</strong> Forecast confidence shown as percentage and color. Low confidence (below 70%) gets amber badge with "Uncertain — use judgment" note.</li>
+        <li><strong>Time-block layout:</strong> Each upcoming hour gets a card. Current hour is highlighted. Past hours fade to gray review mode.</li>
+        <li><strong>Shelf timers:</strong> Countdown bars for every baked batch. Color transitions: Green → Amber (last 25%) → Red (last 10%) → Expired (log waste prompt).</li>
+        <li><strong>Late-night cutover:</strong> At 10:30PM, a special "Late Night Advisory" card appears with guidance: reduce batch sizes, prioritize high-velocity SKUs, expect 15–20 min wait times for custom orders.</li>
+      </ul>
+    </div>
+  </div>
+  <!-- === K. CENTRAL KITCHEN / PRODUCTION CONTROL TOWER === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard K</div>
+      <h3>Central Kitchen / Production Control Tower</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">Production Manager</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Central production visibility: batch tracking, yield monitoring, QC checkpoints, dispatch scheduling, and outlet demand fulfillment. Feels like a production control room with process-stage visibility.</p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Batch Status Board</strong></td><td>Kanban-style columns: Planned → Mixing → Baking → Cooling → Packaging → Ready for Dispatch</td><td>Cards move across columns in real-time. Click card → batch detail drawer. Overdue cards get red border.</td></tr>
+          <tr><td><strong>Plan vs Actual Output</strong></td><td>Grouped bar chart by SKU category</td><td>Planned quantity vs actual completed. Variance highlighted. Drill to individual batch records.</td></tr>
+          <tr><td><strong>Yield Monitor</strong></td><td>KPI cards: Overall yield %, Waste %, Refire count</td><td>Trend sparklines. Click → waste detail by cause code.</td></tr>
+          <tr><td><strong>QC Failures</strong></td><td>Alert list with severity and batch reference</td><td>Acknowledge → triggers hold action. Resolution workflow: Hold → Investigate → Release/Discard.</td></tr>
+          <tr><td><strong>Dispatch Queue</strong></td><td>Ranked list by urgency: outlet name, items, quantity, ETA, status</td><td>Most urgent at top (based on outlet stock depletion time). Create/modify dispatch orders.</td></tr>
+          <tr><td><strong>Outlet Demand Feed</strong></td><td>Table: Outlet, SKU, Requested qty, Current stock, Urgency</td><td>Aggregated replenishment demand from all outlets. Sorted by urgency. Link to create production order.</td></tr>
+          <tr><td><strong>Line/Station Productivity</strong></td><td>Horizontal bars per production station showing output rate vs capacity</td><td>Identify bottleneck stations. Click → detail with uptime, downtime, throughput.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Shift-Aware Design</h4>
+      <p>Header shows current shift and shift lead name. All metrics default to "Current Shift" scope. Shift handover view available: summary of what was completed, what's pending, any open QC issues, and outstanding dispatch items.</p>
+    </div>
+  </div>
+
+  <!-- === L. INVENTORY & REPLENISHMENT === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard L</div>
+      <h3>Inventory & Replenishment Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">Inventory Controller</span>
+        <span class="tag tag-role">Outlet Manager</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Quick decision-making on stock movement, replenishment, and exception resolution. Clear red/yellow/green inventory logic throughout.</p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Stock Health Matrix</strong></td><td>Table: Outlet x SKU Category → Stock Level Bar (colored zones: Red/Amber/Green)</td><td>Click cell → exact quantities, last transfer, next expected delivery. Red cells pulse subtly.</td></tr>
+          <tr><td><strong>Min/Max Breach Alerts</strong></td><td>Alert list: items below min or above max threshold</td><td>Below-min: "Order/Transfer needed." Above-max: "Risk of waste. Review production." Action buttons inline.</td></tr>
+          <tr><td><strong>Stockout Risk Countdown</strong></td><td>Ranked list: SKU + Outlet → estimated hours until stockout</td><td>Based on current burn rate. Most urgent at top. Red if &lt;4 hours, Amber if &lt;12 hours.</td></tr>
+          <tr><td><strong>Transfer Requests</strong></td><td>Action table: From → To → Items → Qty → Status → ETA</td><td>Create new transfer, approve pending, track in-transit. Status chips: Requested/Approved/In Transit/Received.</td></tr>
+          <tr><td><strong>Expiry / Age Risk</strong></td><td>Table: Items approaching shelf-life limit, ranked by value at risk</td><td>Shows days remaining, value, recommended action (discount/transfer/discard).</td></tr>
+          <tr><td><strong>Inbound/Outbound Movement Log</strong></td><td>Timeline feed: all stock movements with direction arrows</td><td>Filter by outlet, direction (in/out), SKU. Spot patterns of chronic shortfall.</td></tr>
+          <tr><td><strong>Expected Coverage</strong></td><td>Gauge charts per outlet: days of supply remaining</td><td>Green &gt;5 days, Amber 2–5 days, Red &lt;2 days. Based on forecast demand, not just historical average.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === M. ORDER FULFILLMENT / DIGITAL ORDERS === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard M</div>
+      <h3>Order Fulfillment / Digital Orders Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">Outlet Manager</span>
+        <span class="tag tag-role">Operations</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Track order lifecycle from acceptance to delivery/pickup. Manage digital order flow across Website, App, and Blink channels. Identify bottlenecks and SLA breaches in real-time.</p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Order Pipeline</strong></td><td>Horizontal funnel/pipeline: New → Accepted → Preparing → Ready → Picked Up/Delivered</td><td>Count per stage. Click stage → list of orders. Bottleneck stage highlighted (highest count or longest dwell).</td></tr>
+          <tr><td><strong>Acceptance SLA</strong></td><td>KPI card + trend: % of orders accepted within 2 minutes</td><td>Below-threshold triggers alert. Break out by channel.</td></tr>
+          <tr><td><strong>Late Orders</strong></td><td>Flagged list: orders exceeding estimated delivery/ready time</td><td>Timer showing how late. Escalation path: notify outlet → notify regional → auto-compensate customer.</td></tr>
+          <tr><td><strong>Channel Split</strong></td><td>Donut: Walk-in vs Website vs App vs Blink — for current period</td><td>Click segment → filter pipeline and table to that channel.</td></tr>
+          <tr><td><strong>Cancellation Analysis</strong></td><td>Bar chart: cancellation reasons (Out of stock, Too slow, Customer changed mind, Payment issue)</td><td>Drill to individual cancelled orders. Root cause tagging.</td></tr>
+          <tr><td><strong>Payment Issues</strong></td><td>Alert list: failed payments, pending refunds, chargebacks</td><td>Action buttons: Retry, Manual resolve, Escalate. Filter by payment method.</td></tr>
+          <tr><td><strong>Pickup Readiness</strong></td><td>Timer-based list: orders ready for pickup, waiting time since ready</td><td>Highlights orders waiting &gt;10 minutes (potential no-show). Auto-notification trigger.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === N. WASTE / QUALITY / FRESHNESS === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard N</div>
+      <h3>Waste / Quality / Freshness Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">COO</span>
+        <span class="tag tag-role">Outlet Manager</span>
+        <span class="tag tag-role">Production Manager</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Make loss visible, root-cause identifiable, and action immediate. Every rupee of waste is profitability destroyed. This dashboard makes waste impossible to ignore.</p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Key Insight</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Total Waste KPIs</strong></td><td>KPI cards: Waste % (units), Waste Value (PKR), Waste vs Target, Trend</td><td>How bad is it today? Is it improving?</td></tr>
+          <tr><td><strong>Waste by Cause (Pareto)</strong></td><td>Pareto chart with cumulative line</td><td>Top cause accounts for X% of waste. Focus here first. Causes: Over-bake, Expired shelf, QC fail, Damaged, Returned.</td></tr>
+          <tr><td><strong>Waste by SKU</strong></td><td>Horizontal bar ranked by waste value</td><td>Which products waste the most? Is LTO causing excess waste?</td></tr>
+          <tr><td><strong>Waste by Outlet</strong></td><td>Ranking table with waste % and value</td><td>Which outlets have waste problems? Compare against outlet revenue for proportionality.</td></tr>
+          <tr><td><strong>Waste by Shift</strong></td><td>Stacked bar: Morning / Afternoon / Evening / Night → waste by cause</td><td>Late-night shift likely highest. Is it structural or avoidable?</td></tr>
+          <tr><td><strong>Hold-Time Violations</strong></td><td>Alert list: products held beyond freshness window</td><td>How many times did product exceed shelf life before being sold or discarded?</td></tr>
+          <tr><td><strong>Freshness Compliance</strong></td><td>Heatmap: Outlet x Daypart → % of orders within freshness policy</td><td>Are customers getting fresh product? Where are the gaps?</td></tr>
+          <tr><td><strong>Refire Analysis</strong></td><td>Count + cause table: orders that had to be remade</td><td>How much rework is happening? What's causing it?</td></tr>
+          <tr><td><strong>Quality Incidents</strong></td><td>Incident log: date, outlet, type, severity, resolution</td><td>Track quality events over time. Recurring patterns surface.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Filtering Logic</h4>
+      <p>Primary filters: Shift, Daypart, Outlet, SKU. All charts cross-filter: click a cause in Pareto → all other charts filter to that cause. Click an outlet in ranking → all charts filter to that outlet.</p>
+    </div>
+  </div>
+  <!-- === O. WORKFORCE / SHIFT PERFORMANCE === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard O</div>
+      <h3>Workforce / Shift Performance Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">COO</span>
+        <span class="tag tag-role">Outlet Manager</span>
+        <span class="tag tag-priority">Priority 3</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Connect people to performance. Answer: "Are we staffed correctly? Are shifts productive? What's the cost of labor relative to revenue?"</p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Key Insight</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Staffing KPIs</strong></td><td>KPI cards: Scheduled vs Actual staff, Labor hours, SPLH (Sales Per Labor Hour), Overtime hours</td><td>Are we spending appropriately on labor?</td></tr>
+          <tr><td><strong>Shift Comparison</strong></td><td>Grouped bar: Morning / Afternoon / Evening / Night → Revenue, Orders, SPLH, Waste</td><td>Which shift is most productive? Most wasteful?</td></tr>
+          <tr><td><strong>Scheduled vs Actual</strong></td><td>Stacked bar per outlet: Planned staff (solid) vs Actual (outline)</td><td>Where are staffing gaps? Which outlets are consistently short-staffed?</td></tr>
+          <tr><td><strong>Productivity by Role</strong></td><td>Table: Role, Avg units processed, Avg revenue/hour, Overtime rate</td><td>Which roles are bottlenecks? Where is training needed?</td></tr>
+          <tr><td><strong>Absenteeism Tracker</strong></td><td>Calendar heatmap: days x outlets, color = absence rate</td><td>Pattern detection: certain days or outlets with chronic absence.</td></tr>
+          <tr><td><strong>Overtime Analysis</strong></td><td>Line chart: overtime hours trend + cost impact</td><td>Is overtime a workaround for understaffing or demand spikes?</td></tr>
+          <tr><td><strong>Training Compliance</strong></td><td>Progress bars per outlet: % of staff with completed training modules</td><td>Compliance tracking for food safety, service standards, new product training.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === P. CRM / LOYALTY OPERATIONS === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard P</div>
+      <h3>CRM / Loyalty Operations Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">CRM Manager</span>
+        <span class="tag tag-role">CMO</span>
+        <span class="tag tag-priority">Priority 3</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Daily execution of customer marketing: enrollments, engagement, retention campaigns, win-back targeting. Action-oriented, not just analytical.</p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Enrollment KPIs</strong></td><td>KPI cards: New enrollments today/week/month, Active member rate, Total members</td><td>Trend with target comparison.</td></tr>
+          <tr><td><strong>Lifecycle Funnel</strong></td><td>Horizontal funnel: Registered → First Order → Second Order → Regular → Loyal → Lapsed</td><td>Click stage → action list. "Second Order" stage is critical — shows conversion rate and suggested nudge campaigns.</td></tr>
+          <tr><td><strong>At-Risk Customer List</strong></td><td>Action table: customers predicted to churn, sorted by CLV at risk</td><td>Win-back eligibility flag. "Send Offer" action button. Last activity date and purchase history preview.</td></tr>
+          <tr><td><strong>Reward Redemption</strong></td><td>KPI + trend: Redemption rate, Points liability, Avg points per member</td><td>Is the loyalty program driving behavior or just accumulating liability?</td></tr>
+          <tr><td><strong>Audience Segments</strong></td><td>Segment cards: High Value, Regulars, Occasional, New, At Risk, Lapsed</td><td>Each card: count, CLV, frequency, preferred channel, top products. Click → customer list.</td></tr>
+          <tr><td><strong>Campaign Eligibility</strong></td><td>Table: active campaigns → eligible audience size → sent → opened → redeemed</td><td>Which campaigns are running? What's the pipeline?</td></tr>
+          <tr><td><strong>First-to-Second Conversion</strong></td><td>Dedicated metric with trend and breakdown by channel/city</td><td>The most important single metric for CRM: are first-time buyers coming back?</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === Q. CAMPAIGN / CREATIVE OPERATIONS === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard Q</div>
+      <h3>Campaign / Creative Operations Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">Perf. Marketing</span>
+        <span class="tag tag-role">CMO</span>
+        <span class="tag tag-priority">Priority 2</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Day-to-day campaign management: spend pacing, creative health, anomaly detection, and performance optimization. This is where the performance marketing manager lives.</p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Spend Pacing</strong></td><td>Progress bar per platform: spent vs budget with projected end-of-period spend</td><td>Under-pacing (blue), On-track (green), Over-pacing (red). Daily burn rate shown.</td></tr>
+          <tr><td><strong>Frequency Monitor</strong></td><td>KPI cards per platform: avg frequency, frequency distribution chart</td><td>When frequency exceeds 3.5, card turns amber with fatigue warning.</td></tr>
+          <tr><td><strong>Creative Fatigue Index</strong></td><td>Table: Creative name/thumbnail, Days running, CTR trend, Engagement trend, Fatigue score</td><td>Fatigue score = composite of declining CTR + rising frequency + declining engagement. Red = swap creative.</td></tr>
+          <tr><td><strong>Creative Cards</strong></td><td>Grid of creative thumbnails with overlay metrics: spend, ROAS, CTR, engagement</td><td>Click card → full creative detail drawer with daily performance chart. Platform icon badge (Meta/TikTok/Google).</td></tr>
+          <tr><td><strong>Performance Anomalies</strong></td><td>Alert list: campaigns with sudden performance changes</td><td>AI-detected: "Meta Campaign X ROAS dropped 40% in last 48 hours" with suggested action.</td></tr>
+          <tr><td><strong>Post-Level Rankings</strong></td><td>Table: all posts ranked by engagement or conversion, filterable by platform</td><td>Separate organic and paid rankings. Compare meme content vs product content vs promotional.</td></tr>
+          <tr><td><strong>City Response Map</strong></td><td>Mini map with performance overlay per city per campaign</td><td>Same campaign performs differently by city. Color intensity = engagement rate.</td></tr>
+          <tr><td><strong>UTM Audit</strong></td><td>Data quality check: campaigns missing UTM tags, broken URLs, mismatched attribution</td><td>Critical for maintaining attribution accuracy. Alerts for missing tags.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === R. DATA QUALITY / INTEGRATION MONITORING === -->
+  <div class="dash-spec">
+    <div class="ops-header">
+      <div class="dash-id">Dashboard R</div>
+      <h3>Data Quality / Integration Monitoring Dashboard</h3>
+      <div class="dash-tags">
+        <span class="tag tag-ops">Operational Layer</span>
+        <span class="tag tag-role">BI Admin</span>
+        <span class="tag tag-role">Data Engineer</span>
+        <span class="tag tag-priority">Priority 3</span>
+      </div>
+    </div>
+    <div class="dash-body">
+      <h4>Page Objective</h4>
+      <p>Protect trust in the entire dashboard ecosystem. If the data is wrong, every decision made from every other dashboard is wrong. This screen ensures data integrity, pipeline health, and quick incident resolution. It must NOT look like an afterthought.</p>
+
+      <h4>Key Sections</h4>
+      <table>
+        <thead><tr><th>Section</th><th>Visual Type</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Source Freshness Matrix</strong></td><td>Table: Data source, Last sync, Expected frequency, Status (Fresh/Stale/Failed)</td><td>Green = synced within expected window. Amber = approaching stale. Red = failed or overdue. Auto-refresh every minute.</td></tr>
+          <tr><td><strong>Pipeline Health</strong></td><td>Kanban: ETL pipeline stages with pass/fail per run</td><td>Click failed stage → error log detail. Retry button for manual re-run.</td></tr>
+          <tr><td><strong>Sync Failure Alerts</strong></td><td>Alert list ranked by severity and recency</td><td>POS sync failure is critical (blocks sales data). Ad platform failure is high. Manual report failure is medium.</td></tr>
+          <tr><td><strong>Mapping Failures</strong></td><td>Table: Missing key mappings, orphan records, unmatched transactions</td><td>Click record → correction panel. Pattern detection: "12 new SKUs from POS not mapped to product master."</td></tr>
+          <tr><td><strong>Duplicate Detection</strong></td><td>Count + list of suspected duplicate records by entity type</td><td>Customers, Orders, Products. Merge/dismiss workflow.</td></tr>
+          <tr><td><strong>Reconciliation Breaks</strong></td><td>Comparison table: Source A value vs Source B value → Difference → Status</td><td>POS revenue vs BI revenue vs Bank deposits. Thresholds define acceptable variance (e.g., &lt;0.5%).</td></tr>
+          <tr><td><strong>Unresolved Data Incidents</strong></td><td>Incident log with status workflow: Open → Investigating → Resolved</td><td>Assign owner, add notes, track resolution time. SLA for resolution.</td></tr>
+          <tr><td><strong>Data Quality Score</strong></td><td>Composite KPI: weighted score across completeness, timeliness, accuracy, consistency</td><td>Overall system health number. Trend over time. Drill to component scores.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Design Notes</h4>
+      <p>This dashboard uses <strong>incident management patterns</strong> borrowed from engineering operations: severity levels, SLA timers, assignment, escalation. It should feel like a purpose-built admin tool, not a reporting afterthought. Dark sidebar variant optional for admin aesthetic.</p>
+    </div>
+  </div>
+
+</div><!-- end section 09 -->
+
+<hr class="divider">
+<!-- ============================================================
+     SECTION 10 — DRILL-DOWN & INTERACTION MODEL
+     ============================================================ -->
+<div class="section" id="section-10">
+  <h2><span class="section-num">10</span> Drill-Down & Interaction Model</h2>
+  <p>Every surface in this ecosystem, from a KPI card to a map polygon, must respond to user intent. The interaction model defines <strong>how users move from summary to detail</strong>, how they compare, how they explore, and how they return.</p>
+
+  <h3>10.1 — Drill-Down Hierarchy</h3>
+  <p>The canonical drill-down depth for Crumble follows this chain:</p>
+  <div class="wireframe">
+<pre>
+  Company Total
+     └── City (Lahore, Karachi, Islamabad…)
+           └── Outlet (Fortress Stadium, DHA Phase 5…)
+                 └── Channel (Dine-in, Delivery, Takeaway)
+                       └── Category (Classic Cookies, LTO, Brownies…)
+                             └── SKU
+                                   └── Time Period (Month → Week → Day → Hour)
+</pre>
+  </div>
+
+  <h4>Drill-Down Trigger Rules</h4>
+  <table>
+    <thead><tr><th>Trigger</th><th>Behavior</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Click KPI card</strong></td><td>Navigate to the source dashboard with pre-applied filter</td><td>Click "Revenue" on Exec Command Center → Finance P&L, filtered to same period.</td></tr>
+      <tr><td><strong>Click chart bar / point</strong></td><td>Apply filter to all visuals on this page + open detail panel if available</td><td>Click "Lahore" bar → all page visuals filter to Lahore. Drawer opens with Lahore breakdown.</td></tr>
+      <tr><td><strong>Click table row</strong></td><td>Open right-side detail drawer with full entity profile</td><td>Click outlet row → drawer shows that outlet's KPIs, trend, staff, alerts.</td></tr>
+      <tr><td><strong>Click map element</strong></td><td>Filter page to that geographic entity + zoom map if applicable</td><td>Click Lahore polygon → page filters to Lahore outlets. Map zooms to city level.</td></tr>
+      <tr><td><strong>Double-click</strong></td><td>Navigate to next drill level (full page transition)</td><td>Double-click Lahore → full Outlet Comparison page, filtered to Lahore.</td></tr>
+      <tr><td><strong>Right-click / long-press</strong></td><td>Context menu: Drill, Filter, Compare, Pin, Export, Share</td><td>Right-click an SKU → options to drill to SKU page, compare against top 5, export data.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.2 — Detail Drawer Pattern</h3>
+  <p>The <strong>right-side drawer</strong> is the primary detail mechanism. It keeps the user in context (parent page remains visible behind an overlay) while exposing deeper data.</p>
+  <div class="wireframe">
+<pre>
+  ┌─────────────────────────────────────┬──────────────────────────┐
+  │                                     │  DETAIL DRAWER           │
+  │   PARENT PAGE                       │  ─────────────────────   │
+  │   (dimmed overlay)                  │  Entity: DHA Phase 5     │
+  │                                     │  ─────────────────────   │
+  │                                     │  KPI Row: Revenue, AOV,  │
+  │                                     │  Orders, SPLH            │
+  │                                     │  ─────────────────────   │
+  │                                     │  Trend Chart (7d / 30d)  │
+  │                                     │  ─────────────────────   │
+  │                                     │  Top Products Table      │
+  │                                     │  ─────────────────────   │
+  │                                     │  Recent Alerts           │
+  │                                     │  ─────────────────────   │
+  │                                     │  [View Full Page →]      │
+  └─────────────────────────────────────┴──────────────────────────┘
+</pre>
+  </div>
+  <h4>Drawer Specs</h4>
+  <ul>
+    <li><strong>Width:</strong> 480px default, resizable up to 640px.</li>
+    <li><strong>Trigger:</strong> Row click, entity click, or explicit "Details" button.</li>
+    <li><strong>Dismiss:</strong> Click outside, press Esc, or click X.</li>
+    <li><strong>Animation:</strong> Slide from right, 200ms ease-out.</li>
+    <li><strong>Footer:</strong> Always includes "View Full Page →" link to navigate to the entity's dedicated dashboard.</li>
+    <li><strong>Stacking:</strong> Maximum 1 drawer open at a time. Opening a new drawer replaces the current one.</li>
+  </ul>
+
+  <h3>10.3 — Cross-Filtering</h3>
+  <p>When a user clicks a visual element, all other visuals on the same page respond:</p>
+  <table>
+    <thead><tr><th>Visual Clicked</th><th>Other Visuals Behavior</th></tr></thead>
+    <tbody>
+      <tr><td>Bar in a chart</td><td>Filter: show only data matching that dimension value.</td></tr>
+      <tr><td>Segment in pie/donut</td><td>Highlight: dim other segments, filter tables below.</td></tr>
+      <tr><td>Row in a table</td><td>Filter charts + open drawer (if drawer is available for that entity).</td></tr>
+      <tr><td>Cell in a heatmap</td><td>Filter to that intersection (e.g., Tuesday × Evening shift).</td></tr>
+      <tr><td>Point on a scatter</td><td>Highlight that entity across all visuals, show tooltip.</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Reset:</strong> Click the same element again, or click the "Reset Filters" pill that appears in the filter bar whenever a cross-filter is active.</p>
+
+  <h3>10.4 — Compare Mode</h3>
+  <p>Users can select up to 3 entities for side-by-side comparison. This is a global capability available from any table or list.</p>
+  <h4>Activation</h4>
+  <ul>
+    <li>Hold <strong>Ctrl + Click</strong> on multiple rows in any table.</li>
+    <li>Or use the <strong>Compare Toggle</strong> button in the table toolbar.</li>
+    <li>Or right-click → "Add to Compare."</li>
+  </ul>
+  <h4>Compare Panel</h4>
+  <div class="wireframe">
+<pre>
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  COMPARE: DHA Phase 5  vs  Fortress Stadium  vs  Gulberg        │
+  ├──────────────────┬──────────────────┬──────────────────┐         │
+  │  Revenue: 1.2M   │  Revenue: 980K   │  Revenue: 1.1M   │        │
+  │  Orders: 3,420   │  Orders: 2,890   │  Orders: 3,100   │        │
+  │  AOV: 351        │  AOV: 339        │  AOV: 355        │        │
+  │  SPLH: 4,200     │  SPLH: 3,100     │  SPLH: 3,900     │        │
+  │  Rating: 4.6     │  Rating: 4.2     │  Rating: 4.4     │        │
+  ├──────────────────┴──────────────────┴──────────────────┘         │
+  │  [Shared Trend Chart — overlaid lines for each entity]           │
+  │  [Clear Compare]                                                 │
+  └──────────────────────────────────────────────────────────────────┘
+</pre>
+  </div>
+
+  <h3>10.5 — Live Refresh & Polling</h3>
+  <table>
+    <thead><tr><th>Dashboard Type</th><th>Refresh Strategy</th><th>Frequency</th></tr></thead>
+    <tbody>
+      <tr><td>Operational (I, J, K, M)</td><td>WebSocket push or aggressive polling</td><td>Every 15–30 seconds</td></tr>
+      <tr><td>Operational (L, N, O, P)</td><td>Polling</td><td>Every 2–5 minutes</td></tr>
+      <tr><td>Executive (A–H)</td><td>On-demand refresh + cache</td><td>Data cached for 15 minutes, manual refresh available</td></tr>
+      <tr><td>Admin (R)</td><td>Polling</td><td>Every 60 seconds</td></tr>
+    </tbody>
+  </table>
+  <p>A <strong>"Last Updated"</strong> timestamp appears in the top bar for every page. If data is older than expected, the timestamp turns amber with a "Stale Data" tooltip.</p>
+
+  <h3>10.6 — Pinning, Bookmarking & Sharing</h3>
+  <table>
+    <thead><tr><th>Feature</th><th>Behavior</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pin KPI</strong></td><td>Pin any KPI card to your personal "Pinned Metrics" section on the Command Center. Maximum 8 pinned KPIs.</td></tr>
+      <tr><td><strong>Bookmark View</strong></td><td>Save the current page + all active filters as a named bookmark. Appears in sidebar "Bookmarks" section.</td></tr>
+      <tr><td><strong>Share Snapshot</strong></td><td>Generate a timestamped snapshot URL. Recipient sees the exact same view with frozen data. Expires after 7 days.</td></tr>
+      <tr><td><strong>Export</strong></td><td>Export visible data as CSV, PDF, or PNG (chart image). Role-based: some exports require elevated permissions.</td></tr>
+      <tr><td><strong>Schedule Report</strong></td><td>Convert any dashboard view into a scheduled email report (daily/weekly/monthly). Delivered as PDF with summary.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.7 — Keyboard & Power-User Shortcuts</h3>
+  <table>
+    <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>Cmd/Ctrl + K</kbd></td><td>Open global search (navigate to any dashboard, entity, or metric)</td></tr>
+      <tr><td><kbd>Cmd/Ctrl + /</kbd></td><td>Open keyboard shortcuts reference</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>Close drawer / modal / dismiss notification</td></tr>
+      <tr><td><kbd>Cmd/Ctrl + Shift + C</kbd></td><td>Toggle Compare Mode</td></tr>
+      <tr><td><kbd>Cmd/Ctrl + E</kbd></td><td>Export current view</td></tr>
+      <tr><td><kbd>Cmd/Ctrl + B</kbd></td><td>Bookmark current view</td></tr>
+      <tr><td><kbd>F5</kbd></td><td>Force refresh data</td></tr>
+      <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Navigate between tabs on tabbed dashboards</td></tr>
+    </tbody>
+  </table>
+
+</div><!-- end section 10 -->
+
+<hr class="divider">
+<!-- ============================================================
+     SECTION 11 — ALERT & EXCEPTION DESIGN PATTERNS
+     ============================================================ -->
+<div class="section" id="section-11">
+  <h2><span class="section-num">11</span> Alert & Exception Design Patterns</h2>
+  <p>Crumble's dashboards are not passive reporting surfaces. They are <strong>exception-first systems</strong> that proactively surface problems before users go looking for them. The alert system is the nervous system of the entire platform.</p>
+
+  <h3>11.1 — Alert Severity Hierarchy</h3>
+  <table>
+    <thead><tr><th>Severity</th><th>Color</th><th>Icon</th><th>Sound</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Critical</strong></td><td style="color:#E8500A;">Red (#E8500A)</td><td>Filled circle with exclamation</td><td>Yes (wallboard mode)</td><td>POS sync failure &gt; 30 min. Stock-out on active LTO SKU.</td></tr>
+      <tr><td><strong>High</strong></td><td style="color:#F59E0B;">Amber (#F59E0B)</td><td>Triangle warning</td><td>No</td><td>Revenue down 20% vs same hour last week. Delivery SLA breach rate &gt; 15%.</td></tr>
+      <tr><td><strong>Medium</strong></td><td style="color:#3B82F6;">Blue (#3B82F6)</td><td>Info circle</td><td>No</td><td>Campaign spend pacing 15% ahead of plan. Waste rate up 10%.</td></tr>
+      <tr><td><strong>Low / Info</strong></td><td style="color:#6B7280;">Gray (#6B7280)</td><td>Bell outline</td><td>No</td><td>Weekly report generated. New product training module available.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>11.2 — Alert Delivery Channels</h3>
+  <table>
+    <thead><tr><th>Channel</th><th>When Used</th><th>Behavior</th></tr></thead>
+    <tbody>
+      <tr><td><strong>In-Dashboard Banner</strong></td><td>Always visible when alert is active</td><td>Full-width colored banner at top of affected dashboard. Dismissible after acknowledgement. Includes timestamp, description, and action button.</td></tr>
+      <tr><td><strong>Notification Bell</strong></td><td>All alerts</td><td>Bell icon in top bar shows unread count. Dropdown lists recent alerts grouped by severity. Click → navigate to relevant dashboard.</td></tr>
+      <tr><td><strong>Toast Notification</strong></td><td>Real-time alerts on operational dashboards</td><td>Bottom-right toast, auto-dismiss after 8 seconds for medium/low. Critical stays until manually dismissed.</td></tr>
+      <tr><td><strong>Wallboard Audio</strong></td><td>Critical alerts in wallboard mode only</td><td>Brief attention tone. Dashboard border flashes red. Alert text displays prominently.</td></tr>
+      <tr><td><strong>Email</strong></td><td>Scheduled summaries + critical escalations</td><td>Critical: immediate email. Daily digest: morning summary of yesterday's exceptions.</td></tr>
+      <tr><td><strong>WhatsApp / SMS</strong></td><td>Critical alerts when user is not logged in</td><td>Configurable per user. Only Critical severity. Includes deep link back to dashboard.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>11.3 — Alert Lifecycle</h3>
+  <div class="wireframe">
+<pre>
+  ┌──────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────┐
+  │ TRIGGERED │ ──→ │    ACTIVE     │ ──→ │ ACKNOWLEDGED │ ──→ │ RESOLVED │
+  └──────────┘     └──────────────┘     └──────────────┘     └──────────┘
+       │                  │                     │                   │
+       │                  │                     │                   │
+  System detects     Banner shown,          User clicks          Condition no
+  threshold breach   notification sent      "Acknowledge"        longer met OR
+                                            Button visible       user marks
+                                            to assignee          as resolved
+</pre>
+  </div>
+  <h4>Lifecycle Rules</h4>
+  <ul>
+    <li><strong>Auto-resolve:</strong> If the underlying condition returns to normal, alert auto-resolves after 5 minutes of sustained normal state.</li>
+    <li><strong>Escalation:</strong> If a Critical alert is not acknowledged within 15 minutes, it escalates to the next role up (e.g., Outlet Manager → Area Manager → COO).</li>
+    <li><strong>Snooze:</strong> Users can snooze non-critical alerts for 1 hour or until next shift.</li>
+    <li><strong>History:</strong> All alerts are logged with full timeline: triggered, acknowledged, escalated, resolved timestamps.</li>
+  </ul>
+
+  <h3>11.4 — Exception Patterns by Dashboard</h3>
+  <table>
+    <thead><tr><th>Dashboard</th><th>Key Exceptions Monitored</th><th>Threshold Logic</th></tr></thead>
+    <tbody>
+      <tr><td>A — Exec Command Center</td><td>Revenue deviation, LTO below forecast, overall system health</td><td>Revenue &lt; 80% of same period last week</td></tr>
+      <tr><td>C — Outlet Performance</td><td>Outlet going dark (no orders &gt; 45 min), SLA breaches</td><td>Dynamic: based on outlet's historical hourly pattern</td></tr>
+      <tr><td>F — Marketing ROI</td><td>ROAS collapse, budget overspend, creative fatigue</td><td>ROAS drop &gt; 30% in 48 hours, Spend &gt; 110% of daily budget</td></tr>
+      <tr><td>G — Supply Chain</td><td>Stock-out on active menu items, delivery delays from central kitchen</td><td>Stock &lt; minimum threshold, Delivery &gt; 90 minutes late</td></tr>
+      <tr><td>I — Live Operations</td><td>Order queue overflow, cancellation spike, staff shortage</td><td>Queue &gt; 15 orders, Cancellation &gt; 5% in last hour</td></tr>
+      <tr><td>J — Bake Planner</td><td>Under-production risk, waste projection exceeding threshold</td><td>Projected sellout &gt; baked qty, Projected waste &gt; 15%</td></tr>
+      <tr><td>R — Data Quality</td><td>Sync failure, reconciliation break, stale data</td><td>Any source &gt; 2x expected refresh interval</td></tr>
+    </tbody>
+  </table>
+
+  <h3>11.5 — Alert Configuration (Admin)</h3>
+  <p>BI Admins can configure alert rules through an admin panel:</p>
+  <ul>
+    <li><strong>Threshold editor:</strong> Set static or dynamic thresholds per metric per outlet.</li>
+    <li><strong>Routing rules:</strong> Define which roles receive which alert types.</li>
+    <li><strong>Quiet hours:</strong> Suppress non-critical alerts during defined hours (e.g., 1 AM – 6 AM).</li>
+    <li><strong>Custom alerts:</strong> Create custom alert rules by combining metric + condition + threshold.</li>
+    <li><strong>Alert templates:</strong> Pre-built alert packages per role (Outlet Manager package, COO package, etc.).</li>
+  </ul>
+</div><!-- end section 11 -->
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 12 — STATES & SYSTEM FEEDBACK
+     ============================================================ -->
+<div class="section" id="section-12">
+  <h2><span class="section-num">12</span> States & System Feedback</h2>
+  <p>Every component, card, chart, table, and page has multiple possible states. Designing these states explicitly prevents the system from ever feeling broken, confusing, or unresponsive.</p>
+
+  <h3>12.1 — Component States Matrix</h3>
+  <table>
+    <thead><tr><th>State</th><th>Visual Treatment</th><th>User Sees</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Loading (Initial)</strong></td><td>Skeleton shimmer animation (gray placeholder blocks matching the expected layout)</td><td>The shape of the content appears immediately. No layout shift when data arrives.</td></tr>
+      <tr><td><strong>Loading (Refresh)</strong></td><td>Subtle spinner in top-right corner of the component. Existing data remains visible.</td><td>Data stays readable. User knows a refresh is happening without losing context.</td></tr>
+      <tr><td><strong>Success (Data Present)</strong></td><td>Normal rendered state. Animations complete (counter roll-up, chart draw).</td><td>Full data with all interactions available.</td></tr>
+      <tr><td><strong>Empty (No Data)</strong></td><td>Illustration + message in the center of the component area.</td><td>"No data for the selected filters." with suggestion: "Try expanding the date range or removing filters."</td></tr>
+      <tr><td><strong>Error (Failed to Load)</strong></td><td>Red-tinted border. Error icon + message + retry button.</td><td>"Unable to load this data. [Retry]" — component-level, not page-level crash.</td></tr>
+      <tr><td><strong>Stale Data</strong></td><td>Amber timestamp badge: "Data from 45 minutes ago".</td><td>Data is shown but user is warned it may not be current. Auto-retry in background.</td></tr>
+      <tr><td><strong>No Access</strong></td><td>Lock icon + message.</td><td>"You don't have access to this data. Contact your administrator." No data leakage — component renders the message, not a broken state.</td></tr>
+      <tr><td><strong>Disabled / Unavailable</strong></td><td>Grayscale, reduced opacity (0.4), no interactions.</td><td>Feature exists but is not available in current context (e.g., Compare mode on a single entity).</td></tr>
+    </tbody>
+  </table>
+
+  <h3>12.2 — Page-Level States</h3>
+  <table>
+    <thead><tr><th>Scenario</th><th>Behavior</th></tr></thead>
+    <tbody>
+      <tr><td><strong>First Visit</strong></td><td>Short onboarding tooltip tour: 3-5 steps highlighting key features of this specific dashboard.</td></tr>
+      <tr><td><strong>All Components Loading</strong></td><td>Full-page skeleton. Navigation and filter bar render immediately (they don't depend on data).</td></tr>
+      <tr><td><strong>Partial Failure</strong></td><td>Working components render normally. Failed components show individual error states. Page is still usable.</td></tr>
+      <tr><td><strong>Complete Failure</strong></td><td>Full-page error with "Something went wrong" illustration, error code for support, and retry button.</td></tr>
+      <tr><td><strong>Maintenance Mode</strong></td><td>Branded maintenance page with expected return time and alternative contact.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>12.3 — Feedback Micro-Interactions</h3>
+  <table>
+    <thead><tr><th>Action</th><th>Feedback</th><th>Duration</th></tr></thead>
+    <tbody>
+      <tr><td>Filter applied</td><td>Brief pulse animation on affected components. Filter chip appears in filter bar.</td><td>300ms</td></tr>
+      <tr><td>Data exported</td><td>Success toast: "Report exported successfully" with download link.</td><td>5s auto-dismiss</td></tr>
+      <tr><td>Bookmark saved</td><td>Bookmark icon fills. Toast: "View saved to bookmarks."</td><td>3s auto-dismiss</td></tr>
+      <tr><td>Alert acknowledged</td><td>Alert banner collapses with slide-up animation. Badge count decrements.</td><td>200ms</td></tr>
+      <tr><td>Compare entity added</td><td>Entity chip appears in compare bar at bottom. Counter updates.</td><td>Immediate</td></tr>
+      <tr><td>Drawer opening</td><td>Slide from right + backdrop fade.</td><td>200ms ease-out</td></tr>
+      <tr><td>Tab switched</td><td>Underline indicator slides to new tab. Content crossfade.</td><td>250ms</td></tr>
+      <tr><td>KPI counter update</td><td>Number rolls up/down to new value.</td><td>600ms</td></tr>
+    </tbody>
+  </table>
+
+  <h3>12.4 — Notification Center</h3>
+  <div class="wireframe">
+<pre>
+  ┌──────────────────────────────────┐
+  │ 🔔 NOTIFICATIONS          Mark All Read │
+  ├──────────────────────────────────┤
+  │ ● CRITICAL — 5 min ago                  │
+  │   POS sync failure: Fortress Stadium     │
+  │   [View Dashboard R →]                   │
+  ├──────────────────────────────────┤
+  │ ● HIGH — 12 min ago                     │
+  │   Revenue down 22% vs last week          │
+  │   Lahore outlets — [View Dashboard C →]  │
+  ├──────────────────────────────────┤
+  │ ○ MEDIUM — 1 hour ago                   │
+  │   Campaign spend pacing 18% ahead        │
+  │   Meta campaigns — [View Dashboard Q →]  │
+  ├──────────────────────────────────┤
+  │ ○ INFO — 3 hours ago                    │
+  │   Weekly report generated                │
+  │   [Download PDF →]                       │
+  ├──────────────────────────────────┤
+  │ [View All Notifications →]               │
+  └──────────────────────────────────┘
+</pre>
+  </div>
+  <h4>Notification Rules</h4>
+  <ul>
+    <li>Max 50 notifications retained, oldest auto-archived.</li>
+    <li>Grouped by severity, not chronology.</li>
+    <li>Each notification includes: severity badge, timestamp (relative), title, description, and deep link.</li>
+    <li>Unread indicator (filled dot) until clicked or "Mark All Read."</li>
+    <li>Full notification log accessible via "View All" — searchable, filterable by severity/date/type.</li>
+  </ul>
+</div><!-- end section 12 -->
+
+<hr class="divider">
+<!-- ============================================================
+     SECTION 13 — RESPONSIVE & DEVICE BEHAVIOR
+     ============================================================ -->
+<div class="section" id="section-13">
+  <h2><span class="section-num">13</span> Responsive & Device Behavior</h2>
+  <p>This is not a "mobile-first" application — it is a <strong>desktop-primary, multi-device-aware</strong> system. The desktop experience is the canonical design. Other devices receive purposeful adaptations, not shrunken versions.</p>
+
+  <h3>13.1 — Breakpoints</h3>
+  <table>
+    <thead><tr><th>Breakpoint</th><th>Width</th><th>Target Device</th><th>Sidebar</th><th>Grid Columns</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Desktop XL</strong></td><td>&ge; 1440px</td><td>27" monitors, wallboard TVs</td><td>Expanded (220px)</td><td>12</td></tr>
+      <tr><td><strong>Desktop</strong></td><td>1024 – 1439px</td><td>Standard laptops, 24" monitors</td><td>Collapsed (64px), expand on hover</td><td>12</td></tr>
+      <tr><td><strong>Tablet</strong></td><td>768 – 1023px</td><td>iPad, tablets in landscape</td><td>Hidden, hamburger toggle</td><td>8</td></tr>
+      <tr><td><strong>Mobile</strong></td><td>&lt; 768px</td><td>Phones</td><td>Hidden, bottom nav</td><td>4</td></tr>
+    </tbody>
+  </table>
+
+  <h3>13.2 — Device-Specific Behavior</h3>
+
+  <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+
+    <div class="card">
+      <div class="card-accent" style="background: var(--navy);"></div>
+      <h4>Desktop (Primary)</h4>
+      <ul>
+        <li>Full experience: all dashboards, all features, all interactions.</li>
+        <li>Sidebar navigation: expanded on XL, collapsed on standard.</li>
+        <li>All keyboard shortcuts active.</li>
+        <li>Hover states, tooltips, right-click context menus.</li>
+        <li>Compare mode, detail drawers, cross-filtering all available.</li>
+        <li>Density toggle available (Comfortable vs Compact).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-accent" style="background: #E8500A;"></div>
+      <h4>Wallboard Mode</h4>
+      <ul>
+        <li>Accessed via <code>?mode=wallboard</code> URL parameter.</li>
+        <li>Hides: sidebar, filter bar, export buttons, user menu.</li>
+        <li>Shows: auto-rotating dashboard views (configurable cycle: 15-60 seconds).</li>
+        <li>Font sizes scale up 130% for readability at distance.</li>
+        <li>High-contrast mode auto-enabled.</li>
+        <li>Audio alerts for critical exceptions.</li>
+        <li>Mouse cursor hidden after 5 seconds of inactivity.</li>
+        <li>Designed for outlet kitchen TVs and operations rooms.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-accent" style="background: #3B82F6;"></div>
+      <h4>Tablet</h4>
+      <ul>
+        <li>Executive dashboards: fully supported.</li>
+        <li>Operational dashboards: simplified — tables become scrollable cards.</li>
+        <li>Sidebar becomes hamburger overlay.</li>
+        <li>Charts retain full interactivity (touch gestures: pinch-to-zoom, swipe).</li>
+        <li>Drawers open as full-screen overlays instead of side panels.</li>
+        <li>Filter bar collapses to "Filters (3)" button, expands as dropdown.</li>
+        <li>Compare mode: maximum 2 entities side-by-side.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-accent" style="background: #10B981;"></div>
+      <h4>Mobile</h4>
+      <ul>
+        <li><strong>Not all dashboards are available.</strong> Mobile shows: Executive Command Center (simplified), Alerts & Notifications, Outlet Quick Stats, Order Status.</li>
+        <li>Bottom navigation: Home, Alerts, Outlets, Profile.</li>
+        <li>KPI cards stack vertically. Charts become swipeable carousels.</li>
+        <li>Tables replaced with card lists (expandable).</li>
+        <li>No compare mode. No cross-filtering. No keyboard shortcuts.</li>
+        <li>Pull-to-refresh for manual data update.</li>
+        <li>Push notifications replace in-app alerts.</li>
+        <li>Offline indicator when connection is lost.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h3>13.3 — What Changes Per Device</h3>
+  <table>
+    <thead><tr><th>Element</th><th>Desktop</th><th>Tablet</th><th>Mobile</th></tr></thead>
+    <tbody>
+      <tr><td>Navigation</td><td>Sidebar (persistent)</td><td>Hamburger overlay</td><td>Bottom tab bar</td></tr>
+      <tr><td>Filter bar</td><td>Sticky, always visible</td><td>Collapsible pill</td><td>Full-screen filter modal</td></tr>
+      <tr><td>KPI cards</td><td>4 per row</td><td>2 per row</td><td>1 per row (stacked)</td></tr>
+      <tr><td>Charts</td><td>Full size, hover tooltips</td><td>Full size, touch tooltips</td><td>Simplified, swipeable</td></tr>
+      <tr><td>Tables</td><td>Full columns, sorting, pagination</td><td>Scrollable, fewer columns</td><td>Card list (expandable)</td></tr>
+      <tr><td>Detail drawer</td><td>Right-side panel (480px)</td><td>Full-screen overlay</td><td>Full-screen page</td></tr>
+      <tr><td>Compare mode</td><td>3 entities</td><td>2 entities</td><td>Not available</td></tr>
+      <tr><td>Export</td><td>CSV, PDF, PNG, Schedule</td><td>CSV, PDF</td><td>PDF only (via share)</td></tr>
+      <tr><td>Alerts</td><td>Banner + toast + bell</td><td>Banner + bell</td><td>Push notification</td></tr>
+    </tbody>
+  </table>
+
+  <h3>13.4 — Touch Interaction Adaptations</h3>
+  <ul>
+    <li><strong>Touch targets:</strong> Minimum 44 × 44px tap area (WCAG 2.5.5).</li>
+    <li><strong>Swipe:</strong> Horizontal swipe on charts to pan time axis. Swipe between tabs.</li>
+    <li><strong>Long-press:</strong> Replaces right-click for context menus.</li>
+    <li><strong>Pinch:</strong> Zoom on maps and time-series charts.</li>
+    <li><strong>Pull-down:</strong> Refresh data on any page.</li>
+  </ul>
+</div><!-- end section 13 -->
+
+<hr class="divider">
+<!-- ============================================================
+     SECTION 14 — ACCESSIBILITY & USABILITY
+     ============================================================ -->
+<div class="section" id="section-14">
+  <h2><span class="section-num">14</span> Accessibility & Usability Standards</h2>
+  <p>Accessibility is not a compliance checkbox. In a data-dense environment like Crumble's dashboard ecosystem, accessibility principles directly improve usability for <strong>every</strong> user — from the CEO scanning KPIs on a laptop in a bright meeting room to the outlet manager checking the wallboard from across the kitchen.</p>
+
+  <h3>14.1 — Color & Contrast</h3>
+  <table>
+    <thead><tr><th>Requirement</th><th>Standard</th><th>Implementation</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Text contrast</strong></td><td>WCAG 2.1 AA: 4.5:1 minimum (normal text), 3:1 (large text)</td><td>All text/background combinations tested. Secondary text (#6B7280) on white passes at 4.6:1.</td></tr>
+      <tr><td><strong>Interactive elements</strong></td><td>3:1 contrast against adjacent colors</td><td>Buttons, links, form controls all meet threshold on both light and dark backgrounds.</td></tr>
+      <tr><td><strong>Non-color-dependent</strong></td><td>Information must not rely solely on color</td><td>All status indicators use: color + icon + label. Charts use: color + pattern/shape. Alerts use: color + icon + severity text.</td></tr>
+      <tr><td><strong>Chart accessibility</strong></td><td>Distinguishable without color vision</td><td>Chart series use distinct patterns (solid, dashed, dotted) in addition to colors. Legends always visible. Data labels available on hover or toggle.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>14.2 — Keyboard Navigation</h3>
+  <table>
+    <thead><tr><th>Context</th><th>Keyboard Behavior</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Tab order</strong></td><td>Logical flow: Sidebar → Top bar → Filter bar → Content (top-to-bottom, left-to-right). Skip navigation link at page top.</td></tr>
+      <tr><td><strong>Focus indicators</strong></td><td>Visible 2px outline (brand blue) on all focusable elements. Never hidden or suppressed.</td></tr>
+      <tr><td><strong>Charts</strong></td><td>Arrow keys navigate between data points. Enter opens tooltip/detail. Escape closes.</td></tr>
+      <tr><td><strong>Tables</strong></td><td>Arrow keys move between cells. Enter activates row action (drawer). Space toggles selection.</td></tr>
+      <tr><td><strong>Modals/Drawers</strong></td><td>Focus trapped inside when open. Tab cycles within modal. Escape closes. Focus returns to triggering element.</td></tr>
+      <tr><td><strong>Dropdown/Select</strong></td><td>Arrow keys navigate options. Enter selects. Type-ahead search supported.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>14.3 — Screen Reader Support</h3>
+  <ul>
+    <li><strong>ARIA landmarks:</strong> <code>navigation</code>, <code>main</code>, <code>complementary</code>, <code>banner</code> on all pages.</li>
+    <li><strong>Live regions:</strong> Alert banners use <code>aria-live="assertive"</code>. Data refresh uses <code>aria-live="polite"</code>.</li>
+    <li><strong>Chart descriptions:</strong> Every chart has an <code>aria-label</code> describing the chart type and key takeaway. Screen readers announce: "Bar chart showing monthly revenue trend. Current month: 12.4 million, up 8% from last month."</li>
+    <li><strong>Table announcements:</strong> Column headers include sort state. Row count announced on load.</li>
+    <li><strong>KPI cards:</strong> Read as: "Revenue: 12.4 million. Up 8 percent from last period. Target: 13 million."</li>
+  </ul>
+
+  <h3>14.4 — Dense-Data Readability</h3>
+  <p>When screens contain large amounts of data (tables with 50+ rows, dashboards with 12+ components), these rules prevent cognitive overload:</p>
+  <ul>
+    <li><strong>Visual hierarchy:</strong> Maximum 3 levels of visual weight per page (primary KPIs → secondary charts → supporting tables).</li>
+    <li><strong>White space:</strong> Minimum 16px gap between cards. 24px between sections. Never less than 8px between any two elements.</li>
+    <li><strong>Row striping:</strong> Alternating row backgrounds on tables with &gt; 10 rows.</li>
+    <li><strong>Sticky headers:</strong> Table column headers stick on scroll. Page section headers stick briefly.</li>
+    <li><strong>Progressive disclosure:</strong> Default to showing top 10 rows. "Show More" or pagination for the rest.</li>
+    <li><strong>Number formatting:</strong> Consistent: thousands separator (1,234), 1 decimal for percentages (12.4%), abbreviated millions (12.4M). No raw long numbers.</li>
+    <li><strong>Alignment:</strong> Numbers right-aligned. Text left-aligned. Headers match their column alignment.</li>
+  </ul>
+
+  <h3>14.5 — Motion & Animation Preferences</h3>
+  <ul>
+    <li>Respect <code>prefers-reduced-motion</code> media query. When enabled: disable chart animations, transitions become instant, skeleton shimmer becomes static gray.</li>
+    <li>No auto-playing video or aggressive animation anywhere in the system.</li>
+    <li>All transitions under 300ms. No animations longer than 600ms (KPI counter roll-up is the longest).</li>
+  </ul>
+</div><!-- end section 14 -->
+
+<hr class="divider">
+
+<!-- ============================================================
+     SECTION 15 — LOW-FIDELITY WIREFRAME GUIDANCE
+     ============================================================ -->
+<div class="section" id="section-15">
+  <h2><span class="section-num">15</span> Low-Fidelity Wireframe Guidance</h2>
+  <p>This section provides structural wireframe templates that implementation teams should use as the starting point for any new dashboard page. These are <strong>not pixel-perfect mockups</strong> — they are layout skeletons that enforce consistency.</p>
+
+  <h3>15.1 — Executive Dashboard Template</h3>
+  <div class="wireframe">
+<pre>
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  SIDEBAR  │  TOP BAR: Search | Alerts | AI | User                  │
+  │           ├────────────────────────────────────────────────────────┤
+  │  Nav      │  FILTER BAR: Date | City | Outlet | Channel | +More   │
+  │  Items    ├────────────────────────────────────────────────────────┤
+  │           │  PAGE TITLE                            [Export] [Share]│
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐     │
+  │           │  │ KPI Card│ │ KPI Card│ │ KPI Card│ │ KPI Card│     │
+  │           │  └─────────┘ └─────────┘ └─────────┘ └─────────┘     │
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  TAB BAR: [Overview] [Analysis] [Detail] [History]    │
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  ┌──────────────────────┐ ┌──────────────────────┐    │
+  │           │  │                      │ │                      │    │
+  │           │  │   PRIMARY CHART      │ │   SECONDARY CHART    │    │
+  │           │  │   (8-col span)       │ │   (4-col span)       │    │
+  │           │  │                      │ │                      │    │
+  │           │  └──────────────────────┘ └──────────────────────┘    │
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  ┌────────────────────────────────────────────────┐    │
+  │           │  │   FULL-WIDTH TABLE / DATA GRID                │    │
+  │           │  │   with sorting, filtering, pagination         │    │
+  │           │  └────────────────────────────────────────────────┘    │
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  ┌──────────────────┐ ┌──────────────────┐            │
+  │           │  │ INSIGHT CARD     │ │ INSIGHT CARD     │            │
+  │           │  │ AI-generated     │ │ AI-generated     │            │
+  │           │  └──────────────────┘ └──────────────────┘            │
+  └─────────────────────────────────────────────────────────────────────┘
+</pre>
+  </div>
+
+  <h3>15.2 — Operational Dashboard Template</h3>
+  <div class="wireframe">
+<pre>
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  SIDEBAR  │  TOP BAR: Search | Alerts (LIVE) | User                │
+  │           ├────────────────────────────────────────────────────────┤
+  │  Nav      │  FILTER BAR: Outlet | Shift | Date             [LIVE] │
+  │  Items    ├────────────────────────────────────────────────────────┤
+  │           │  PAGE TITLE                    Last Updated: 12:04 PM │
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  ┌──────────────────────────────────────────────────┐  │
+  │           │  │  ALERT BANNER (if active)                       │  │
+  │           │  │  ⚠ Order queue at 18 — exceeds threshold [ACK]  │  │
+  │           │  └──────────────────────────────────────────────────┘  │
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐     │
+  │           │  │ LIVE KPI│ │ LIVE KPI│ │ LIVE KPI│ │ LIVE KPI│     │
+  │           │  │ (pulse) │ │         │ │  (RED)  │ │         │     │
+  │           │  └─────────┘ └─────────┘ └─────────┘ └─────────┘     │
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  ┌──────────────────────┐ ┌──────────────────────┐    │
+  │           │  │                      │ │                      │    │
+  │           │  │   LIVE FEED / QUEUE  │ │   STATUS BOARD       │    │
+  │           │  │   (auto-updating)    │ │   (staff / timers)   │    │
+  │           │  │                      │ │                      │    │
+  │           │  └──────────────────────┘ └──────────────────────┘    │
+  │           ├────────────────────────────────────────────────────────┤
+  │           │  ┌────────────────────────────────────────────────┐    │
+  │           │  │   HOURLY PERFORMANCE BAR                      │    │
+  │           │  │   ▏▎▍▌▋▊▉█▇▆▅▃                              │    │
+  │           │  └────────────────────────────────────────────────┘    │
+  └─────────────────────────────────────────────────────────────────────┘
+</pre>
+  </div>
+
+  <h3>15.3 — Layout Grid Rules</h3>
+  <table>
+    <thead><tr><th>Rule</th><th>Specification</th></tr></thead>
+    <tbody>
+      <tr><td>Grid system</td><td>12-column grid with 24px gutters and 24px page margins.</td></tr>
+      <tr><td>KPI row</td><td>Always full-width (12 cols). 4 KPI cards minimum, max 6. Even distribution.</td></tr>
+      <tr><td>Primary chart</td><td>8 columns. The most important visual gets two-thirds of the width.</td></tr>
+      <tr><td>Secondary chart</td><td>4 columns. Supporting or breakdown visual.</td></tr>
+      <tr><td>Full-width table</td><td>12 columns. Tables always get full width to maximize data density.</td></tr>
+      <tr><td>Card grids</td><td>3 or 4 cards per row (4-col or 3-col spans). Never 5+ per row.</td></tr>
+      <tr><td>Section spacing</td><td>32px between major sections. 16px between cards/components within a section.</td></tr>
+      <tr><td>Minimum component height</td><td>Charts: 280px. Cards: 120px. Tables: 400px (or "show more" after 10 rows).</td></tr>
+    </tbody>
+  </table>
+
+  <h3>15.4 — Page Anatomy Checklist</h3>
+  <p>Every dashboard page must include these elements in this order:</p>
+  <ol>
+    <li><strong>Page Title</strong> — H1, left-aligned, with breadcrumb above if nested deeper than level 1.</li>
+    <li><strong>Alert Banner</strong> — Conditional: only appears when exceptions are active for this page's scope.</li>
+    <li><strong>KPI Row</strong> — 4-6 summary metrics with trend and comparison. These are the "pulse" of the page.</li>
+    <li><strong>Tab Bar</strong> — If the page has sub-views (most executive dashboards do).</li>
+    <li><strong>Visual Content</strong> — Charts, tables, maps, operational boards. Organized by information flow (overview → detail).</li>
+    <li><strong>AI Insights</strong> — Optional but recommended: 1-2 AI-generated insight cards summarizing what the data means.</li>
+    <li><strong>Footer Actions</strong> — Export, share, schedule report. Subtle, bottom-aligned.</li>
+  </ol>
+</div><!-- end section 15 -->
+
+<hr class="divider">
+<!-- ============================================================
+     SECTION 16 — HIGH-FIDELITY VISUAL DIRECTION
+     ============================================================ -->
+<div class="section" id="section-16">
+  <h2><span class="section-num">16</span> High-Fidelity Visual Direction</h2>
+  <p>This section establishes the aesthetic language of the Crumble dashboard ecosystem. The visual direction must communicate: <strong>premium quality, analytical precision, and Crumble brand warmth</strong>.</p>
+
+  <h3>16.1 — Light Mode (Default)</h3>
+  <div class="card">
+    <div class="card-accent" style="background: var(--brand-primary);"></div>
+    <h4>The Default Experience</h4>
+    <table>
+      <thead><tr><th>Element</th><th>Specification</th></tr></thead>
+      <tbody>
+        <tr><td>Background</td><td>#F8F9FA (warm gray, not pure white — reduces eye strain for long sessions)</td></tr>
+        <tr><td>Card background</td><td>#FFFFFF with 1px border #E5E7EB and subtle shadow (elevation-1)</td></tr>
+        <tr><td>Primary text</td><td>#1A1A2E (very dark navy — softer than pure black)</td></tr>
+        <tr><td>Secondary text</td><td>#6B7280 (balanced gray, 4.6:1 contrast)</td></tr>
+        <tr><td>Brand accent</td><td>#E8500A (used sparingly: active nav, primary buttons, important highlights)</td></tr>
+        <tr><td>Positive values</td><td>#10B981 (emerald green, always paired with up-arrow icon)</td></tr>
+        <tr><td>Negative values</td><td>#EF4444 (red, always paired with down-arrow icon)</td></tr>
+        <tr><td>Chart area background</td><td>White, with very subtle #F3F4F6 gridlines</td></tr>
+        <tr><td>Sidebar</td><td>#1A1A2E (dark navy — creates visual anchor and premium contrast)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>16.2 — Dark Mode (Optional)</h3>
+  <div class="card">
+    <div class="card-accent" style="background: #1A1A2E;"></div>
+    <h4>For Night Operations & Wallboard</h4>
+    <table>
+      <thead><tr><th>Element</th><th>Specification</th></tr></thead>
+      <tbody>
+        <tr><td>Background</td><td>#0F0F1A (very dark navy, not pure black — reduces harshness)</td></tr>
+        <tr><td>Card background</td><td>#1A1A2E with 1px border #2D2D3F</td></tr>
+        <tr><td>Primary text</td><td>#E5E7EB (off-white, not pure white — reduces bloom on dark backgrounds)</td></tr>
+        <tr><td>Secondary text</td><td>#9CA3AF</td></tr>
+        <tr><td>Brand accent</td><td>#FF6B2B (slightly brighter orange for dark backgrounds)</td></tr>
+        <tr><td>Chart gridlines</td><td>#2D2D3F (barely visible, maintains context without distraction)</td></tr>
+        <tr><td>Sidebar</td><td>#0A0A14 (darker than card — maintains layered depth)</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Activation:</strong> System preference detection (<code>prefers-color-scheme: dark</code>) + manual toggle in user settings. Wallboard mode auto-selects based on ambient light sensor if available, otherwise defaults to dark after 8 PM.</p>
+  </div>
+
+  <h3>16.3 — Typography in Practice</h3>
+  <table>
+    <thead><tr><th>Context</th><th>Font</th><th>Weight</th><th>Size</th><th>Letter Spacing</th></tr></thead>
+    <tbody>
+      <tr><td>Page title</td><td>Inter</td><td>700</td><td>28px</td><td>-0.02em (tight)</td></tr>
+      <tr><td>Section heading</td><td>Inter</td><td>600</td><td>20px</td><td>Normal</td></tr>
+      <tr><td>KPI value (large)</td><td>Inter</td><td>700</td><td>32px</td><td>-0.02em</td></tr>
+      <tr><td>KPI label</td><td>Inter</td><td>500</td><td>12px</td><td>0.05em (wide)</td></tr>
+      <tr><td>Table header</td><td>Inter</td><td>600</td><td>12px</td><td>0.04em</td></tr>
+      <tr><td>Table body</td><td>Inter</td><td>400</td><td>14px</td><td>Normal</td></tr>
+      <tr><td>Chart labels</td><td>Inter</td><td>500</td><td>11px</td><td>Normal</td></tr>
+      <tr><td>Code / Data IDs</td><td>DM Mono</td><td>400</td><td>13px</td><td>Normal</td></tr>
+      <tr><td>Alert text</td><td>Inter</td><td>600</td><td>14px</td><td>Normal</td></tr>
+    </tbody>
+  </table>
+
+  <h3>16.4 — Iconography Style</h3>
+  <ul>
+    <li><strong>Icon Library:</strong> Lucide Icons (open source, consistent 24px grid, 1.5px stroke).</li>
+    <li><strong>Sizes:</strong> 16px (inline with text), 20px (buttons and nav), 24px (page-level actions), 32px (empty states).</li>
+    <li><strong>Color:</strong> Icons inherit text color by default. Status icons use semantic colors (green check, red X, amber warning).</li>
+    <li><strong>No decorative icons.</strong> Every icon must communicate meaning. If it's just decoration, remove it.</li>
+  </ul>
+
+  <h3>16.5 — Chart Visual Language</h3>
+  <table>
+    <thead><tr><th>Chart Type</th><th>When Used</th><th>Visual Style</th></tr></thead>
+    <tbody>
+      <tr><td>Line chart</td><td>Trends over time</td><td>2px line, 6px circle markers at data points, area fill at 10% opacity below the line.</td></tr>
+      <tr><td>Bar chart</td><td>Comparisons (categorical)</td><td>Border-radius: 4px top corners. 8px gap between bars. Hover: darken 10%.</td></tr>
+      <tr><td>Stacked bar</td><td>Composition</td><td>Series colors from chart palette. No gap between stacks. Hover: highlight one series, dim others.</td></tr>
+      <tr><td>Donut chart</td><td>Proportions (max 6 segments)</td><td>Inner radius: 60%. Center shows total or selected segment value. Never more than 6 slices — group remainder as "Other."</td></tr>
+      <tr><td>Heatmap</td><td>Two-dimension density</td><td>Sequential color scale from light to dark. Cell borders: 1px white. Hover: show exact value + rank.</td></tr>
+      <tr><td>Scatter / Bubble</td><td>Correlation (LTO popularity vs profitability)</td><td>Circle markers. Size encodes third dimension. Quadrant lines at 50th percentile. Labels on top 5 outliers only.</td></tr>
+      <tr><td>Waterfall</td><td>Sequential impact (P&L, variance)</td><td>Green bars for increases, red for decreases, gray for totals. Connector lines between bars.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>16.6 — Premium Aesthetic Principles</h3>
+  <ul>
+    <li><strong>Restraint over decoration:</strong> No gradients on data elements. No 3D effects. No drop shadows on charts. Flat is premium.</li>
+    <li><strong>Whitespace is intentional:</strong> Every gap, margin, and padding is a deliberate choice, not a leftover. The system breathes.</li>
+    <li><strong>Brand warmth through accent:</strong> Crumble orange (#E8500A) is used as a strategic accent — active states, primary CTAs, and the sidebar logo. It should feel like a warm punctuation mark, not a dominating color.</li>
+    <li><strong>Data density without clutter:</strong> Use Compact density mode for operational dashboards. Reduce row height, pad cells tighter, but never below readable thresholds.</li>
+    <li><strong>Consistency builds trust:</strong> If a user sees Revenue as a blue line on one page, it must be the same blue everywhere. The chart palette is not just aesthetic — it's a semantic language.</li>
+    <li><strong>Animation as information:</strong> KPI counter roll-ups tell the user "this just updated." Chart draw animations show "new data arrived." Motion is not decoration — it's communication.</li>
+  </ul>
+</div><!-- end section 16 -->
+
+<hr class="divider">
+<!-- ============================================================
+     SECTION 17 — SCREEN INVENTORY
+     ============================================================ -->
+<div class="section" id="section-17">
+  <h2><span class="section-num">17</span> Complete Screen Inventory</h2>
+  <p>This is the definitive index of every screen in the Crumble dashboard ecosystem. Use this inventory for project planning, sprint allocation, design assignments, and QA coverage tracking.</p>
+
+  <h3>17.1 — Executive Layer Screens</h3>
+  <table>
+    <thead><tr><th>#</th><th>Screen Name</th><th>Dashboard</th><th>Type</th><th>Primary Role</th><th>Tabs/Views</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Executive Command Center</td><td>A</td><td>Summary</td><td>CEO / CFO</td><td>1 (single view)</td><td>P1</td></tr>
+      <tr><td>2</td><td>Finance — P&L Overview</td><td>B</td><td>Detail</td><td>CFO</td><td>Tab 1 of 4</td><td>P3</td></tr>
+      <tr><td>3</td><td>Finance — Cost Analysis</td><td>B</td><td>Detail</td><td>CFO</td><td>Tab 2 of 4</td><td>P3</td></tr>
+      <tr><td>4</td><td>Finance — Budget vs Actual</td><td>B</td><td>Detail</td><td>CFO</td><td>Tab 3 of 4</td><td>P3</td></tr>
+      <tr><td>5</td><td>Finance — Reconciliation</td><td>B</td><td>Detail</td><td>CFO</td><td>Tab 4 of 4</td><td>P3</td></tr>
+      <tr><td>6</td><td>Outlet/City — Map & Rankings</td><td>C</td><td>Geographic</td><td>COO / CEO</td><td>Tab 1 of 4</td><td>P1</td></tr>
+      <tr><td>7</td><td>Outlet/City — City Comparison</td><td>C</td><td>Comparison</td><td>COO</td><td>Tab 2 of 4</td><td>P1</td></tr>
+      <tr><td>8</td><td>Outlet/City — Daypart Analysis</td><td>C</td><td>Analysis</td><td>COO</td><td>Tab 3 of 4</td><td>P2</td></tr>
+      <tr><td>9</td><td>Outlet/City — SLA Dashboard</td><td>C</td><td>Monitoring</td><td>COO</td><td>Tab 4 of 4</td><td>P2</td></tr>
+      <tr><td>10</td><td>Product — Menu Overview</td><td>D</td><td>Analysis</td><td>Product Head</td><td>Tab 1 of 4</td><td>P2</td></tr>
+      <tr><td>11</td><td>Product — LTO Launch Tracker</td><td>D</td><td>Campaign</td><td>Product Head / CMO</td><td>Tab 2 of 4</td><td>P1</td></tr>
+      <tr><td>12</td><td>Product — SKU Deep Dive</td><td>D</td><td>Detail</td><td>Product Head</td><td>Tab 3 of 4</td><td>P2</td></tr>
+      <tr><td>13</td><td>Product — Cannibalization</td><td>D</td><td>Impact</td><td>Product Head</td><td>Tab 4 of 4</td><td>P3</td></tr>
+      <tr><td>14</td><td>Customer — Overview</td><td>E</td><td>Summary</td><td>CRM Manager</td><td>Tab 1 of 4</td><td>P3</td></tr>
+      <tr><td>15</td><td>Customer — Cohort Analysis</td><td>E</td><td>Analysis</td><td>CRM Manager</td><td>Tab 2 of 4</td><td>P3</td></tr>
+      <tr><td>16</td><td>Customer — Segments</td><td>E</td><td>Segmentation</td><td>CRM Manager</td><td>Tab 3 of 4</td><td>P3</td></tr>
+      <tr><td>17</td><td>Customer — Loyalty Program</td><td>E</td><td>Program</td><td>CRM Manager</td><td>Tab 4 of 4</td><td>P3</td></tr>
+      <tr><td>18</td><td>Marketing — Paid Performance</td><td>F</td><td>Analysis</td><td>Perf. Marketing / CMO</td><td>Tab 1 of 4</td><td>P1</td></tr>
+      <tr><td>19</td><td>Marketing — Organic & Virality</td><td>F</td><td>Social</td><td>CMO</td><td>Tab 2 of 4</td><td>P2</td></tr>
+      <tr><td>20</td><td>Marketing — Campaign Drill</td><td>F</td><td>Detail</td><td>Perf. Marketing</td><td>Tab 3 of 4</td><td>P1</td></tr>
+      <tr><td>21</td><td>Marketing — LTO Campaign Overlay</td><td>F</td><td>Overlay</td><td>CMO / Product Head</td><td>Tab 4 of 4</td><td>P2</td></tr>
+      <tr><td>22</td><td>Supply Chain — Network Overview</td><td>G</td><td>Monitoring</td><td>Supply Chain Head</td><td>Tab 1 of 4</td><td>P2</td></tr>
+      <tr><td>23</td><td>Supply Chain — Production</td><td>G</td><td>Operations</td><td>Production Manager</td><td>Tab 2 of 4</td><td>P2</td></tr>
+      <tr><td>24</td><td>Supply Chain — Stock Position</td><td>G</td><td>Inventory</td><td>Supply Chain Head</td><td>Tab 3 of 4</td><td>P2</td></tr>
+      <tr><td>25</td><td>Supply Chain — Vendor Management</td><td>G</td><td>Vendor</td><td>Supply Chain Head</td><td>Tab 4 of 4</td><td>P3</td></tr>
+      <tr><td>26</td><td>Service Quality — Service Metrics</td><td>H</td><td>Monitoring</td><td>COO</td><td>Tab 1 of 4</td><td>P2</td></tr>
+      <tr><td>27</td><td>Service Quality — Feedback & Reviews</td><td>H</td><td>Feedback</td><td>COO</td><td>Tab 2 of 4</td><td>P2</td></tr>
+      <tr><td>28</td><td>Service Quality — Outlet Comparison</td><td>H</td><td>Comparison</td><td>COO</td><td>Tab 3 of 4</td><td>P2</td></tr>
+      <tr><td>29</td><td>Service Quality — Root Cause</td><td>H</td><td>Analysis</td><td>COO</td><td>Tab 4 of 4</td><td>P3</td></tr>
+    </tbody>
+  </table>
+
+  <h3>17.2 — Operational Layer Screens</h3>
+  <table>
+    <thead><tr><th>#</th><th>Screen Name</th><th>Dashboard</th><th>Type</th><th>Primary Role</th><th>Tabs/Views</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>30</td><td>Outlet Live Operations Board</td><td>I</td><td>Real-time</td><td>Outlet Manager</td><td>1 + Wallboard</td><td>P1</td></tr>
+      <tr><td>31</td><td>Hourly Bake Planner</td><td>J</td><td>Planning</td><td>Baker / Outlet Manager</td><td>1</td><td>P2</td></tr>
+      <tr><td>32</td><td>Central Kitchen — Batch Board</td><td>K</td><td>Kanban</td><td>Production Manager</td><td>1</td><td>P2</td></tr>
+      <tr><td>33</td><td>Central Kitchen — Shift Performance</td><td>K</td><td>Analysis</td><td>Production Manager</td><td>Tab 2</td><td>P2</td></tr>
+      <tr><td>34</td><td>Inventory — Stock Health</td><td>L</td><td>Monitoring</td><td>Inventory Manager</td><td>Tab 1 of 3</td><td>P2</td></tr>
+      <tr><td>35</td><td>Inventory — Replenishment</td><td>L</td><td>Action</td><td>Inventory Manager</td><td>Tab 2 of 3</td><td>P2</td></tr>
+      <tr><td>36</td><td>Inventory — Transfers & Expiry</td><td>L</td><td>Logistics</td><td>Inventory Manager</td><td>Tab 3 of 3</td><td>P3</td></tr>
+      <tr><td>37</td><td>Order Fulfillment — Pipeline</td><td>M</td><td>Real-time</td><td>Outlet Manager</td><td>Tab 1 of 3</td><td>P2</td></tr>
+      <tr><td>38</td><td>Order Fulfillment — SLA Tracker</td><td>M</td><td>Monitoring</td><td>Outlet Manager</td><td>Tab 2 of 3</td><td>P2</td></tr>
+      <tr><td>39</td><td>Order Fulfillment — Cancellation Analysis</td><td>M</td><td>Analysis</td><td>Outlet Manager</td><td>Tab 3 of 3</td><td>P3</td></tr>
+      <tr><td>40</td><td>Waste & Quality — Overview</td><td>N</td><td>Monitoring</td><td>Quality Manager</td><td>Tab 1 of 3</td><td>P2</td></tr>
+      <tr><td>41</td><td>Waste & Quality — Freshness Compliance</td><td>N</td><td>Compliance</td><td>Quality Manager</td><td>Tab 2 of 3</td><td>P2</td></tr>
+      <tr><td>42</td><td>Waste & Quality — Root Cause</td><td>N</td><td>Analysis</td><td>Quality Manager</td><td>Tab 3 of 3</td><td>P3</td></tr>
+      <tr><td>43</td><td>Workforce — Shift Performance</td><td>O</td><td>HR / Operations</td><td>COO / HR</td><td>1</td><td>P3</td></tr>
+      <tr><td>44</td><td>CRM Ops — Lifecycle & Win-Back</td><td>P</td><td>Action</td><td>CRM Manager</td><td>1</td><td>P3</td></tr>
+      <tr><td>45</td><td>Campaign Ops — Spend & Creative</td><td>Q</td><td>Campaign</td><td>Perf. Marketing</td><td>1</td><td>P2</td></tr>
+      <tr><td>46</td><td>Data Quality Monitor</td><td>R</td><td>Admin</td><td>BI Admin</td><td>1</td><td>P3</td></tr>
+    </tbody>
+  </table>
+
+  <h3>17.3 — Supporting / Shared Screens</h3>
+  <table>
+    <thead><tr><th>#</th><th>Screen Name</th><th>Type</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>47</td><td>Global Search Results</td><td>Utility</td><td>Full search results page with entity type tabs (Dashboards, Outlets, Products, Campaigns, Customers).</td><td>P2</td></tr>
+      <tr><td>48</td><td>Notification Center</td><td>Utility</td><td>Full notification log with filters (severity, date, type), archiving, and search.</td><td>P2</td></tr>
+      <tr><td>49</td><td>Bookmarks & Saved Views</td><td>Utility</td><td>User's pinned metrics, saved filter views, and bookmarked pages.</td><td>P3</td></tr>
+      <tr><td>50</td><td>User Settings / Profile</td><td>Admin</td><td>Personal preferences: density mode, default landing page, notification settings, dark mode.</td><td>P3</td></tr>
+      <tr><td>51</td><td>Admin — User Management</td><td>Admin</td><td>Role assignment, permissions, team management. BI Admin only.</td><td>P3</td></tr>
+      <tr><td>52</td><td>Admin — Alert Configuration</td><td>Admin</td><td>Threshold rules, routing, quiet hours, custom alert builder.</td><td>P3</td></tr>
+      <tr><td>53</td><td>Admin — System Health</td><td>Admin</td><td>Application performance, user sessions, feature usage analytics.</td><td>P3</td></tr>
+      <tr><td>54</td><td>Onboarding Tour</td><td>Overlay</td><td>3-5 step guided tour shown on first visit to each dashboard.</td><td>P3</td></tr>
+    </tbody>
+  </table>
+
+  <h3>17.4 — Summary Statistics</h3>
+  <div class="card-grid" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="card" style="text-align:center;">
+      <div class="card-accent" style="background: var(--brand-primary);"></div>
+      <h4>54</h4>
+      <p>Total Screens</p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div class="card-accent" style="background: var(--navy);"></div>
+      <h4>29</h4>
+      <p>Executive Layer</p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div class="card-accent" style="background: #F59E0B;"></div>
+      <h4>17</h4>
+      <p>Operational Layer</p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div class="card-accent" style="background: #3B82F6;"></div>
+      <h4>8</h4>
+      <p>Supporting / Admin</p>
+    </div>
+  </div>
+</div><!-- end section 17 -->
+
+<hr class="divider">
+<!-- ============================================================
+     SECTION 18 — IMPLEMENTATION PRIORITY & PHASED BUILD
+     ============================================================ -->
+<div class="section" id="section-18">
+  <h2><span class="section-num">18</span> Implementation Priority & Phased Build Sequence</h2>
+  <p>Not everything ships at once. This section defines the build sequence that maximizes early value delivery while establishing the design system foundation that all subsequent work builds upon.</p>
+
+  <h3>18.1 — Phase 0: Foundation (Weeks 1–4)</h3>
+  <div class="card">
+    <div class="card-accent" style="background: var(--navy);"></div>
+    <h4>Design System & Infrastructure</h4>
+    <p>Before any dashboard screen is built, the design system must be implemented as a shared component library.</p>
+    <table>
+      <thead><tr><th>Deliverable</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Component Library</strong></td><td>All reusable components from Section 07: KPI Card, Trend Card, Variance Card, Filter Bar, Tab Bar, Date Picker, Export Menu, Alert Banner, Drawer, Tooltip, Loading States.</td></tr>
+        <tr><td><strong>Design Tokens</strong></td><td>Color system, typography scale, spacing, elevation — implemented as CSS variables / design tokens that all components consume.</td></tr>
+        <tr><td><strong>Layout Shell</strong></td><td>Sidebar, top bar, filter bar, content area grid. Responsive breakpoints. Route structure.</td></tr>
+        <tr><td><strong>Authentication & Roles</strong></td><td>Login, role assignment, permission-based routing, role-default landing pages.</td></tr>
+        <tr><td><strong>Alert Framework</strong></td><td>Alert engine, notification center, severity hierarchy, delivery channels (in-app, email).</td></tr>
+        <tr><td><strong>Data Layer</strong></td><td>API structure, real-time subscription layer (WebSocket), caching strategy, loading/error state management.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Outcome:</strong> A working shell where any new dashboard page can be built by composing existing components with new data queries. This investment prevents technical debt and inconsistency from Day 1.</p>
+  </div>
+
+  <h3>18.2 — Phase 1: Core Dashboards (Weeks 5–10)</h3>
+  <div class="card">
+    <div class="card-accent" style="background: #E8500A;"></div>
+    <h4>P1 Priority Screens — Maximum Business Impact</h4>
+    <table>
+      <thead><tr><th>#</th><th>Screen</th><th>Dashboard</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Executive Command Center</td><td>A</td><td>CEO's daily landing page. Proves system value immediately. Aggregates all data sources.</td></tr>
+        <tr><td>6–7</td><td>Outlet/City — Map & Rankings, City Comparison</td><td>C</td><td>Outlet performance is the operational backbone. Every decision traces back to outlet data.</td></tr>
+        <tr><td>11</td><td>LTO Launch Tracker</td><td>D</td><td>LTOs drive Crumble's business cycle. Must track from Day 1 of any LTO launch.</td></tr>
+        <tr><td>18, 20</td><td>Marketing Paid Performance + Campaign Drill</td><td>F</td><td>Performance marketing has the most immediate data availability and ROI impact.</td></tr>
+        <tr><td>30</td><td>Outlet Live Operations Board</td><td>I</td><td>Real-time outlet visibility is the operational heartbeat. Includes wallboard mode.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Total P1 Screens:</strong> 7 screens across 5 dashboards. These represent the minimum viable product that delivers daily value to CEO, COO, CMO, and Outlet Managers.</p>
+  </div>
+
+  <h3>18.3 — Phase 2: Operational Depth (Weeks 11–18)</h3>
+  <div class="card">
+    <div class="card-accent" style="background: #F59E0B;"></div>
+    <h4>P2 Priority Screens — Operational Excellence</h4>
+    <table>
+      <thead><tr><th>Screens</th><th>Dashboard</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>8–9</td><td>C: Daypart + SLA</td><td>Deeper outlet analysis once foundation data is flowing.</td></tr>
+        <tr><td>10, 12</td><td>D: Menu Overview + SKU Drill</td><td>Product analytics beyond LTO — menu optimization.</td></tr>
+        <tr><td>19, 21</td><td>F: Organic/Virality + LTO Overlay</td><td>Viral content tracking and LTO-campaign correlation.</td></tr>
+        <tr><td>22–24</td><td>G: Supply Chain network, production, stock</td><td>Production and supply chain visibility.</td></tr>
+        <tr><td>26–28</td><td>H: Service Quality — metrics, feedback, comparison</td><td>Service quality loop tied to customer satisfaction.</td></tr>
+        <tr><td>31</td><td>J: Hourly Bake Planner</td><td>Baking efficiency directly impacts waste and revenue.</td></tr>
+        <tr><td>32–33</td><td>K: Central Kitchen</td><td>Production control tower for central operations.</td></tr>
+        <tr><td>34–35</td><td>L: Inventory stock + replenishment</td><td>Stock health prevents stockouts and over-ordering.</td></tr>
+        <tr><td>37–38</td><td>M: Order Fulfillment pipeline + SLA</td><td>Digital order management with delivery partner integration.</td></tr>
+        <tr><td>40–41</td><td>N: Waste overview + freshness compliance</td><td>Waste reduction is a direct margin improvement.</td></tr>
+        <tr><td>45</td><td>Q: Campaign Operations</td><td>Day-to-day marketing execution tools.</td></tr>
+        <tr><td>47–48</td><td>Search + Notifications</td><td>Platform utility features that improve daily usability.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Total P2 Screens:</strong> ~22 screens. This phase builds out the operational muscle of the platform.</p>
+  </div>
+
+  <h3>18.4 — Phase 3: Advanced Analytics & Admin (Weeks 19–26)</h3>
+  <div class="card">
+    <div class="card-accent" style="background: #3B82F6;"></div>
+    <h4>P3 Priority Screens — Completeness & Sophistication</h4>
+    <table>
+      <thead><tr><th>Screens</th><th>Dashboard</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>2–5</td><td>B: Finance (all 4 tabs)</td><td>Requires ERP integration which takes longer to set up.</td></tr>
+        <tr><td>13</td><td>D: Cannibalization</td><td>Advanced analysis requiring sufficient historical data.</td></tr>
+        <tr><td>14–17</td><td>E: Customer/Loyalty (all 4 tabs)</td><td>Requires CRM data maturity and loyalty program integration.</td></tr>
+        <tr><td>25</td><td>G: Vendor Management</td><td>Vendor portal integration needed.</td></tr>
+        <tr><td>29</td><td>H: Root Cause Analysis</td><td>Requires multiple data streams correlated together.</td></tr>
+        <tr><td>36</td><td>L: Transfers & Expiry</td><td>Logistics detail layer.</td></tr>
+        <tr><td>39</td><td>M: Cancellation Analysis</td><td>Deeper analysis after core fulfillment is tracked.</td></tr>
+        <tr><td>42</td><td>N: Waste Root Cause</td><td>Advanced waste analytics.</td></tr>
+        <tr><td>43</td><td>O: Workforce/Shift</td><td>HR data integration dependency.</td></tr>
+        <tr><td>44</td><td>P: CRM Operations</td><td>CRM maturity dependency.</td></tr>
+        <tr><td>46</td><td>R: Data Quality Monitor</td><td>Admin tooling — after core system is stable.</td></tr>
+        <tr><td>49–54</td><td>Supporting: Bookmarks, Settings, Admin panels, Onboarding</td><td>User experience polish and administration.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Total P3 Screens:</strong> ~25 screens. This phase completes the ecosystem and adds advanced analytical capabilities.</p>
+  </div>
+
+  <h3>18.5 — Build Effort Summary</h3>
+  <table>
+    <thead><tr><th>Phase</th><th>Weeks</th><th>Screens</th><th>Focus</th><th>Team Impact</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Phase 0</strong></td><td>1–4</td><td>0 (infrastructure)</td><td>Component library, design tokens, layout shell, auth, data layer</td><td>Design + Frontend + Backend</td></tr>
+      <tr><td><strong>Phase 1</strong></td><td>5–10</td><td>7</td><td>Command Center, Outlets, LTO, Marketing, Live Ops</td><td>Full team, CEO demos weekly</td></tr>
+      <tr><td><strong>Phase 2</strong></td><td>11–18</td><td>~22</td><td>Operational dashboards, supply chain, quality, campaign ops</td><td>Parallel workstreams by domain</td></tr>
+      <tr><td><strong>Phase 3</strong></td><td>19–26</td><td>~25</td><td>Finance, CRM, advanced analytics, admin tools</td><td>Data maturity dependent</td></tr>
+    </tbody>
+  </table>
+
+  <h3>18.6 — Design Handoff Checklist</h3>
+  <p>For each screen moving to development, the design handoff package must include:</p>
+  <ol>
+    <li><strong>High-fidelity mockup</strong> — Figma file with all states (default, loading, empty, error).</li>
+    <li><strong>Responsive variants</strong> — Desktop, tablet, mobile (where applicable).</li>
+    <li><strong>Component specification</strong> — Which shared components are used, with any parameter overrides.</li>
+    <li><strong>Interaction annotations</strong> — What happens on click, hover, drag for each interactive element.</li>
+    <li><strong>Data mapping</strong> — Which API endpoint feeds each component. Expected data shape.</li>
+    <li><strong>Exception states</strong> — Alert conditions, thresholds, what happens when data is missing or stale.</li>
+    <li><strong>Accessibility notes</strong> — ARIA labels, keyboard flow, screen reader announcements.</li>
+    <li><strong>Acceptance criteria</strong> — Quantified definition of done for QA.</li>
+  </ol>
+
+</div><!-- end section 18 -->
+
+<hr class="divider">
+
+<!-- ============================================================
+     CLOSING
+     ============================================================ -->
+<div class="section" id="closing" style="text-align: center; padding: 80px 40px;">
+  <h2 style="font-size: 28px; margin-bottom: 16px;">End of Blueprint</h2>
+  <p style="font-size: 16px; color: #6B7280; max-width: 600px; margin: 0 auto;">This document defines the complete UI/UX system design for the Crumble Pakistan Dashboard Ecosystem. It is intended to serve as the authoritative reference for design, development, and quality assurance teams throughout implementation.</p>
+  <div style="margin-top: 40px; padding: 24px; background: #1A1A2E; border-radius: 12px; display: inline-block;">
+    <p style="color: #E8500A; font-weight: 700; font-size: 20px; margin: 0;">Crumble Pakistan</p>
+    <p style="color: #9CA3AF; font-size: 14px; margin: 4px 0 0 0;">Dashboard Ecosystem — UI/UX Blueprint v1.0</p>
+    <p style="color: #6B7280; font-size: 12px; margin: 4px 0 0 0;">Prepared by Gulsher Zahid</p>
+  </div>
+</div>
+
+</div><!-- end .container -->
+</body>
+</html>

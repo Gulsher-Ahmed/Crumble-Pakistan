@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crumble Pakistan — BI Partnership Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --accent: #E8500A; --accent-light: #FEF0E9; --dark: #111827; --text: #1F2937;
+    --text-secondary: #6B7280; --text-muted: #9CA3AF; --border: #E5E7EB; --border-light: #F3F4F6;
+    --bg: #FFFFFF; --bg-alt: #F9FAFB; --blue: #2563EB; --blue-light: #EFF6FF;
+    --green: #059669; --green-light: #ECFDF5; --purple: #7C3AED; --purple-light: #F5F3FF;
+    --amber: #D97706; --amber-light: #FFFBEB; --red: #DC2626; --red-light: #FEF2F2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); font-size: 11pt; line-height: 1.65; background: #F3F4F6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 20px auto; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+  @media print { body { background: #fff; } .page { margin: 0; box-shadow: none; page-break-after: always; } .page:last-child { page-break-after: avoid; } }
+  .cover { min-height: 297mm; display: flex; flex-direction: column; position: relative; background: linear-gradient(165deg, #0F172A 0%, #1E293B 40%, #1E293B 100%); color: #fff; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,80,10,0.15) 0%, transparent 70%); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%); border-radius: 50%; }
+  .cover-top { padding: 50px 60px 30px; position: relative; z-index: 1; }
+  .cover-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .cover-logo-text { font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 60px; position: relative; z-index: 1; }
+  .cover-label { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  .cover-title { font-size: 38px; font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
+  .cover-title span { color: var(--accent); }
+  .cover-subtitle { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 480px; }
+  .cover-divider { width: 60px; height: 3px; background: var(--accent); margin: 30px 0; border-radius: 2px; }
+  .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 500px; }
+  .cover-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .cover-meta-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+  .cover-meta-value { font-size: 14px; font-weight: 600; color: #fff; }
+  .cover-meta-sub { font-size: 11px; color: rgba(255,255,255,0.5); }
+  .cover-footer { padding: 30px 60px 40px; border-top: 1px solid rgba(255,255,255,0.06); position: relative; z-index: 1; }
+  .cover-confidential { font-size: 9px; color: rgba(255,255,255,0.3); line-height: 1.7; max-width: 550px; }
+  .page-content { padding: 50px 55px 60px; }
+  .page-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 2px solid var(--dark); margin-bottom: 30px; }
+  .page-header-left { display: flex; align-items: center; gap: 8px; }
+  .page-header-brand { font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+  .page-number { font-size: 9px; font-weight: 600; color: var(--text-muted); }
+  .section-number { font-size: 11px; font-weight: 800; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  h1 { font-size: 26px; font-weight: 800; color: var(--dark); letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 20px; }
+  h2 { font-size: 18px; font-weight: 700; color: var(--dark); margin-top: 28px; margin-bottom: 12px; letter-spacing: -0.3px; }
+  h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-top: 20px; margin-bottom: 8px; }
+  p { margin-bottom: 12px; color: var(--text); }
+  .lead { font-size: 12.5pt; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+  strong { font-weight: 700; }
+  .callout { background: var(--bg-alt); border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 18px 0; font-style: italic; color: var(--text-secondary); font-size: 11pt; line-height: 1.6; }
+  .callout-blue { background: var(--blue-light); border-left-color: var(--blue); color: #1E40AF; font-style: normal; }
+  .callout-green { background: var(--green-light); border-left-color: var(--green); color: #065F46; font-style: normal; }
+  .callout-purple { background: var(--purple-light); border-left-color: var(--purple); color: #5B21B6; font-style: normal; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0 18px; font-size: 10pt; }
+  thead th { background: var(--dark); color: #fff; font-weight: 600; font-size: 9pt; letter-spacing: 0.5px; text-transform: uppercase; padding: 10px 14px; text-align: left; border: none; }
+  thead th:first-child { border-radius: 6px 0 0 0; } thead th:last-child { border-radius: 0 6px 0 0; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--bg-alt); }
+  tbody tr:last-child td { border-bottom: 2px solid var(--border); }
+  .table-compact td, .table-compact th { padding: 7px 12px; font-size: 9.5pt; }
+  .table-accent thead th { background: var(--accent); }
+  .total-row td { font-weight: 700; background: var(--accent-light) !important; color: var(--accent); border-bottom: 2px solid var(--accent); }
+  .phase-block { border: 2px solid var(--border); border-radius: 12px; margin: 20px 0; overflow: hidden; }
+  .phase-header { padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; }
+  .phase-header-1 { background: linear-gradient(135deg, #1E3A5F 0%, #1E293B 100%); color: #fff; }
+  .phase-header-2 { background: linear-gradient(135deg, #7C2D12 0%, #9A3412 100%); color: #fff; }
+  .phase-header-3 { background: linear-gradient(135deg, #3B0764 0%, #581C87 100%); color: #fff; }
+  .phase-tag { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; }
+  .phase-title { font-size: 16px; font-weight: 700; margin-top: 4px; }
+  .phase-duration { font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; }
+  .phase-body { padding: 20px 22px; }
+  .month-label { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); padding: 4px 10px; background: var(--accent-light); border-radius: 4px; margin-bottom: 12px; }
+  .deliverable-box { background: var(--green-light); border: 1px solid #A7F3D0; border-radius: 8px; padding: 14px 18px; margin-top: 14px; }
+  .deliverable-box-title { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+  .deliverable-box p { font-size: 10pt; color: #065F46; margin-bottom: 4px; }
+  .investment-summary { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-radius: 12px; padding: 30px; color: #fff; margin: 20px 0; }
+  .investment-summary h3 { color: #fff; margin-top: 0; }
+  .investment-summary table thead th { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+  .investment-summary table tbody td { color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.08); }
+  .investment-summary .total-row td { background: rgba(232,80,10,0.25) !important; color: var(--accent); border-bottom-color: var(--accent); }
+  .investment-summary table tbody tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+  .price-big { font-size: 32px; font-weight: 800; font-family: 'DM Mono', monospace; color: var(--accent); }
+  .price-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+  .timeline-visual { margin: 20px 0; padding: 20px; background: var(--bg-alt); border-radius: 12px; border: 1px solid var(--border); }
+  .timeline-row { display: flex; align-items: center; margin-bottom: 6px; }
+  .timeline-label { width: 140px; font-size: 9pt; font-weight: 600; color: var(--text-secondary); flex-shrink: 0; text-align: right; padding-right: 14px; }
+  .timeline-bar-wrap { flex: 1; display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; height: 28px; }
+  .timeline-cell { border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; letter-spacing: 0.5px; color: #fff; }
+  .timeline-months span { flex: 1; text-align: center; font-size: 8.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; padding: 8px 0 0; }
+  .tc-navy { background: #1E3A5F; } .tc-orange { background: var(--accent); } .tc-purple { background: #7C3AED; }
+  .tc-green { background: #059669; } .tc-blue { background: #2563EB; } .tc-amber { background: #D97706; } .tc-empty { background: transparent; }
+  .split-table { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .split-col { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .split-col-header { padding: 10px 16px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .split-col-green .split-col-header { background: var(--green); color: #fff; }
+  .split-col-red .split-col-header { background: var(--text-muted); color: #fff; }
+  .split-col ul { list-style: none; padding: 12px 16px; }
+  .split-col li { padding: 5px 0; font-size: 9.5pt; display: flex; align-items: flex-start; gap: 6px; border-bottom: 1px solid var(--border-light); }
+  .split-col li:last-child { border-bottom: none; }
+  .check { color: var(--green); font-weight: 700; } .cross { color: var(--text-muted); font-weight: 700; }
+  ul.styled-list { list-style: none; padding: 0; margin: 10px 0; }
+  ul.styled-list li { padding: 6px 0; padding-left: 20px; position: relative; font-size: 10.5pt; }
+  ul.styled-list li::before { content: ''; position: absolute; left: 0; top: 12px; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+  .section-break { height: 1px; background: var(--border); margin: 30px 0; }
+  .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .value-card { border: 1px solid var(--border); border-radius: 10px; padding: 16px; background: var(--bg-alt); }
+  .value-card-icon { font-size: 20px; margin-bottom: 8px; }
+  .value-card h4 { font-size: 11pt; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .value-card p { font-size: 9.5pt; color: var(--text-secondary); margin-bottom: 0; line-height: 1.5; }
+  .page-footer { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 55px; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 8pt; color: var(--text-muted); }
+  .contact-table td:first-child { font-weight: 600; white-space: nowrap; }
+  .mb-0 { margin-bottom: 0; } .mt-0 { margin-top: 0; }
+</style>
+</head>
+<body>
+<!-- COVER PAGE -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="cover-logo">
+      <div class="cover-logo-text">Proposal</div>
+    </div>
+  </div>
+  <div class="cover-main">
+    <div class="cover-label">Strategic Partnership Proposal</div>
+    <h1 class="cover-title" style="font-size:38px;margin-bottom:12px;">
+      Business Intelligence<br>
+      <span>Infrastructure &amp;</span><br>
+      Transformation
+    </h1>
+    <p class="cover-subtitle">
+      A comprehensive 6-month engagement to build an enterprise-grade Business Intelligence ecosystem for Crumble Pakistan — connecting every data source, every department, and every decision into a single, unified intelligence platform powered by AI.
+    </p>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Prepared For</div>
+        <div class="cover-meta-value">Crumble Pakistan</div>
+        <div class="cover-meta-sub">Agha Usman — Founder &amp; CEO</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Prepared By</div>
+        <div class="cover-meta-value">Gulsher Zahid</div>
+        <div class="cover-meta-sub">BI Strategy Consultant</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Date</div>
+        <div class="cover-meta-value">March 26, 2026</div>
+        <div class="cover-meta-sub">Version 1.0</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Classification</div>
+        <div class="cover-meta-value">Confidential</div>
+        <div class="cover-meta-sub">For authorized recipients only</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <p class="cover-confidential">
+      This document contains proprietary and confidential information prepared exclusively for Crumble Pakistan. It is intended solely for the use of the named recipient(s). Unauthorized distribution, reproduction, or disclosure of this document or its contents is strictly prohibited.
+    </p>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left">
+        <span class="page-header-brand">Crumble Pakistan</span>
+      </div>
+      <span class="page-number">BI Partnership Proposal</span>
+    </div>
+    <div class="section-number">Overview</div>
+    <h1>Table of Contents</h1>
+    <table style="margin-top:20px;">
+      <thead><tr><th style="width:40px;">#</th><th>Section</th><th style="width:80px;text-align:center;">Page</th></tr></thead>
+      <tbody>
+        <tr><td><strong>01</strong></td><td>Executive Summary</td><td style="text-align:center;">3</td></tr>
+        <tr><td><strong>02</strong></td><td>Understanding Your Business</td><td style="text-align:center;">4</td></tr>
+        <tr><td><strong>03</strong></td><td>Current State Assessment</td><td style="text-align:center;">5</td></tr>
+        <tr><td><strong>04</strong></td><td>Proposed Solution — The BI Transformation Roadmap</td><td style="text-align:center;">6–9</td></tr>
+        <tr><td><strong>05</strong></td><td>Dashboard &amp; Deliverable Specifications</td><td style="text-align:center;">10</td></tr>
+        <tr><td><strong>06</strong></td><td>AI-Powered Intelligence Layer</td><td style="text-align:center;">11</td></tr>
+        <tr><td><strong>07</strong></td><td>Strategic Advisory Services</td><td style="text-align:center;">12</td></tr>
+        <tr><td><strong>08</strong></td><td>Ongoing Strategic Partnership</td><td style="text-align:center;">12</td></tr>
+        <tr><td><strong>09</strong></td><td>Investment Summary</td><td style="text-align:center;">13</td></tr>
+        <tr><td><strong>10</strong></td><td>Why This Engagement Is Different</td><td style="text-align:center;">14</td></tr>
+        <tr><td><strong>11</strong></td><td>Engagement Model &amp; Terms</td><td style="text-align:center;">15</td></tr>
+        <tr><td><strong>12</strong></td><td>Implementation Timeline</td><td style="text-align:center;">16</td></tr>
+        <tr><td><strong>13</strong></td><td>Next Steps</td><td style="text-align:center;">16</td></tr>
+        <tr style="background:var(--bg-alt)"><td></td><td><strong>Annexure A</strong> — Infrastructure Requirements</td><td style="text-align:center;">17</td></tr>
+        <tr style="background:var(--bg-alt)"><td></td><td><strong>Annexure B</strong> — Detailed Milestone Schedule</td><td style="text-align:center;">18–19</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:60px;padding:30px;background:var(--bg-alt);border-radius:12px;border:1px solid var(--border);">
+      <p style="font-size:10pt;color:var(--text-secondary);text-align:center;margin-bottom:0;">
+        <em>"The goal is not dashboards. The goal is decisions made faster, with more confidence, resulting in more revenue and less waste."</em>
+      </p>
+    </div>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 2</span></div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 3</span>
+    </div>
+    <div class="section-number">Section 01</div>
+    <h1>Executive Summary</h1>
+    <p class="lead">
+      Crumble Pakistan has built one of the most exciting premium confectionery brands in the country — operating across four major cities, serving thousands of customers daily through branch operations, third-party delivery, and a growing e-commerce channel. With monthly limited-edition product launches and aggressive multi-platform marketing, Crumble has reached a scale where <strong>gut-feel decision-making is no longer sufficient</strong>.
+    </p>
+    <p>Today, critical business data is fragmented across disconnected systems. Sales data lives in POS databases. Marketing spend data sits in individual ad platform dashboards. Branch performance, product launch impact, and supply chain metrics are tracked through manual processes and siloed spreadsheets. <strong>There is no single source of truth</strong>, no way to correlate a marketing rupee spent with a cookie sold, and no mechanism to understand — in real time — which decisions drive growth and which drain resources.</p>
+    <h2 style="margin-top:22px;">What I Will Deliver</h2>
+    <ul class="styled-list">
+      <li><strong>A centralized data foundation</strong> that connects every revenue stream, every marketing channel, every branch, and every product into a single, clean, reliable data ecosystem</li>
+      <li><strong>Live, interactive dashboards</strong> across Sales, Marketing, Operations, Supply Chain, Production, and Quality Assurance — accessible in real-time, from anywhere</li>
+      <li><strong>Cross-department intelligence</strong> that correlates marketing spend with actual sales, campaign performance with product launches, and branch operations with customer behavior</li>
+      <li><strong>An executive command center</strong> giving the Founder a single-screen view of the entire business — with automated alerts when any KPI crosses a threshold</li>
+      <li><strong>Microsoft Dynamics 365 integration</strong> — architected from Day 1 to seamlessly absorb the upcoming Dynamics implementation</li>
+      <li><strong>An AI-powered intelligence layer</strong> — leveraging artificial intelligence for demand forecasting, anomaly detection, natural language querying, and automated insight generation</li>
+    </ul>
+    <div class="callout">
+      "Within 6 months, Crumble will operate with the same data infrastructure that companies 10x its size invest millions to achieve — but purpose-built for the unique complexity of a multi-city, multi-channel, rapid-launch confectionery brand."
+    </div>
+    <h2>Investment Overview</h2>
+    <table style="max-width:500px;">
+      <thead><tr><th>Component</th><th style="text-align:right;">Investment</th></tr></thead>
+      <tbody>
+        <tr><td>6-Month BI Infrastructure Build</td><td style="text-align:right;font-weight:700;">PKR 180,000/month</td></tr>
+        <tr><td>Ongoing Strategic Partnership (post-build)</td><td style="text-align:right;font-weight:700;">PKR 120,000/month</td></tr>
+        <tr><td>Infrastructure &amp; Licensing</td><td style="text-align:right;color:var(--text-muted);">Borne by Crumble (Annexure A)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 3</span></div>
+</div>
+<!-- UNDERSTANDING YOUR BUSINESS -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 4</span>
+    </div>
+    <div class="section-number">Section 02</div>
+    <h1>Understanding Your Business</h1>
+    <p>Through detailed discovery sessions with Crumble's leadership and department heads — including conversations with Marketing, Performance Marketing, Creative, Branch Operations, Supply Chain, Production, and Quality Assurance teams — I have developed a comprehensive understanding of how Crumble operates and where intelligence gaps are hurting the business.</p>
+    <h2>Multi-City Operations</h2>
+    <p>Crumble currently operates physical branches across <strong>Islamabad, Rawalpindi, Lahore, and Faisalabad</strong> — each with distinct customer demographics, demand patterns, and operational characteristics.</p>
+    <h2>Multi-Channel Revenue Model</h2>
+    <table>
+      <thead><tr><th>Channel</th><th>Approx. Share</th><th>Characteristics</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Branch Sales</strong> (In-store + Delivery)</td><td>~47%</td><td>Highest margin, direct customer relationship</td></tr>
+        <tr><td><strong>Blink</strong> (3rd Party Delivery)</td><td>~31%</td><td>Rapidly growing, commission-heavy, volume-driven</td></tr>
+        <tr><td><strong>Website / E-commerce</strong> (crumble.pk + Apps)</td><td>~22%</td><td>Nationwide reach, digital funnel optimization opportunity</td></tr>
+      </tbody>
+    </table>
+    <h2>Aggressive Digital Marketing</h2>
+    <p>Crumble runs active paid campaigns across <strong>Meta (Facebook + Instagram), Google (Search + Display), and TikTok (In-Feed + TopView)</strong> — with significant monthly spend that currently lacks unified ROI tracking and cross-channel attribution.</p>
+    <h2>Monthly Product Launch Cycle</h2>
+    <p>One of Crumble's most distinctive competitive advantages is its <strong>monthly limited-edition product launch program</strong>. This creates urgency and repeat traffic but also demands rapid performance tracking. Currently, there is no systematic framework to measure the true impact of each launch.</p>
+    <h2>Upcoming Technology Investments</h2>
+    <p>Crumble is planning to implement <strong>Microsoft Dynamics 365</strong> as its core ERP. The BI infrastructure I build will be architected to integrate seamlessly with Dynamics once it goes live, ensuring zero disruption and immediate analytics capability over the new system.</p>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 4</span></div>
+</div>
+
+<!-- CURRENT STATE -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 5</span>
+    </div>
+    <div class="section-number">Section 03</div>
+    <h1>Current State Assessment</h1>
+    <h2 class="mt-0">Fragmented Data Landscape</h2>
+    <table class="table-compact">
+      <thead><tr><th>Data Source</th><th>Current State</th><th>Impact</th></tr></thead>
+      <tbody>
+        <tr><td><strong>POS System</strong> (Ackman/Wizzman)</td><td>Raw database; no analytics layer</td><td>Revenue &amp; product data inaccessible for analysis</td></tr>
+        <tr><td><strong>Shopify / Website</strong></td><td>Separate platform with own reporting</td><td>E-commerce disconnected from branch view</td></tr>
+        <tr><td><strong>Blink</strong> (3rd Party)</td><td>Platform-native reports only</td><td>Cannot correlate with overall revenue mix</td></tr>
+        <tr><td><strong>Meta Business Suite</strong></td><td>Platform-level metrics</td><td>Spend &amp; ROAS not connected to actual sales</td></tr>
+        <tr><td><strong>Google Ads Manager</strong></td><td>Platform-level metrics</td><td>No correlation with downstream conversions</td></tr>
+        <tr><td><strong>TikTok Ads Manager</strong></td><td>Platform-level metrics</td><td>Newest channel, least ROI visibility</td></tr>
+        <tr><td><strong>Spreadsheets</strong></td><td>Various departments</td><td>Labour-intensive, error-prone, delayed</td></tr>
+      </tbody>
+    </table>
+    <h2>Critical Intelligence Gaps</h2>
+    <h3>No Centralized Ad Spend &amp; ROI Monitoring</h3>
+    <p>Each marketing channel operates as an island. When asking <em>"What is my actual return on last month's total marketing investment?"</em> — there is no single place to find the answer.</p>
+    <h3>No Cross-Department Correlation</h3>
+    <p>When a new product launches, marketing spends, operations adjusts, production scales — but <strong>no one can see the full chain of cause and effect</strong>. Decisions are made in silos.</p>
+    <h3>No Product Launch Impact Measurement</h3>
+    <p>No standardized framework to measure: Did the launch drive incremental revenue or shift demand? Which channel was most effective? How did it perform across cities?</p>
+    <h3>No Real-Time Visibility</h3>
+    <p>Leadership relies on periodic manual reports that are often days old. <strong>Delayed data means delayed decisions.</strong></p>
+    <h3>POS Data is Locked</h3>
+    <p>The POS system contains every transaction, every product sold, every time-of-day pattern — but this data is trapped with no analytics layer. <strong>Unlocking it is the single highest-value action in this engagement.</strong></p>
+    <h3>No AI or Predictive Capability</h3>
+    <p>There is currently zero use of artificial intelligence or machine learning across the business. No demand forecasting, no anomaly detection, no automated insights. In 2026, this is a significant missed opportunity — especially for a brand with rich, pattern-heavy data ideal for AI-driven prediction.</p>
+    <div class="callout callout-blue">
+      <strong>The Cost of the Status Quo:</strong> Every month without centralized intelligence, Crumble is over-spending on underperforming channels, under-investing in high-ROAS channels, launching products without a feedback loop, missing AI-driven opportunities that competitors will exploit, and losing the compound advantage of accumulated business intelligence.
+    </div>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 5</span></div>
+</div>
+<!-- PHASE 1 -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 6</span>
+    </div>
+    <div class="section-number">Section 04</div>
+    <h1>Proposed Solution — The BI Transformation Roadmap</h1>
+    <p>The engagement is structured across <strong>three progressive phases over six months</strong>, each building on the previous one. Every month has clearly defined milestones and a tangible deliverable that the team can immediately use.</p>
+
+    <div class="phase-block phase-1">
+      <div class="phase-label">Phase 1</div>
+      <h2 class="mt-0">Foundation &amp; Sales Intelligence</h2>
+      <p class="phase-meta">Months 1–2 | Building the Data Bedrock + Sales Visibility</p>
+      <blockquote>The foundation phase is the most critical. Every dashboard, every report, every insight I build over the next six months depends on the quality of the data architecture laid here.</blockquote>
+    </div>
+
+    <h3>Month 1 — Data Architecture &amp; Cleanup</h3>
+    <table>
+      <thead><tr><th>#</th><th>Milestone</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>1.1</td><td><strong>Comprehensive Data Audit</strong></td><td>Complete inventory of every data source — POS (Ackman/Wizzman), Shopify, Blink, Meta, Google, TikTok, internal spreadsheets. Document data formats, update frequencies, quality issues, and access methods.</td></tr>
+        <tr><td>1.2</td><td><strong>Unified Data Model Design</strong></td><td>Design a centralized data architecture with a master data dictionary. Define how sales, marketing, operations, and product data relate. Establish naming conventions, hierarchies, and KPI definitions.</td></tr>
+        <tr><td>1.3</td><td><strong>Data Cleaning &amp; Standardization Pipeline</strong></td><td>Build automated data cleaning processes for historical data. Resolve inconsistencies in product names, branch identifiers, date formats, and transaction records.</td></tr>
+        <tr><td>1.4</td><td><strong>Power BI Workspace &amp; Security Setup</strong></td><td>Configure Power BI environment with proper workspace organization, role-based access controls, refresh schedules, and mobile access.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-blue">
+      <strong>Month 1 Deliverables:</strong> Data Architecture Document — Complete data model, data dictionary, source mapping, and quality assessment. Cleaned Master Dataset — Standardized, validated historical data ready for visualization.
+    </div>
+
+    <h3>Month 2 — Sales &amp; Branch Operations Command Center</h3>
+    <table>
+      <thead><tr><th>#</th><th>Milestone</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>2.1</td><td><strong>Revenue Tracking Dashboard</strong></td><td>Daily, weekly, and monthly revenue tracking across all 4 branches with trend lines, period-over-period comparisons, and target vs actual tracking.</td></tr>
+        <tr><td>2.2</td><td><strong>Product Performance Analytics</strong></td><td>SKU-level performance analysis with revenue contribution, unit velocity, margin analysis, and product mix trends.</td></tr>
+        <tr><td>2.3</td><td><strong>Daypart Revenue Analysis</strong></td><td>Revenue patterns by time of day across branches. Understand when each branch peaks and identify scheduling and promotion opportunities.</td></tr>
+        <tr><td>2.4</td><td><strong>Branch Benchmarking View</strong></td><td>Head-to-head branch comparisons across all KPIs — revenue, transactions, average order value, product mix.</td></tr>
+        <tr><td>2.5</td><td><strong>Sales Channel Breakdown</strong></td><td>Performance comparison across Branch Sales vs Blink vs Website/App — revenue, orders, AOV, growth rates.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-blue">
+      <strong>Month 2 Deliverable:</strong> Sales Command Center — A live, interactive Power BI dashboard suite covering all sales, branch, and product intelligence.
+    </div>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 6</span></div>
+</div>
+<!-- PHASE 2 -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 7</span>
+    </div>
+
+    <div class="phase-block phase-2">
+      <div class="phase-label">Phase 2</div>
+      <h2 class="mt-0">Marketing Intelligence &amp; Cross-Department Correlation</h2>
+      <p class="phase-meta">Months 3–4 | Connecting Spend to Revenue + Launch Tracking</p>
+      <blockquote>This is where the BI system becomes a strategic weapon — when marketing spend connects to actual sales, and product launches can be measured end-to-end.</blockquote>
+    </div>
+
+    <h3>Month 3 — Marketing Performance Command Center</h3>
+    <table>
+      <thead><tr><th>#</th><th>Milestone</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>3.1</td><td><strong>Ad Platform Data Integration</strong></td><td>Automated data pipelines from Meta Business Suite, Google Ads, and TikTok Ads Manager into the centralized BI environment.</td></tr>
+        <tr><td>3.2</td><td><strong>Channel Performance Matrix</strong></td><td>Unified view comparing all marketing channels on Spend, Revenue Generated, ROAS, CAC, Orders Attributed, and Conversion Rate.</td></tr>
+        <tr><td>3.3</td><td><strong>Campaign-Level ROI Tracking</strong></td><td>Granular campaign and ad-set level performance tracking. Identify which campaigns generate profitable returns.</td></tr>
+        <tr><td>3.4</td><td><strong>Product Launch Campaign Framework</strong></td><td>Dedicated tracking system for monthly limited-edition launches — measuring pre-launch buzz, launch-week performance, sustained demand, and channel effectiveness.</td></tr>
+        <tr><td>3.5</td><td><strong>Marketing Spend Efficiency Dashboard</strong></td><td>Budget utilization tracking, spend pacing, daily burn rate monitoring, and automated efficiency scoring per channel.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-blue">
+      <strong>Month 3 Deliverable:</strong> Marketing Command Center — Full marketing analytics suite accessible to Saad Salahuddin (Head of Marketing) and Yasir Nadeem (Performance Marketing Lead).
+    </div>
+
+    <h3>Month 4 — Cross-Department Intelligence &amp; Dynamics Preparation</h3>
+    <table>
+      <thead><tr><th>#</th><th>Milestone</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>4.1</td><td><strong>Sales x Marketing Correlation Engine</strong></td><td>The centerpiece intelligence layer: connect marketing spend directly to actual POS sales data. See how a rupee spent on Meta translates into cookies sold.</td></tr>
+        <tr><td>4.2</td><td><strong>Customer Acquisition Funnel</strong></td><td>Full funnel visualization from website visit to purchase. Identify drop-off points and revenue leakage.</td></tr>
+        <tr><td>4.3</td><td><strong>Geographic Performance Intelligence</strong></td><td>City-level and branch-level performance overlaid with marketing spend. Understand which cities respond best to which channels.</td></tr>
+        <tr><td>4.4</td><td><strong>Microsoft Dynamics Readiness</strong></td><td>Technical assessment and integration mapping for the upcoming Dynamics 365 implementation. Define data flow architecture and integration protocols.</td></tr>
+        <tr><td>4.5</td><td><strong>Product Launch Performance Tracker</strong></td><td>Systematic framework for each monthly limited-edition drop: pre-launch baseline, launch impact, city-level performance, channel attribution.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-blue">
+      <strong>Month 4 Deliverables:</strong> Integrated Cross-Department Analytics View — the first unified lens connecting sales, marketing, and product performance. Dynamics Integration Readiness Report — technical blueprint for seamless Dynamics 365 integration.
+    </div>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 7</span></div>
+</div>
+<!-- PHASE 3 -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 8</span>
+    </div>
+
+    <div class="phase-block phase-3">
+      <div class="phase-label">Phase 3</div>
+      <h2 class="mt-0">Enterprise Intelligence, AI &amp; Optimization</h2>
+      <p class="phase-meta">Months 5–6 | Full Enterprise Coverage + AI Layer + Executive Command Center</p>
+      <blockquote>Phase 3 extends the intelligence ecosystem to every remaining department, introduces the AI-powered intelligence layer, and delivers the single most valuable dashboard in the system — the Founder's executive command center.</blockquote>
+    </div>
+
+    <h3>Month 5 — Operations, Supply Chain Intelligence &amp; AI Foundation</h3>
+    <table>
+      <thead><tr><th>#</th><th>Milestone</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>5.1</td><td><strong>Supply Chain Visibility Dashboard</strong></td><td>End-to-end supply chain tracking — procurement, logistics, delivery timelines, and vendor performance.</td></tr>
+        <tr><td>5.2</td><td><strong>Production Tracking &amp; Efficiency</strong></td><td>Production volume, efficiency metrics, waste tracking, batch performance, and capacity utilization.</td></tr>
+        <tr><td>5.3</td><td><strong>Quality Assurance Monitoring</strong></td><td>QA scorecards, compliance tracking, defect rates, and quality trend analysis.</td></tr>
+        <tr><td>5.4</td><td><strong>Inventory Optimization Analytics</strong></td><td>Stock levels across branches, reorder point analysis, demand-based inventory recommendations, and waste reduction.</td></tr>
+        <tr><td>5.5</td><td><strong>Dynamics Data Pipeline Integration</strong></td><td>Build and activate the data pipeline connecting Microsoft Dynamics 365 to the BI ecosystem.</td></tr>
+        <tr><td>5.6</td><td><strong>AI Model Training &amp; Foundation</strong></td><td>Begin training AI models on Crumble's historical data for demand forecasting, anomaly detection, and automated insight generation. Establish the machine learning pipeline.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-blue">
+      <strong>Month 5 Deliverables:</strong> Operations Intelligence Dashboard Suite — Supply Chain, Production, and QA dashboards. AI Foundation — Trained models ready for deployment in Month 6.
+    </div>
+
+    <h3>Month 6 — Executive Command Center, AI Deployment &amp; System Optimization</h3>
+    <table>
+      <thead><tr><th>#</th><th>Milestone</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>6.1</td><td><strong>Executive Command Center</strong></td><td>The flagship dashboard — a single-screen, real-time view of the entire business. Revenue, marketing, operations, product performance, and alerts — all in one place.</td></tr>
+        <tr><td>6.2</td><td><strong>Automated Alerting System</strong></td><td>Smart alerts triggered when any KPI crosses defined thresholds. Instant notification to relevant stakeholders.</td></tr>
+        <tr><td>6.3</td><td><strong>AI-Powered Demand Forecasting</strong></td><td>Machine learning model leveraging historical sales, seasonal patterns, and marketing data for revenue forecasting and product launch demand prediction.</td></tr>
+        <tr><td>6.4</td><td><strong>AI Anomaly Detection &amp; Smart Insights</strong></td><td>Automated detection of unusual patterns in sales, marketing, and operations data. The system proactively surfaces insights.</td></tr>
+        <tr><td>6.5</td><td><strong>Natural Language Dashboard Querying</strong></td><td>Enable leadership to ask questions in plain English and receive instant data-backed answers using Power BI's AI capabilities.</td></tr>
+        <tr><td>6.6</td><td><strong>Full Dynamics BI Integration</strong></td><td>Complete integration of all Microsoft Dynamics 365 data streams into the BI ecosystem.</td></tr>
+        <tr><td>6.7</td><td><strong>Documentation, Training &amp; Knowledge Transfer</strong></td><td>Comprehensive system documentation, user guides, AI model documentation, and hands-on training sessions for all department heads.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout-blue">
+      <strong>Month 6 Deliverables:</strong> Executive Command Center Dashboard — Founder's single-pane-of-glass business view. AI Intelligence Layer — Demand forecasting, anomaly detection, and natural language querying live. Complete BI Ecosystem — All dashboards fully operational, integrated, and optimized. System Documentation &amp; Training Package. Automated Alert System.
+    </div>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 8</span></div>
+</div>
+<!-- DASHBOARD SPECS -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 9</span>
+    </div>
+    <div class="section-number">Section 05</div>
+    <h1>Dashboard &amp; Deliverable Specifications</h1>
+    <p>Each dashboard suite is designed with interactive drill-down capability, mobile responsiveness, and role-based access.</p>
+
+    <h3>Sales Command Center</h3>
+    <table class="table-compact">
+      <thead><tr><th>View</th><th>Key Metrics</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Revenue Overview</strong></td><td>Daily/Weekly/Monthly revenue, YoY growth, trend lines, target vs actual</td></tr>
+        <tr><td><strong>Branch Performance</strong></td><td>Per-branch revenue, transactions, AOV, ranking and comparison</td></tr>
+        <tr><td><strong>Product Performance</strong></td><td>SKU-level revenue, units sold, velocity, contribution %, trends</td></tr>
+        <tr><td><strong>Daypart Analysis</strong></td><td>Revenue by hour/daypart, heatmap visualization, peak identification</td></tr>
+        <tr><td><strong>Channel Mix</strong></td><td>Branch Sales vs Blink vs Website — revenue, orders, AOV, growth</td></tr>
+        <tr><td><strong>Period Comparison</strong></td><td>This week vs last week, this month vs last month, custom dates</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Marketing Command Center</h3>
+    <table class="table-compact">
+      <thead><tr><th>View</th><th>Key Metrics</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Channel Matrix</strong></td><td>Meta / Google / TikTok / Organic — Spend, Revenue, ROAS, CAC, Orders</td></tr>
+        <tr><td><strong>Campaign Drill-Down</strong></td><td>Campaign and ad-set level performance with ROI calculation</td></tr>
+        <tr><td><strong>Conversion Funnel</strong></td><td>Impressions to Purchase — drop-off analysis</td></tr>
+        <tr><td><strong>Launch Tracker</strong></td><td>Per-launch performance dashboard with historical comparison</td></tr>
+        <tr><td><strong>Spend Efficiency</strong></td><td>Daily spend pacing, budget utilization, efficiency scoring</td></tr>
+        <tr><td><strong>Creative Correlation</strong></td><td>Performance patterns across creative types and messaging</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Operations Intelligence Suite</h3>
+    <table class="table-compact">
+      <thead><tr><th>View</th><th>Key Metrics</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Supply Chain Overview</strong></td><td>Procurement costs, delivery timelines, vendor scorecard</td></tr>
+        <tr><td><strong>Production Dashboard</strong></td><td>Output volume, efficiency ratio, waste %, capacity utilization</td></tr>
+        <tr><td><strong>Quality Scorecard</strong></td><td>Compliance rate, defect rate, quality trends, batch tracking</td></tr>
+        <tr><td><strong>Inventory Monitor</strong></td><td>Stock levels by branch, reorder alerts, days of supply, waste</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Executive Command Center</h3>
+    <table class="table-compact">
+      <thead><tr><th>View</th><th>Key Metrics</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Business Health Score</strong></td><td>Composite KPI scoring across all departments — single-number business health</td></tr>
+        <tr><td><strong>Revenue Pulse</strong></td><td>Real-time revenue with automated target tracking and variance alerts</td></tr>
+        <tr><td><strong>Department Summary</strong></td><td>One-line status for each department with drill-through to details</td></tr>
+        <tr><td><strong>Alert Feed</strong></td><td>Live stream of KPI threshold breaches requiring attention</td></tr>
+        <tr><td><strong>Trend Radar</strong></td><td>Key metrics moving in the wrong direction — early warning system</td></tr>
+        <tr><td><strong>AI Insights Feed</strong></td><td>Automatically generated insights and anomaly alerts surfaced by AI</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 9</span></div>
+</div>
+<!-- AI SECTION - NEW -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 10</span>
+    </div>
+    <div class="section-number">Section 06</div>
+    <h1>AI-Powered Intelligence Layer</h1>
+    <p>Beyond traditional BI dashboards, this engagement introduces an <strong>artificial intelligence layer</strong> that transforms Crumble from a company that <em>looks at data</em> into one that <em>learns from data</em>. This is the differentiator that puts Crumble years ahead of any competitor in the Pakistani F&amp;B space.</p>
+
+    <h3>6.1 — AI-Powered Demand Forecasting</h3>
+    <table>
+      <thead><tr><th>Capability</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Product Launch Demand Prediction</strong></td><td>Using historical launch data, seasonal patterns, marketing spend, and city-level demand signals, the AI model predicts expected demand for each new monthly launch — enabling precise production planning and inventory allocation.</td></tr>
+        <tr><td><strong>Revenue Forecasting</strong></td><td>Machine learning models that predict daily, weekly, and monthly revenue at the branch, city, and national level — with confidence intervals. Replaces guesswork with data-backed projections.</td></tr>
+        <tr><td><strong>Seasonal &amp; Event-Driven Forecasting</strong></td><td>The model learns from Ramadan, Eid, weekends, weather patterns, and local events to predict demand spikes and dips — allowing proactive staffing, inventory, and marketing decisions.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.2 — Anomaly Detection &amp; Smart Alerts</h3>
+    <table>
+      <thead><tr><th>Capability</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Sales Anomaly Detection</strong></td><td>AI continuously monitors sales data across branches and flags unusual patterns: unexpected dips, sudden spikes, products selling out faster than predicted.</td></tr>
+        <tr><td><strong>Marketing Spend Anomalies</strong></td><td>Automatically detects when campaign performance deviates significantly from historical norms — catching underperforming campaigns before they drain resources.</td></tr>
+        <tr><td><strong>Operational Anomalies</strong></td><td>Flags supply chain delays, production efficiency drops, or quality score declines that deviate from normal patterns.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.3 — Automated Insight Generation</h3>
+    <table>
+      <thead><tr><th>Capability</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Daily AI-Generated Insights</strong></td><td>Every morning, the system generates a natural-language summary of the most important things that happened yesterday — delivered directly to leadership.</td></tr>
+        <tr><td><strong>Root Cause Analysis</strong></td><td>When a KPI changes direction, the AI suggests why. <em>"Islamabad branch revenue dropped 12% this week. Likely driver: Meta ad spend was paused on Tuesday."</em></td></tr>
+        <tr><td><strong>Recommendation Engine</strong></td><td>Data-backed recommendations: <em>"Based on the last 4 launches, TikTok outperforms Meta for first-week awareness by 23%. Consider increasing TikTok allocation."</em></td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.4 — Natural Language Querying</h3>
+    <table>
+      <thead><tr><th>Capability</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ask Questions in Plain English</strong></td><td>Using Power BI's AI-powered Q&amp;A capability, any authorized user can type or speak questions like <em>"What was our ROAS on Meta last week?"</em> and get instant visual answers.</td></tr>
+        <tr><td><strong>Conversational Analytics</strong></td><td>Leadership can interact with data conversationally, making BI accessible to non-technical team members and dramatically increasing adoption.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.5 — Future AI Expansion Opportunities</h3>
+    <ul>
+      <li><strong>Customer Segmentation AI</strong> — Automatically segment customers by behavior, purchase patterns, and lifetime value</li>
+      <li><strong>Pricing Optimization</strong> — AI-driven pricing recommendations based on demand elasticity and competition</li>
+      <li><strong>Marketing Mix Modeling</strong> — Advanced AI model for optimal budget allocation across channels</li>
+      <li><strong>Churn Prediction</strong> — Identify customers at risk of not reordering and trigger retention campaigns</li>
+      <li><strong>Social Sentiment Analysis</strong> — AI monitoring of social media mentions and reviews</li>
+    </ul>
+
+    <blockquote>AI is not a future ambition. It is built into the architecture from Day 1. The data foundation laid in Phase 1 is specifically designed to feed AI models. By Month 6, Crumble will have AI capabilities that most Pakistani companies won't achieve for years.</blockquote>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 10</span></div>
+</div>
+<!-- STRATEGIC ADVISORY + ONGOING PARTNERSHIP -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 11</span>
+    </div>
+    <div class="section-number">Section 07</div>
+    <h1>Strategic Advisory Services</h1>
+    <p>This engagement goes beyond building dashboards. Embedded within the monthly scope is a <strong>strategic business intelligence advisory layer</strong> — ensuring data actively drives better business decisions.</p>
+
+    <h3>Monthly Strategic Deliverables</h3>
+    <table>
+      <thead><tr><th>Advisory Service</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Marketing Budget Allocation</strong></td><td>Data-driven recommendations on marketing spend distribution across channels based on actual ROAS and CAC performance</td></tr>
+        <tr><td><strong>Channel Mix Optimization</strong></td><td>Identify which channels deserve increased investment and which should be scaled back — with evidence</td></tr>
+        <tr><td><strong>Product Launch Debrief</strong></td><td>Post-launch performance analysis for each monthly release, with clear recommendation: scale up, repeat seasonally, or retire</td></tr>
+        <tr><td><strong>Branch Performance Insights</strong></td><td>Actionable observations on branch-level performance trends, staffing, and local market opportunities</td></tr>
+        <tr><td><strong>Revenue Forecasting</strong></td><td>Forward-looking revenue projections to support production planning, inventory, and financial planning</td></tr>
+        <tr><td><strong>AI Model Performance Review</strong></td><td>Monthly assessment of AI prediction accuracy, model retraining recommendations, and new AI use case identification</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Quarterly Strategic Reviews</h3>
+    <p>Every 90 days, I will deliver a formal strategic review to the leadership team:</p>
+    <ul>
+      <li><strong>Executive Presentation</strong> to Agha Usman and department heads covering key trends, wins, concerns, and opportunities</li>
+      <li><strong>BI &amp; AI Maturity Assessment</strong> — measuring Crumble's data and AI capability progress against industry benchmarks</li>
+      <li><strong>Strategic Recommendations Document</strong> — data-backed action items with projected impact</li>
+      <li><strong>Roadmap Revision</strong> — adjusting BI and AI priorities based on evolving business needs</li>
+    </ul>
+
+    <blockquote>This advisory layer is what transforms BI from a cost center into a profit driver. The dashboards show what happened. The AI tells you what will happen. The advisory tells you what to do about it.</blockquote>
+
+    <div class="section-number" style="margin-top: 2rem;">Section 08</div>
+    <h1>Ongoing Strategic Partnership</h1>
+    <p>Upon completion of the 6-month build phase, the engagement transitions into an <strong>ongoing strategic partnership</strong> ensuring the BI ecosystem remains current, optimized, and continuously evolving.</p>
+
+    <h3>Monthly Partnership Scope — PKR 120,000/month</h3>
+    <table>
+      <thead><tr><th>Service</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dashboard Maintenance &amp; Optimization</strong></td><td>Performance monitoring, query optimization, refresh schedule management, and uptime assurance</td></tr>
+        <tr><td><strong>2 New Feature Developments/Month</strong></td><td>Custom reports, new dashboard views, additional integrations, AI model enhancements — prioritized by leadership</td></tr>
+        <tr><td><strong>AI Model Maintenance &amp; Retraining</strong></td><td>Ongoing monitoring of AI prediction accuracy, periodic model retraining with fresh data, and deployment of improved models</td></tr>
+        <tr><td><strong>Data Quality Governance</strong></td><td>Ongoing monitoring of data accuracy, source reliability, and pipeline health</td></tr>
+        <tr><td><strong>Monthly BI Strategy Session</strong></td><td>Dedicated session with leadership to review dashboard usage and align BI roadmap with business strategy</td></tr>
+        <tr><td><strong>Ad-Hoc Analysis Support</strong></td><td>Priority access for time-sensitive data requests, custom analyses, and decision-support queries</td></tr>
+        <tr><td><strong>System Updates &amp; Management</strong></td><td>Power BI updates, connector maintenance, AI model versioning, capacity management, and security reviews</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Partnership Evolution</h3>
+    <p>As the engagement matures, the consulting arrangement is designed to naturally evolve into a <strong>formal B2B partnership</strong> — providing Crumble with a dedicated intelligence function and giving the engagement long-term stability and scalability for both sides.</p>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 11</span></div>
+</div>
+<!-- INVESTMENT SUMMARY -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 12</span>
+    </div>
+    <div class="section-number">Section 09</div>
+    <h1>Investment Summary</h1>
+
+    <div class="investment-summary">
+      <h3>A. Consulting &amp; Development Fees</h3>
+      <table>
+        <thead><tr><th>Phase</th><th>Duration</th><th>Monthly Fee</th><th>Phase Total</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Phase 1:</strong> Foundation &amp; Sales Intelligence</td><td>Months 1–2</td><td>PKR 180,000</td><td>PKR 360,000</td></tr>
+          <tr><td><strong>Phase 2:</strong> Marketing Intelligence &amp; Integration</td><td>Months 3–4</td><td>PKR 180,000</td><td>PKR 360,000</td></tr>
+          <tr><td><strong>Phase 3:</strong> Enterprise Intelligence, AI &amp; Optimization</td><td>Months 5–6</td><td>PKR 180,000</td><td>PKR 360,000</td></tr>
+          <tr class="highlight-row"><td colspan="3"><strong>Total Build Investment</strong></td><td><strong>PKR 1,080,000</strong></td></tr>
+        </tbody>
+      </table>
+      <table style="margin-top: 1rem;">
+        <thead><tr><th>Ongoing Partnership</th><th>Monthly Fee</th></tr></thead>
+        <tbody>
+          <tr><td>Post-build Strategic Partnership (Month 7 onwards)</td><td><strong>PKR 120,000/month</strong></td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top: 1.5rem;">Payment Terms</h3>
+      <ul>
+        <li>Payments made <strong>monthly</strong>, on a <strong>milestone-delivery basis</strong></li>
+        <li>Each month's fee released upon delivery and mutual sign-off</li>
+        <li>Payment due within <strong>7 business days</strong> of milestone sign-off</li>
+      </ul>
+
+      <h3>B. Infrastructure &amp; Tooling Costs</h3>
+      <p>All infrastructure, licensing, and tooling costs are <strong>borne by Crumble Pakistan</strong> and are not included in consulting fees. See Annexure A for detailed specifications.</p>
+    </div>
+
+    <h3>What's Included in the Consulting Fee</h3>
+    <div class="split-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+      <div class="included-box" style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 1.5rem;">
+        <h4 style="color: #15803d; margin-top: 0;">Included</h4>
+        <ul style="margin: 0; padding-left: 1.2rem;">
+          <li>BI strategy, architecture &amp; design</li>
+          <li>Data auditing, cleaning &amp; modeling</li>
+          <li>Dashboard development &amp; deployment</li>
+          <li>AI model development &amp; deployment</li>
+          <li>Ad platform integration &amp; automation</li>
+          <li>Microsoft Dynamics BI integration</li>
+          <li>Strategic advisory &amp; recommendations</li>
+          <li>Training &amp; documentation</li>
+          <li>1–2 support resources</li>
+          <li>Monthly BI &amp; AI strategy reviews</li>
+        </ul>
+      </div>
+      <div class="not-included-box" style="background: #fef2f2; border: 1px solid #fca5a5; border-radius: 8px; padding: 1.5rem;">
+        <h4 style="color: #b91c1c; margin-top: 0;">Crumble's Responsibility</h4>
+        <ul style="margin: 0; padding-left: 1.2rem;">
+          <li>Power BI licensing (all users)</li>
+          <li>Cloud storage / database hosting</li>
+          <li>Dedicated laptop (MacBook Pro)</li>
+          <li>Microsoft Dynamics 365 licensing</li>
+          <li>API &amp; connector subscription costs</li>
+          <li>Third-party data tool subscriptions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 12</span></div>
+</div>
+<!-- WHY THIS ENGAGEMENT IS DIFFERENT -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 13</span>
+    </div>
+    <div class="section-number">Section 10</div>
+    <h1>Why This Engagement is Different</h1>
+
+    <div class="value-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+      <div class="value-card" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 10px; padding: 1.5rem; border-left: 4px solid var(--accent);">
+        <h3 style="margin-top: 0; color: #1a1a2e;">Beyond Dashboards</h3>
+        <p style="margin-bottom: 0;">This is not a reporting project. It is a <strong>centralized intelligence system</strong> that fundamentally changes how Crumble's leadership makes decisions. Every dashboard, pipeline, AI model, and integration is designed with one question: <em>"Will this help make a better decision, faster?"</em></p>
+      </div>
+      <div class="value-card" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 10px; padding: 1.5rem; border-left: 4px solid var(--accent);">
+        <h3 style="margin-top: 0; color: #1a1a2e;">Purpose-Built for Crumble</h3>
+        <p style="margin-bottom: 0;">Custom-designed for multi-city operations, multi-channel revenue, monthly product launches, a mixed marketing portfolio across three ad platforms, and an upcoming ERP migration. No off-the-shelf solution addresses all of these.</p>
+      </div>
+      <div class="value-card" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 10px; padding: 1.5rem; border-left: 4px solid var(--accent);">
+        <h3 style="margin-top: 0; color: #1a1a2e;">AI-Native Architecture</h3>
+        <p style="margin-bottom: 0;">Unlike traditional BI that bolts on AI as an afterthought, this engagement <strong>designs for AI from Day 1</strong>. The data foundation, model architecture, and pipeline design all support machine learning — meaning by Month 6, Crumble will have demand forecasting, anomaly detection, and automated insights that most Pakistani companies won't achieve for years.</p>
+      </div>
+      <div class="value-card" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 10px; padding: 1.5rem; border-left: 4px solid var(--accent);">
+        <h3 style="margin-top: 0; color: #1a1a2e;">Enterprise-Grade at Growth-Stage Cost</h3>
+        <p style="margin-bottom: 0;">Comparable BI functions cost PKR 400,000–800,000/month with a team of 3–5 people. Adding AI typically doubles that cost. This engagement delivers both capabilities at a fraction of the cost.</p>
+      </div>
+      <div class="value-card" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 10px; padding: 1.5rem; border-left: 4px solid var(--accent);">
+        <h3 style="margin-top: 0; color: #1a1a2e;">Dynamics-Ready from Day 1</h3>
+        <p style="margin-bottom: 0;">The architecture is <strong>built with Dynamics integration in mind from Month 1</strong>. When Dynamics rolls out, the transition is seamless — not a separate project.</p>
+      </div>
+      <div class="value-card" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 10px; padding: 1.5rem; border-left: 4px solid var(--accent);">
+        <h3 style="margin-top: 0; color: #1a1a2e;">ROI That Pays for Itself</h3>
+        <p style="margin-bottom: 0;">If the system improves marketing ROAS by even 5% on PKR 10M+ monthly spend, that's <strong>PKR 500,000+ additional revenue/month</strong> from marketing alone. Add AI-driven demand forecasting reducing waste by 3%, and the ROI expands further. Pays for itself within the first quarter.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 13</span></div>
+</div>
+<!-- ENGAGEMENT TERMS -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 14</span>
+    </div>
+    <div class="section-number">Section 11</div>
+    <h1>Engagement Model &amp; Terms</h1>
+
+    <h3>Delivery Model</h3>
+    <table>
+      <thead><tr><th>Aspect</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Working Model</strong></td><td>Hybrid — Primarily remote with periodic on-site visits for stakeholder sessions, training, and workshops</td></tr>
+        <tr><td><strong>Team</strong></td><td>Gulsher Zahid (Lead Consultant) + 1–2 support resources for data engineering and development tasks</td></tr>
+        <tr><td><strong>Communication</strong></td><td>Weekly progress updates, monthly milestone reviews, dedicated WhatsApp/Slack channel</td></tr>
+        <tr><td><strong>Reporting Line</strong></td><td>Direct to Agha Usman (Founder), with working-level coordination with department heads</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Client Responsibilities</h3>
+    <table>
+      <thead><tr><th>Requirement</th><th>Timeline</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Data Access &amp; Credentials</strong></td><td>All POS, Shopify, Blink, and ad platform credentials within Week 1</td></tr>
+        <tr><td><strong>Department Liaison Availability</strong></td><td>Each head available for requirements sessions and monthly reviews</td></tr>
+        <tr><td><strong>Infrastructure Provisioning</strong></td><td>Power BI licenses, cloud storage, laptop within 2 weeks of start</td></tr>
+        <tr><td><strong>Dynamics Coordination</strong></td><td>Dynamics team shares architecture and timeline for integration planning</td></tr>
+        <tr><td><strong>Milestone Review &amp; Sign-Off</strong></td><td>Timely review and sign-off to maintain momentum</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Department Liaisons</h3>
+    <table class="table-compact">
+      <thead><tr><th>Department</th><th>Contact</th><th>Role in BI Engagement</th></tr></thead>
+      <tbody>
+        <tr><td>Marketing</td><td>Saad Salahuddin</td><td>Marketing dashboard requirements, campaign data</td></tr>
+        <tr><td>Performance Marketing</td><td>Yasir Nadeem</td><td>Ad platform data, channel strategy alignment</td></tr>
+        <tr><td>Creative</td><td>Huzaifa</td><td>Creative performance correlation inputs</td></tr>
+        <tr><td>Branch Operations</td><td>Qasim Ali</td><td>Sales data, branch operations, POS access</td></tr>
+        <tr><td>Supply Chain</td><td>Saud Ali</td><td>Supply chain dashboard requirements</td></tr>
+        <tr><td>Production</td><td>Dilawar Saeed</td><td>Production metrics and efficiency tracking</td></tr>
+        <tr><td>Quality Assurance</td><td>Rajab Ayub</td><td>QA metrics, compliance tracking</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Intellectual Property</h3>
+    <p>All dashboards, reports, AI models, data models, and documentation created during this engagement are the <strong>exclusive intellectual property of Crumble Pakistan</strong>. Full ownership transfers upon delivery and payment.</p>
+
+    <h3>Confidentiality</h3>
+    <p>The consultant and all support resources will adhere to strict confidentiality regarding all Crumble business data, financial information, marketing strategies, and operational details.</p>
+
+    <h3>Engagement Continuity</h3>
+    <ul>
+      <li>Either party may terminate with <strong>30 calendar days</strong> written notice</li>
+      <li>All completed work delivered and owned by Crumble</li>
+      <li>Prepaid fees for undelivered work refunded proportionally</li>
+    </ul>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 14</span></div>
+</div>
+<!-- TIMELINE + NEXT STEPS -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 15</span>
+    </div>
+    <div class="section-number">Section 12</div>
+    <h1>Implementation Timeline</h1>
+
+    <div class="timeline-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.5rem; margin: 1.5rem 0;">
+      <div style="text-align: center; font-weight: 700; font-size: 0.75rem; color: #64748b;">MONTH 1</div>
+      <div style="text-align: center; font-weight: 700; font-size: 0.75rem; color: #64748b;">MONTH 2</div>
+      <div style="text-align: center; font-weight: 700; font-size: 0.75rem; color: #64748b;">MONTH 3</div>
+      <div style="text-align: center; font-weight: 700; font-size: 0.75rem; color: #64748b;">MONTH 4</div>
+      <div style="text-align: center; font-weight: 700; font-size: 0.75rem; color: #64748b;">MONTH 5</div>
+      <div style="text-align: center; font-weight: 700; font-size: 0.75rem; color: #64748b;">MONTH 6</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-bottom: 0.5rem;">
+      <div style="grid-column: 1 / 3; background: linear-gradient(135deg, #1a1a2e, #2d2d5e); color: white; padding: 0.8rem; border-radius: 8px; font-size: 0.75rem;">
+        <strong>Phase 1:</strong> Foundation &amp; Sales Intelligence<br>
+        <span style="opacity: 0.8; font-size: 0.7rem;">Data Architecture, Cleaning, Sales Dashboards</span>
+      </div>
+      <div style="grid-column: 3 / 5; background: linear-gradient(135deg, #E8500A, #ff7b3a); color: white; padding: 0.8rem; border-radius: 8px; font-size: 0.75rem;">
+        <strong>Phase 2:</strong> Marketing Intelligence<br>
+        <span style="opacity: 0.8; font-size: 0.7rem;">Ad Integration, Cross-Dept, Dynamics Readiness</span>
+      </div>
+      <div style="grid-column: 5 / 7; background: linear-gradient(135deg, #6b21a8, #9333ea); color: white; padding: 0.8rem; border-radius: 8px; font-size: 0.75rem;">
+        <strong>Phase 3:</strong> Enterprise Intelligence + AI<br>
+        <span style="opacity: 0.8; font-size: 0.7rem;">Operations, AI Layer, Executive Command Center</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-bottom: 0.3rem;">
+      <div style="grid-column: 1 / 7; background: #334155; color: white; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.7rem; text-align: center;">
+        DATA FOUNDATION — Continuous enrichment across all 6 months
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-bottom: 0.3rem;">
+      <div style="grid-column: 1 / 5; background: #475569; color: white; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.7rem; text-align: center;">
+        DYNAMICS INTEGRATION PLANNING
+      </div>
+      <div style="grid-column: 5 / 7; background: #0f766e; color: white; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.7rem; text-align: center;">
+        DYNAMICS LIVE
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-bottom: 0.3rem;">
+      <div style="grid-column: 1 / 7; background: #64748b; color: white; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.7rem; text-align: center;">
+        STRATEGIC ADVISORY — Embedded throughout all phases
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-bottom: 1rem;">
+      <div style="grid-column: 4 / 7; background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.7rem; text-align: center;">
+        AI LAYER — Training (M5) + Deployment (M6)
+      </div>
+    </div>
+
+    <h3>Key Timeline Dependencies</h3>
+    <table class="table-compact">
+      <thead><tr><th>Dependency</th><th>Required By</th><th>Impact if Delayed</th></tr></thead>
+      <tbody>
+        <tr><td>POS data access</td><td>Week 1</td><td>Delays entire foundation — critical path</td></tr>
+        <tr><td>All ad platform credentials</td><td>Week 2</td><td>Delays marketing dashboard</td></tr>
+        <tr><td>Power BI licenses provisioned</td><td>Week 2</td><td>Blocks dashboard development</td></tr>
+        <tr><td>Dynamics architecture documents</td><td>Month 3</td><td>Delays integration readiness</td></tr>
+        <tr><td>Laptop provisioning</td><td>Week 1</td><td>Impacts on-site collaboration</td></tr>
+        <tr><td>6+ months historical data</td><td>Month 5</td><td>Required for AI model training accuracy</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-number" style="margin-top: 2rem;">Section 13</div>
+    <h1>Next Steps</h1>
+    <table>
+      <thead><tr><th>Step</th><th>Action</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>Proposal review and feedback session</td><td>Within 1 week</td></tr>
+        <tr><td><strong>2</strong></td><td>Formal engagement agreement signing</td><td>Within 2 weeks</td></tr>
+        <tr><td><strong>3</strong></td><td>Infrastructure provisioning begins</td><td>Immediately upon signing</td></tr>
+        <tr><td><strong>4</strong></td><td>Day 1: Data access credentials provided</td><td>Week 1 of engagement</td></tr>
+        <tr><td><strong>5</strong></td><td>Kick-off meeting with all department heads</td><td>Week 1 of engagement</td></tr>
+        <tr><td><strong>6</strong></td><td>Data audit begins</td><td>Week 1 of engagement</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 15</span></div>
+</div>
+<!-- ANNEXURE A -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 16</span>
+    </div>
+    <div class="section-number">Annexure A</div>
+    <h1>Infrastructure Requirements</h1>
+    <p><em>All costs listed below are borne by Crumble Pakistan and are separate from consulting fees.</em></p>
+
+    <h3>Software &amp; Licensing</h3>
+    <table class="table-compact">
+      <thead><tr><th>Item</th><th>Specification</th><th>Est. Cost</th><th>Frequency</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Power BI Premium Per User</strong></td><td>4–5 licenses</td><td>~USD $20/user/mo</td><td>Monthly</td><td>Founder, Head of Marketing, Head of Branch Ops, Consultant, 1 additional</td></tr>
+        <tr><td><strong>Power BI Pro</strong></td><td>Variable</td><td>~USD $10/user/mo</td><td>Monthly</td><td>For view-only access across additional department heads</td></tr>
+        <tr><td><strong>Azure / Cloud Database</strong></td><td>Data warehouse &amp; staging</td><td>~USD $30–60/mo</td><td>Monthly</td><td>Centralized storage, ETL staging, pipeline operations</td></tr>
+        <tr><td><strong>Microsoft Dynamics 365</strong></td><td>Per Crumble's ERP plan</td><td>As per vendor</td><td>Monthly</td><td>When Dynamics goes live</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Hardware</h3>
+    <table class="table-compact">
+      <thead><tr><th>Item</th><th>Specification</th><th>Cost</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dedicated Laptop</strong></td><td>MacBook Pro (M-series, 16GB+ RAM)</td><td>One-time</td><td>For consultant's dedicated project work, on-site collaboration</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Connectivity &amp; Access</h3>
+    <table class="table-compact">
+      <thead><tr><th>Item</th><th>Details</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td><strong>API Connectors</strong></td><td>Meta, Google, TikTok, Shopify, Blink APIs</td><td>Free (platform-provided)</td></tr>
+        <tr><td><strong>Future Connectors</strong></td><td>Additional API/connector subscriptions as integrations expand</td><td>Variable</td></tr>
+        <tr><td><strong>VPN / Secure Access</strong></td><td>If remote access to POS/internal databases requires VPN</td><td>Part of IT infrastructure</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Estimated Monthly Infrastructure Cost</h3>
+    <div class="investment-summary" style="margin-top: 1rem;">
+      <table>
+        <thead><tr><th>Component</th><th>Monthly Estimate (PKR)</th></tr></thead>
+        <tbody>
+          <tr><td>Power BI Licensing (4–5 users)</td><td>~PKR 22,000 – 28,000</td></tr>
+          <tr><td>Cloud Storage / Database</td><td>~PKR 8,000 – 17,000</td></tr>
+          <tr class="highlight-row"><td><strong>Total Monthly Infrastructure</strong></td><td><strong>~PKR 30,000 – 45,000</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-blue" style="margin-top: 1.5rem;">
+      <strong>Note:</strong> These are Crumble's own technology assets. The company retains full ownership of all licenses, cloud data, and hardware — independent of the consulting engagement.
+    </div>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 16</span></div>
+</div>
+<!-- ANNEXURE B - Part 1 -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 17</span>
+    </div>
+    <div class="section-number">Annexure B</div>
+    <h1>Detailed Milestone Schedule</h1>
+    <p>Each milestone is independently verifiable and serves as a sign-off checkpoint for that month's payment release.</p>
+
+    <h3>Month 1 — Data Architecture &amp; Cleanup</h3>
+    <table class="table-compact">
+      <thead><tr><th>ID</th><th>Milestone</th><th>Verification</th><th>Sign-Off</th></tr></thead>
+      <tbody>
+        <tr><td>M1.1</td><td>Comprehensive Data Audit</td><td>Documented inventory with quality assessment</td><td>Agha Usman / Qasim Ali</td></tr>
+        <tr><td>M1.2</td><td>Unified Data Model</td><td>Data dictionary and relationship model approved</td><td>Agha Usman</td></tr>
+        <tr><td>M1.3</td><td>Data Cleaning Pipeline</td><td>Historical data cleaned, validated, quality report</td><td>Qasim Ali</td></tr>
+        <tr><td>M1.4</td><td>Power BI Environment Setup</td><td>Workspace created, roles configured, test dashboard</td><td>Agha Usman</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Month 2 — Sales &amp; Branch Operations Dashboard</h3>
+    <table class="table-compact">
+      <thead><tr><th>ID</th><th>Milestone</th><th>Verification</th><th>Sign-Off</th></tr></thead>
+      <tbody>
+        <tr><td>M2.1</td><td>Revenue Tracking Dashboard</td><td>Live revenue data, all branches, daily refresh</td><td>Qasim Ali</td></tr>
+        <tr><td>M2.2</td><td>Product Performance View</td><td>All products with revenue, units, trends</td><td>Qasim Ali</td></tr>
+        <tr><td>M2.3</td><td>Daypart Analysis</td><td>Time-of-day patterns visible per branch</td><td>Qasim Ali</td></tr>
+        <tr><td>M2.4</td><td>Branch Benchmarking</td><td>Side-by-side comparison functional</td><td>Agha Usman</td></tr>
+        <tr><td>M2.5</td><td>Channel Mix View</td><td>Branch vs Blink vs Website breakdown live</td><td>Agha Usman</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Month 3 — Marketing Performance Dashboard</h3>
+    <table class="table-compact">
+      <thead><tr><th>ID</th><th>Milestone</th><th>Verification</th><th>Sign-Off</th></tr></thead>
+      <tbody>
+        <tr><td>M3.1</td><td>Ad Platform Integration</td><td>Meta, Google, TikTok data flowing into Power BI</td><td>Yasir Nadeem</td></tr>
+        <tr><td>M3.2</td><td>Channel Performance Matrix</td><td>All channels comparable in single view</td><td>Saad Salahuddin</td></tr>
+        <tr><td>M3.3</td><td>Campaign ROI Tracking</td><td>Campaign-level performance with ROI</td><td>Yasir Nadeem</td></tr>
+        <tr><td>M3.4</td><td>Launch Campaign Framework</td><td>Template for monthly launch tracking tested</td><td>Saad Salahuddin</td></tr>
+        <tr><td>M3.5</td><td>Spend Efficiency Dashboard</td><td>Budget pacing and efficiency scoring</td><td>Saad Salahuddin</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Month 4 — Cross-Department Intelligence</h3>
+    <table class="table-compact">
+      <thead><tr><th>ID</th><th>Milestone</th><th>Verification</th><th>Sign-Off</th></tr></thead>
+      <tbody>
+        <tr><td>M4.1</td><td>Sales x Marketing Correlation</td><td>Ad spend linked to POS sales data</td><td>Agha Usman</td></tr>
+        <tr><td>M4.2</td><td>Customer Funnel View</td><td>End-to-end funnel with drop-off analysis</td><td>Saad Salahuddin</td></tr>
+        <tr><td>M4.3</td><td>Geographic Intelligence</td><td>City-level performance overlay</td><td>Agha Usman</td></tr>
+        <tr><td>M4.4</td><td>Dynamics Readiness Report</td><td>Integration blueprint delivered</td><td>Agha Usman</td></tr>
+        <tr><td>M4.5</td><td>Product Launch Tracker</td><td>First launch measured through framework</td><td>Agha Usman</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 17</span></div>
+</div>
+<!-- ANNEXURE B - Part 2 + CLOSING -->
+<div class="page">
+  <div class="page-content">
+    <div class="page-header">
+      <div class="page-header-left"><span class="page-header-brand">Crumble Pakistan</span></div>
+      <span class="page-number">Page 18</span>
+    </div>
+
+    <h3>Month 5 — Operations, Supply Chain &amp; AI Foundation</h3>
+    <table class="table-compact">
+      <thead><tr><th>ID</th><th>Milestone</th><th>Verification</th><th>Sign-Off</th></tr></thead>
+      <tbody>
+        <tr><td>M5.1</td><td>Supply Chain Dashboard</td><td>Procurement and logistics metrics visible</td><td>Saud Ali</td></tr>
+        <tr><td>M5.2</td><td>Production Dashboard</td><td>Output and efficiency metrics tracked</td><td>Dilawar Saeed</td></tr>
+        <tr><td>M5.3</td><td>QA Monitoring</td><td>Quality scorecards and trend tracking</td><td>Rajab Ayub</td></tr>
+        <tr><td>M5.4</td><td>Inventory Analytics</td><td>Stock levels and reorder intelligence</td><td>Saud Ali</td></tr>
+        <tr><td>M5.5</td><td>Dynamics Data Pipeline</td><td>Dynamics data flowing into BI</td><td>Agha Usman</td></tr>
+        <tr><td>M5.6</td><td>AI Model Training</td><td>Models trained on historical data, accuracy validated</td><td>Agha Usman</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Month 6 — Executive Command Center &amp; AI Deployment</h3>
+    <table class="table-compact">
+      <thead><tr><th>ID</th><th>Milestone</th><th>Verification</th><th>Sign-Off</th></tr></thead>
+      <tbody>
+        <tr><td>M6.1</td><td>Executive Dashboard</td><td>Single-screen business overview functional</td><td>Agha Usman</td></tr>
+        <tr><td>M6.2</td><td>Automated Alerts</td><td>KPI threshold alerts tested and active</td><td>Agha Usman</td></tr>
+        <tr><td>M6.3</td><td>AI Demand Forecasting</td><td>Predictive model producing accurate forecasts for next launch</td><td>Agha Usman</td></tr>
+        <tr><td>M6.4</td><td>AI Anomaly Detection</td><td>Anomaly detection live, generating automated insights</td><td>Agha Usman</td></tr>
+        <tr><td>M6.5</td><td>Natural Language Querying</td><td>Users can ask questions in plain English and receive answers</td><td>Agha Usman</td></tr>
+        <tr><td>M6.6</td><td>Full Dynamics Integration</td><td>All Dynamics data streams integrated</td><td>Agha Usman</td></tr>
+        <tr><td>M6.7</td><td>Training &amp; Documentation</td><td>All guides delivered, training completed (including AI)</td><td>Agha Usman</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>Crumble Pakistan — BI Partnership Proposal</span><span>Confidential</span><span>Page 18</span></div>
+</div>
+
+<!-- CLOSING PAGE -->
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white;">
+  <div class="page-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; flex: 1;">
+    <div style="margin-bottom: 3rem;">
+      <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: white;">END OF PROPOSAL</h1>
+      <div style="width: 80px; height: 4px; background: var(--accent); margin: 1rem auto;"></div>
+    </div>
+    <p style="font-size: 1.1rem; max-width: 500px; line-height: 1.8; opacity: 0.9; font-style: italic;">
+      Crumble has built something remarkable — a brand that customers love, a product pipeline that keeps them coming back, and a growth trajectory that few Pakistani brands achieve this fast. What's missing is the intelligence layer that turns all of this activity into compounding, data-driven advantage. That is exactly what this engagement delivers.
+    </p>
+    <p style="font-size: 1rem; margin-top: 2rem; opacity: 0.8; font-style: italic;">
+      I look forward to building Crumble's intelligence future.
+    </p>
+    <div style="margin-top: 3rem;">
+      <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem;">Gulsher Zahid</p>
+      <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0;">BI Strategy Consultant</p>
+    </div>
+    <div style="margin-top: 2rem; font-size: 0.75rem; opacity: 0.5;">
+      Document Version: 1.0 | Date: March 26, 2026 | Classification: Confidential
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
