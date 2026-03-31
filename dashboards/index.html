@@ -215,13 +215,12 @@
             </div>
             <div class="kpi-value">₨ 47.2M</div>
             <div class="kpi-change up">↑ 12.4% vs last month</div>
-            <div style="margin-top:6px;">
-              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-tertiary);margin-bottom:2px;"><span>Progress</span><span>94.4%</span></div>
-              <div class="progress-bar" style="height:5px;"><div class="fill brand" style="width:94.4%"></div></div>
-              <div style="font-size:10px;color:var(--text-tertiary);margin-top:2px;">Target: ₨ 50M</div>
+            <div style="margin-top:8px;display:flex;align-items:center;gap:6px;">
+              <div class="progress-bar" style="flex:1;height:4px;"><div class="fill brand" style="width:94.4%"></div></div>
+              <span style="font-size:10px;color:var(--text-tertiary);">94%</span>
             </div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="border-left:3px solid var(--positive);">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
               <span style="width:32px;height:32px;border-radius:8px;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="shopping-bag" style="width:16px;height:16px;color:var(--positive);"></i></span>
               <div class="kpi-label" style="margin:0;">Total Orders</div>
@@ -229,7 +228,7 @@
             <div class="kpi-value">38,420</div>
             <div class="kpi-change up">↑ 8.7% · 1,281/day avg</div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="border-left:3px solid var(--info);">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
               <span style="width:32px;height:32px;border-radius:8px;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="tag" style="width:16px;height:16px;color:var(--info);"></i></span>
               <div class="kpi-label" style="margin:0;">Avg Order Value</div>
@@ -237,7 +236,7 @@
             <div class="kpi-value">₨ 1,229</div>
             <div class="kpi-change up">↑ 3.4% vs target</div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="border-left:3px solid var(--brand-primary);">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
               <span style="width:32px;height:32px;border-radius:8px;background:rgba(217,79,4,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="trending-up" style="width:16px;height:16px;color:var(--brand-primary);"></i></span>
               <div class="kpi-label" style="margin:0;">Gross Margin</div>
@@ -245,7 +244,7 @@
             <div class="kpi-value">62.4%</div>
             <div class="kpi-change up">↑ 1.2 pts MoM</div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="border-left:3px solid #F97316;">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
               <span style="width:32px;height:32px;border-radius:8px;background:rgba(249,115,22,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="star" style="width:16px;height:16px;color:#F97316;"></i></span>
               <div class="kpi-label" style="margin:0;">Customer Rating</div>
@@ -257,22 +256,22 @@
 
         <!-- Secondary Operations KPI Row (4 columns) -->
         <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: var(--space-lg);">
-          <div class="kpi-card">
+          <div class="kpi-card" style="border-left:3px solid var(--positive);">
             <div class="kpi-label"><i data-lucide="building-2" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Outlets Online</div>
             <div class="kpi-value" style="font-size:22px;">14 / 14</div>
             <div class="kpi-change up"><span style="color:var(--positive);">&#10003;</span> 99.8% uptime</div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="border-left:3px solid var(--info);">
             <div class="kpi-label"><i data-lucide="clock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Avg Prep Time</div>
             <div class="kpi-value" style="font-size:22px;">8.2 min</div>
             <div class="kpi-change up">↓ 0.8 min vs SLA</div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="border-left:3px solid var(--brand-primary);">
             <div class="kpi-label"><i data-lucide="truck" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Delivery SLA</div>
             <div class="kpi-value" style="font-size:22px;">92%</div>
             <div class="kpi-change up">↑ 5 pts vs Feb</div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="border-left:3px solid var(--positive);">
             <div class="kpi-label"><i data-lucide="recycle" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Waste Rate</div>
             <div class="kpi-value" style="font-size:22px;">3.2%</div>
             <div class="kpi-change up">↓ 0.4 pts · ₨ 1.5M saved</div>
@@ -281,42 +280,42 @@
 
         <!-- PRIORITY 1: Active Alerts (Executive needs to see issues first) -->
         <div class="card" style="margin-bottom: var(--space-lg); border-left: 3px solid var(--negative);">
-          <div class="card-header">
-            <h4><i data-lucide="alert-triangle" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:4px;color:var(--negative);"></i>Active Alerts &amp; Actions</h4>
+          <div class="card-header" style="padding:12px 16px;">
+            <h4 style="font-size:14px;"><i data-lucide="alert-triangle" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px;color:var(--negative);"></i>Active Alerts &amp; Actions</h4>
             <span class="status red">4 Active</span>
           </div>
-          <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm);">
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--negative-bg);border-radius:var(--radius-sm);border-left:3px solid var(--negative);">
-              <span style="width:8px;height:8px;border-radius:50%;background:var(--negative);margin-top:4px;flex-shrink:0;"></span>
+          <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 16px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--negative-bg);border-radius:var(--radius-sm);border-left:2px solid var(--negative);">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--negative);flex-shrink:0;"></span>
               <div style="flex:1;">
-                <div style="font-size:13px;font-weight:600;">Stock Alert — Fortress Stadium</div>
-                <div style="font-size:12px;color:var(--text-secondary);">Lotus Lava projected depletion: 4 PM</div>
+                <div style="font-size:12px;font-weight:600;">Stock Alert — Fortress Stadium</div>
+                <div style="font-size:11px;color:var(--text-secondary);">Lotus Lava projected depletion: 4 PM</div>
               </div>
-              <span style="font-size:11px;color:var(--text-tertiary);white-space:nowrap;">12 min ago</span>
+              <span style="font-size:10px;color:var(--text-tertiary);white-space:nowrap;">12m</span>
             </div>
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--negative-bg);border-radius:var(--radius-sm);border-left:3px solid var(--negative);">
-              <span style="width:8px;height:8px;border-radius:50%;background:var(--negative);margin-top:4px;flex-shrink:0;"></span>
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--negative-bg);border-radius:var(--radius-sm);border-left:2px solid var(--negative);">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--negative);flex-shrink:0;"></span>
               <div style="flex:1;">
-                <div style="font-size:13px;font-weight:600;">Revenue Drop — Gulberg Outlet</div>
-                <div style="font-size:12px;color:var(--text-secondary);">Down 18% WoW. Late-night orders -40%</div>
+                <div style="font-size:12px;font-weight:600;">Revenue Drop — Gulberg Outlet</div>
+                <div style="font-size:11px;color:var(--text-secondary);">Down 18% WoW. Late-night orders -40%</div>
               </div>
-              <span style="font-size:11px;color:var(--text-tertiary);white-space:nowrap;">1h ago</span>
+              <span style="font-size:10px;color:var(--text-tertiary);white-space:nowrap;">1h</span>
             </div>
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--warning-bg);border-radius:var(--radius-sm);border-left:3px solid var(--warning);">
-              <span style="width:8px;height:8px;border-radius:50%;background:var(--warning);margin-top:4px;flex-shrink:0;"></span>
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--warning-bg);border-radius:var(--radius-sm);border-left:2px solid var(--warning);">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--warning);flex-shrink:0;"></span>
               <div style="flex:1;">
-                <div style="font-size:13px;font-weight:600;">Google Ads ROAS Decline</div>
-                <div style="font-size:12px;color:var(--text-secondary);">3.1x now vs 4.2x last month</div>
+                <div style="font-size:12px;font-weight:600;">Google Ads ROAS Decline</div>
+                <div style="font-size:11px;color:var(--text-secondary);">3.1x now vs 4.2x last month</div>
               </div>
-              <span style="font-size:11px;color:var(--text-tertiary);white-space:nowrap;">2h ago</span>
+              <span style="font-size:10px;color:var(--text-tertiary);white-space:nowrap;">2h</span>
             </div>
-            <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--info-bg);border-radius:var(--radius-sm);border-left:3px solid var(--info);">
-              <span style="width:8px;height:8px;border-radius:50%;background:var(--info);margin-top:4px;flex-shrink:0;"></span>
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--info-bg);border-radius:var(--radius-sm);border-left:2px solid var(--info);">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--info);flex-shrink:0;"></span>
               <div style="flex:1;">
-                <div style="font-size:13px;font-weight:600;">Delivery SLA Breach — Model Town</div>
-                <div style="font-size:12px;color:var(--text-secondary);">3 orders exceeded 45 min</div>
+                <div style="font-size:12px;font-weight:600;">Delivery SLA Breach — Model Town</div>
+                <div style="font-size:11px;color:var(--text-secondary);">3 orders exceeded 45 min</div>
               </div>
-              <span style="font-size:11px;color:var(--text-tertiary);white-space:nowrap;">3h ago</span>
+              <span style="font-size:10px;color:var(--text-tertiary);white-space:nowrap;">3h</span>
             </div>
           </div>
         </div>
