@@ -1054,46 +1054,52 @@ img { max-width: 100%; }
 /* --- KANBAN --- */
 .kanban-board {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   overflow-x: auto;
   padding-bottom: var(--space-sm);
 }
 .kanban-column {
-  min-width: 220px;
+  min-width: 180px;
   flex: 1;
-  background: var(--bg-page);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: var(--radius-md);
   padding: var(--space-sm);
+  border: 1px solid var(--border-light);
 }
 .kanban-column-header {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-secondary);
-  padding: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  margin-bottom: var(--space-xs);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .kanban-column-header .count {
-  background: var(--border-light);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
   padding: 1px 8px;
   border-radius: 10px;
-  font-size: 11px;
+  font-size: 10px;
 }
 .kanban-card {
-  background: white;
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
-  padding: var(--space-sm);
-  margin-bottom: var(--space-sm);
+  padding: 8px 10px;
+  margin-bottom: var(--space-xs);
   cursor: pointer;
-  transition: box-shadow var(--transition-fast);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
-.kanban-card:hover { box-shadow: var(--shadow-md); }
-.kanban-card .kanban-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
-.kanban-card .kanban-meta { font-size: 11px; color: var(--text-secondary); }
+.kanban-card:hover { 
+  box-shadow: var(--shadow-md); 
+  border-color: var(--border-medium);
+}
+.kanban-card .kanban-title { font-size: 12px; font-weight: 500; margin-bottom: 2px; color: var(--text-primary); }
+.kanban-card .kanban-meta { font-size: 10px; color: var(--text-tertiary); }
 
 /* --- TIMELINE / GANTT --- */
 .timeline-row {

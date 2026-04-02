@@ -37,9 +37,9 @@
     .donut-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
     .donut-center .dc-val { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
     .donut-center .dc-lbl { font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.02em; text-transform: uppercase; }
-    .funnel-step { display: flex; align-items: center; gap: 12px; padding: 8px 0; }
-    .funnel-step .funnel-bar { height: 28px; border-radius: 4px; display: flex; align-items: center; padding: 0 12px; font-size: 12px; font-weight: 600; color: white; transition: width 0.6s ease; }
-    .funnel-step .funnel-label { font-size: 12px; width: 120px; flex-shrink: 0; }
+    .funnel-step { display: flex; align-items: center; gap: 10px; padding: 5px 0; }
+    .funnel-step .funnel-bar { height: 24px; border-radius: 4px; display: flex; align-items: center; padding: 0 10px; font-size: 11px; font-weight: 600; color: white; transition: width 0.6s ease; }
+    .funnel-step .funnel-label { font-size: 11px; width: 110px; flex-shrink: 0; color: var(--text-secondary); }
     .funnel-step .funnel-value { font-size: 13px; font-weight: 600; width: 80px; text-align: right; flex-shrink: 0; }
     .city-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: var(--space-md); cursor: pointer; transition: all var(--transition-fast); }
     .city-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-medium); }
@@ -2030,7 +2030,7 @@
         </div>
 
         <!-- Stock Matrix -->
-        <div class="card" style="overflow:hidden;">
+        <div class="card" style="overflow:hidden;margin-bottom:var(--space-lg);">
           <div class="card-header"><h4>Stock Position by Outlet</h4></div>
           <div class="card-body" style="padding:0;overflow:auto;max-height:280px;">
             <table class="data-table">
@@ -3085,6 +3085,13 @@
             </div>
           </div>
           <div class="card">
+            <div class="card-header"><h4>Monthly Enrollments</h4></div>
+            <div class="card-body">
+              <div class="chart-container" style="height:280px;"><canvas id="enrollmentChart"></canvas></div>
+            </div>
+          </div>
+        </div>
+
         <!-- Delivery Partner Performance -->
         <div class="card" style="margin-bottom:var(--space-lg);">
           <div class="card-header"><h4>Delivery Partner Performance</h4></div>
@@ -3104,7 +3111,7 @@
         </div>
 
         <!-- Peak Hour + Outlet Fulfillment -->
-        <div class="grid grid-6-6">
+        <div class="grid grid-6-6" style="margin-bottom:var(--space-lg);">
           <div class="card">
             <div class="card-header"><h4>Order Volume by Hour</h4></div>
             <div class="card-body" style="padding:0;">
@@ -3137,12 +3144,6 @@
             </div>
           </div>
         </div>
-            <div class="card-header"><h4>Monthly Enrollments</h4></div>
-            <div class="card-body">
-              <div class="chart-container" style="height:280px;"><canvas id="enrollmentChart"></canvas></div>
-            </div>
-          </div>
-        </div>
 
         <!-- At-Risk List -->
         <div class="card">
@@ -3155,73 +3156,6 @@
                 <tr><td><strong>Regular Declining</strong></td><td class="text-right">1,480</td><td class="text-right">₨ 6,800</td><td class="text-right">30–45</td><td>Push notification + points</td><td><span class="status green">58%</span></td></tr>
                 <tr><td><strong>Occasional Fading</strong></td><td class="text-right">2,480</td><td class="text-right">₨ 2,400</td><td class="text-right">60–90</td><td>Email + free item</td><td><span class="status amber">34%</span></td></tr>
               </tbody>
-        <!-- SKU-Level Waste Leaders -->
-        <div class="grid grid-6-6" style="margin-bottom:var(--space-lg);">
-          <div class="card">
-            <div class="card-header"><h4>Waste by SKU — Top Offenders</h4></div>
-            <div class="card-body" style="padding:0;">
-              <table class="data-table">
-                <thead><tr><th>Product</th><th class="text-right">Units Wasted</th><th class="text-right">Value Lost</th><th class="text-right">Waste %</th><th class="text-right">Avg Shelf Life Used</th><th>Root Cause</th></tr></thead>
-                <tbody>
-                  <tr class="alert-row"><td><strong>Pistachio Crumble (LTO)</strong></td><td class="text-right">284</td><td class="text-right">₨ 184K</td><td class="text-right text-negative">8.2%</td><td class="text-right">62%</td><td><span class="status red">Over-production</span></td></tr>
-                  <tr><td><strong>Red Velvet Brownie</strong></td><td class="text-right">196</td><td class="text-right">₨ 108K</td><td class="text-right">5.4%</td><td class="text-right">78%</td><td><span class="status amber">Hold-time</span></td></tr>
-                  <tr><td><strong>Cookie Sandwich</strong></td><td class="text-right">142</td><td class="text-right">₨ 71K</td><td class="text-right">4.8%</td><td class="text-right">85%</td><td><span class="status green">Expected</span></td></tr>
-                  <tr><td><strong>White Choc Macadamia</strong></td><td class="text-right">134</td><td class="text-right">₨ 74K</td><td class="text-right">6.1%</td><td class="text-right">71%</td><td><span class="status amber">Low demand</span></td></tr>
-                  <tr><td><strong>Classic Choc Cookie</strong></td><td class="text-right">98</td><td class="text-right">₨ 49K</td><td class="text-right">1.8%</td><td class="text-right">92%</td><td><span class="status green">Minimal</span></td></tr>
-                  <tr><td><strong>Salted Caramel Brownie</strong></td><td class="text-right">86</td><td class="text-right">₨ 47K</td><td class="text-right">3.1%</td><td class="text-right">88%</td><td><span class="status green">Expected</span></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header"><h4>Waste Trend — Last 12 Weeks</h4></div>
-            <div class="card-body" style="padding:0;">
-              <table class="data-table">
-                <thead><tr><th>Period</th><th class="text-right">Waste %</th><th class="text-right">Value (₨K)</th><th class="text-right">Incidents</th><th class="text-right">vs Target</th><th>Trend</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>Week 1–4</strong></td><td class="text-right">5.8%</td><td class="text-right">680K</td><td class="text-right">42</td><td class="text-right text-negative">+0.8pp</td><td><span class="status amber">Above</span></td></tr>
-                  <tr><td><strong>Week 5–8</strong></td><td class="text-right">5.2%</td><td class="text-right">610K</td><td class="text-right">36</td><td class="text-right text-negative">+0.2pp</td><td><span class="status amber">Near</span></td></tr>
-                  <tr><td><strong>Week 9–12 (Current)</strong></td><td class="text-right">4.8%</td><td class="text-right">560K</td><td class="text-right">28</td><td class="text-right text-positive">-0.2pp</td><td><span class="status green">Below Target</span></td></tr>
-                </tbody>
-                <tfoot><tr style="font-weight:600;background:var(--bg-secondary);"><td>12-Wk Average</td><td class="text-right">5.3%</td><td class="text-right">617K/mo</td><td class="text-right">35.3/mo</td><td class="text-right">+0.3pp</td><td></td></tr></tfoot>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Daypart Waste + Waste Reduction Initiatives -->
-        <div class="grid grid-6-6">
-          <div class="card">
-            <div class="card-header"><h4>Waste by Daypart</h4></div>
-            <div class="card-body" style="padding:0;">
-              <table class="data-table">
-                <thead><tr><th>Daypart</th><th class="text-right">Waste %</th><th class="text-right">Value</th><th class="text-right">Primary SKU</th><th>Root Cause</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>Morning (6–12)</strong></td><td class="text-right">2.8%</td><td class="text-right">₨ 82K</td><td class="text-right">Salted Caramel</td><td><span class="status green">Expected</span></td></tr>
-                  <tr><td><strong>Afternoon (12–5)</strong></td><td class="text-right">3.4%</td><td class="text-right">₨ 148K</td><td class="text-right">Cookie Sandwich</td><td><span class="status green">Normal</span></td></tr>
-                  <tr><td><strong>Evening (5–9)</strong></td><td class="text-right">4.2%</td><td class="text-right">₨ 196K</td><td class="text-right">Pistachio LTO</td><td><span class="status amber">Over-prep</span></td></tr>
-                  <tr class="alert-row"><td><strong>Night (9–12)</strong></td><td class="text-right text-negative">7.8%</td><td class="text-right">₨ 284K</td><td class="text-right">Multiple</td><td><span class="status red">Demand drop</span></td></tr>
-                  <tr class="alert-row"><td><strong>Late Night (12–3)</strong></td><td class="text-right text-negative">11.2%</td><td class="text-right">₨ 164K</td><td class="text-right">Red Velvet</td><td><span class="status red">Over-production</span></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header"><h4>Waste Reduction Initiatives</h4></div>
-            <div class="card-body" style="padding:0;">
-              <table class="data-table">
-                <thead><tr><th>Initiative</th><th class="text-right">Est. Savings</th><th class="text-right">Progress</th><th>Owner</th><th>Status</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>AI Demand Forecasting</strong></td><td class="text-right">₨ 420K/mo</td><td class="text-right">78%</td><td>Data Team</td><td><span class="status green">In Progress</span></td></tr>
-                  <tr><td><strong>Late-Night Production Cap</strong></td><td class="text-right">₨ 180K/mo</td><td class="text-right">100%</td><td>Ops</td><td><span class="status green">Deployed</span></td></tr>
-                  <tr><td><strong>Dynamic Discount Engine</strong></td><td class="text-right">₨ 240K/mo</td><td class="text-right">45%</td><td>Tech</td><td><span class="status amber">Building</span></td></tr>
-                  <tr><td><strong>Shelf Timer Automation</strong></td><td class="text-right">₨ 160K/mo</td><td class="text-right">90%</td><td>Ops</td><td><span class="status green">Pilot</span></td></tr>
-                  <tr><td><strong>Packaging Size Optimization</strong></td><td class="text-right">₨ 80K/mo</td><td class="text-right">20%</td><td>Supply</td><td><span class="status amber">Planning</span></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
             </table>
           </div>
         </div>
