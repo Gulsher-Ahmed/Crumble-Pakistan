@@ -132,11 +132,9 @@
         </div>
       </div>
     </nav>
-    <div class="sidebar-footer">
-      <button class="sidebar-toggle" onclick="toggleSidebar()" title="Toggle sidebar">
-        <i data-lucide="chevron-left"></i>
-      </button>
-    </div>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" title="Toggle sidebar">
+      <i data-lucide="chevron-left"></i>
+    </button>
   </aside>
 
   <!-- ======== MAIN CONTENT ======== -->
@@ -189,663 +187,413 @@
       <div class="dash-page active" id="page-exec-command">
         <div class="page-header">
           <div class="page-header-left">
-            <div class="page-breadcrumb">Executive Layer</div>
-            <h1 class="page-title">Executive Command Center</h1>
-            <p class="page-subtitle">Real-time business health — all channels, all outlets</p>
+            <div class="page-breadcrumb">Decision Intelligence</div>
+            <h1 class="page-title">Executive Command Centre</h1>
+            <p class="page-subtitle">What happened · What's happening · What needs your attention</p>
           </div>
           <div class="page-actions">
-            <span class="last-updated">Updated 2 min ago</span>
-            <button class="btn btn-secondary btn-sm"><i data-lucide="upload"></i> Export</button>
-            <button class="btn btn-primary btn-sm"><i data-lucide="calendar"></i> Schedule Report</button>
+            <span class="live-badge"><span class="pulse"></span> LIVE</span>
+            <span class="last-updated">Mar 31, 2026 · 2:47 PM</span>
+            <button class="btn btn-secondary btn-sm"><i data-lucide="download" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px"></i> Export</button>
           </div>
         </div>
 
-        <!-- Alert Banner -->
-        <div class="alert-banner warning">
-          <span><i data-lucide="alert-triangle" style="width:16px;height:16px;"></i></span>
-          <span class="alert-text"><strong>LTO Alert:</strong> Lotus Lava stock projected to deplete at Fortress Stadium by 4 PM today.</span>
-          <span class="alert-action">View Details →</span>
-        </div>
-
-        <!-- Primary KPI Row (5 columns) -->
-        <div class="kpi-grid" style="grid-template-columns: repeat(5, 1fr); margin-bottom: var(--space-md);">
-          <div class="kpi-card highlight">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-              <span style="width:32px;height:32px;border-radius:8px;background:rgba(217,79,4,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="wallet" style="width:16px;height:16px;color:var(--brand-primary);"></i></span>
-              <div class="kpi-label" style="margin:0;">Total Revenue</div>
+        <!-- ── SECTION 1: BUSINESS VITAL SIGNS ── -->
+        <div class="di-vitals" style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px;">
+          <div class="di-vital-card" style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:16px 18px;position:relative;overflow:hidden;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Revenue MTD</span>
+              <span style="width:28px;height:28px;border-radius:8px;background:rgba(255,107,26,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="indian-rupee" style="width:14px;height:14px;color:var(--brand-primary);"></i></span>
             </div>
-            <div class="kpi-value">₨ 47.2M</div>
-            <div class="kpi-change up">↑ 12.4% vs last month</div>
-            <div style="margin-top:8px;display:flex;align-items:center;gap:6px;">
-              <div class="progress-bar" style="flex:1;height:4px;"><div class="fill brand" style="width:94.4%"></div></div>
-              <span style="font-size:10px;color:var(--text-tertiary);">94%</span>
+            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">₨ 47.2M</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+              <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">↑ 12.4%</span>
+              <span style="font-size:11px;color:var(--text-tertiary);">vs Feb</span>
+            </div>
+            <div style="margin-top:10px;">
+              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-tertiary);margin-bottom:3px;"><span>Target: ₨ 50M</span><span>94.4%</span></div>
+              <div class="progress-bar" style="height:5px;"><div class="fill brand" style="width:94.4%"></div></div>
             </div>
           </div>
-          <div class="kpi-card" style="">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-              <span style="width:32px;height:32px;border-radius:8px;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="shopping-bag" style="width:16px;height:16px;color:var(--positive);"></i></span>
-              <div class="kpi-label" style="margin:0;">Total Orders</div>
+          <div class="di-vital-card" style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:16px 18px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Orders</span>
+              <span style="width:28px;height:28px;border-radius:8px;background:rgba(0,230,118,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="shopping-bag" style="width:14px;height:14px;color:var(--positive);"></i></span>
             </div>
-            <div class="kpi-value">38,420</div>
-            <div class="kpi-change up">↑ 8.7% · 1,281/day avg</div>
-          </div>
-          <div class="kpi-card" style="">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-              <span style="width:32px;height:32px;border-radius:8px;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="tag" style="width:16px;height:16px;color:var(--info);"></i></span>
-              <div class="kpi-label" style="margin:0;">Avg Order Value</div>
+            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">38,420</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+              <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">↑ 8.7%</span>
+              <span style="font-size:11px;color:var(--text-tertiary);">1,281/day</span>
             </div>
-            <div class="kpi-value">₨ 1,229</div>
-            <div class="kpi-change up">↑ 3.4% vs target</div>
           </div>
-          <div class="kpi-card" style="">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-              <span style="width:32px;height:32px;border-radius:8px;background:rgba(217,79,4,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="trending-up" style="width:16px;height:16px;color:var(--brand-primary);"></i></span>
-              <div class="kpi-label" style="margin:0;">Gross Margin</div>
+          <div class="di-vital-card" style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:16px 18px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Gross Margin</span>
+              <span style="width:28px;height:28px;border-radius:8px;background:rgba(64,196,255,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="trending-up" style="width:14px;height:14px;color:var(--info);"></i></span>
             </div>
-            <div class="kpi-value">62.4%</div>
-            <div class="kpi-change up">↑ 1.2 pts MoM</div>
-          </div>
-          <div class="kpi-card" style="">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-              <span style="width:32px;height:32px;border-radius:8px;background:rgba(249,115,22,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="star" style="width:16px;height:16px;color:#F97316;"></i></span>
-              <div class="kpi-label" style="margin:0;">Customer Rating</div>
+            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">62.4%</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+              <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">+1.2 pts</span>
+              <span style="font-size:11px;color:var(--text-tertiary);">MoM</span>
             </div>
-            <div class="kpi-value">4.6 / 5.0</div>
-            <div class="kpi-change up">↑ 0.2 pts · NPS: 72</div>
           </div>
-        </div>
-
-        <!-- Secondary Operations KPI Row (4 columns) -->
-        <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: var(--space-lg);">
-          <div class="kpi-card" style="">
-            <div class="kpi-label"><i data-lucide="building-2" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Outlets Online</div>
-            <div class="kpi-value" style="font-size:22px;">14 / 14</div>
-            <div class="kpi-change up"><span style="color:var(--positive);">&#10003;</span> 99.8% uptime</div>
+          <div class="di-vital-card" style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:16px 18px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Avg Ticket</span>
+              <span style="width:28px;height:28px;border-radius:8px;background:rgba(255,107,26,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="receipt" style="width:14px;height:14px;color:var(--brand-primary);"></i></span>
+            </div>
+            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">₨ 1,229</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+              <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">↑ 3.4%</span>
+              <span style="font-size:11px;color:var(--text-tertiary);">vs target</span>
+            </div>
           </div>
-          <div class="kpi-card" style="">
-            <div class="kpi-label"><i data-lucide="clock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Avg Prep Time</div>
-            <div class="kpi-value" style="font-size:22px;">8.2 min</div>
-            <div class="kpi-change up">↓ 0.8 min vs SLA</div>
-          </div>
-          <div class="kpi-card" style="">
-            <div class="kpi-label"><i data-lucide="truck" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Delivery SLA</div>
-            <div class="kpi-value" style="font-size:22px;">92%</div>
-            <div class="kpi-change up">↑ 5 pts vs Feb</div>
-          </div>
-          <div class="kpi-card" style="">
-            <div class="kpi-label"><i data-lucide="recycle" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Waste Rate</div>
-            <div class="kpi-value" style="font-size:22px;">3.2%</div>
-            <div class="kpi-change up">↓ 0.4 pts · ₨ 1.5M saved</div>
+          <div class="di-vital-card" style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:16px 18px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Customer Rating</span>
+              <span style="width:28px;height:28px;border-radius:8px;background:rgba(249,115,22,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="star" style="width:14px;height:14px;color:#F97316;"></i></span>
+            </div>
+            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">4.6<span style="font-size:16px;font-weight:400;color:var(--text-tertiary);">/5</span></div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+              <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">NPS 72</span>
+              <span style="font-size:11px;color:var(--text-tertiary);">↑ 0.2 pts</span>
+            </div>
           </div>
         </div>
 
-        <!-- PRIORITY 1: Active Alerts (Executive needs to see issues first) -->
-        <div class="card" style="margin-bottom: var(--space-lg); ">
+        <!-- ── SECTION 2: DECISIONS REQUIRED ── -->
+        <div class="card di-decisions" style="margin-bottom:20px;border:1px solid rgba(255,82,82,0.2);background:linear-gradient(135deg, rgba(255,82,82,0.03) 0%, var(--bg-card) 100%);">
           <div class="card-header" style="padding:12px 16px;">
-            <h4 style="font-size:14px;"><i data-lucide="alert-triangle" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px;color:var(--negative);"></i>Active Alerts &amp; Actions</h4>
-            <span class="status red">4 Active</span>
+            <h4 style="font-size:13px;display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--negative);animation:pulse 2s infinite;"></span> Decisions Required</h4>
+            <span class="status red" style="font-size:10px;">4 items need your attention</span>
           </div>
-          <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 16px;">
-            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--negative-bg);border-radius:var(--radius-sm);">
-              <span style="width:6px;height:6px;border-radius:50%;background:var(--negative);flex-shrink:0;"></span>
-              <div style="flex:1;">
-                <div style="font-size:12px;font-weight:600;">Stock Alert — Fortress Stadium</div>
-                <div style="font-size:11px;color:var(--text-secondary);">Lotus Lava projected depletion: 4 PM</div>
+          <div class="card-body" style="padding:12px 16px;">
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+              <div class="di-decision-item" style="padding:12px;border-radius:var(--radius-md);background:rgba(255,82,82,0.06);border:1px solid rgba(255,82,82,0.12);">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+                  <span style="width:6px;height:6px;border-radius:50%;background:var(--negative);flex-shrink:0;"></span>
+                  <span style="font-size:10px;color:var(--negative);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Critical</span>
+                </div>
+                <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Gulberg Revenue Down 18%</div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">Late-night orders dropped 40%. Staff shortage suspected. Review staffing.</div>
               </div>
-              <span style="font-size:10px;color:var(--text-tertiary);white-space:nowrap;">12m</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--negative-bg);border-radius:var(--radius-sm);">
-              <span style="width:6px;height:6px;border-radius:50%;background:var(--negative);flex-shrink:0;"></span>
-              <div style="flex:1;">
-                <div style="font-size:12px;font-weight:600;">Revenue Drop — Gulberg Outlet</div>
-                <div style="font-size:11px;color:var(--text-secondary);">Down 18% WoW. Late-night orders -40%</div>
+              <div class="di-decision-item" style="padding:12px;border-radius:var(--radius-md);background:rgba(255,82,82,0.06);border:1px solid rgba(255,82,82,0.12);">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+                  <span style="width:6px;height:6px;border-radius:50%;background:var(--negative);flex-shrink:0;"></span>
+                  <span style="font-size:10px;color:var(--negative);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Stock Risk</span>
+                </div>
+                <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Lotus Lava — Fortress Stadium</div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">Projected depletion by 4 PM today. Authorize emergency restock.</div>
               </div>
-              <span style="font-size:10px;color:var(--text-tertiary);white-space:nowrap;">1h</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--warning-bg);border-radius:var(--radius-sm);">
-              <span style="width:6px;height:6px;border-radius:50%;background:var(--warning);flex-shrink:0;"></span>
-              <div style="flex:1;">
-                <div style="font-size:12px;font-weight:600;">Google Ads ROAS Decline</div>
-                <div style="font-size:11px;color:var(--text-secondary);">3.1x now vs 4.2x last month</div>
+              <div class="di-decision-item" style="padding:12px;border-radius:var(--radius-md);background:rgba(255,171,0,0.06);border:1px solid rgba(255,171,0,0.12);">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+                  <span style="width:6px;height:6px;border-radius:50%;background:var(--warning);flex-shrink:0;"></span>
+                  <span style="font-size:10px;color:var(--warning);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Budget</span>
+                </div>
+                <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Google Ads ROAS 3.1x → 4.2x</div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">Below 4x threshold. Reallocate ₨ 150K to TikTok (5.2x ROAS).</div>
               </div>
-              <span style="font-size:10px;color:var(--text-tertiary);white-space:nowrap;">2h</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--info-bg);border-radius:var(--radius-sm);">
-              <span style="width:6px;height:6px;border-radius:50%;background:var(--info);flex-shrink:0;"></span>
-              <div style="flex:1;">
-                <div style="font-size:12px;font-weight:600;">Delivery SLA Breach — Model Town</div>
-                <div style="font-size:11px;color:var(--text-secondary);">3 orders exceeded 45 min</div>
+              <div class="di-decision-item" style="padding:12px;border-radius:var(--radius-md);background:rgba(255,171,0,0.06);border:1px solid rgba(255,171,0,0.12);">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+                  <span style="width:6px;height:6px;border-radius:50%;background:var(--warning);flex-shrink:0;"></span>
+                  <span style="font-size:10px;color:var(--warning);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Operations</span>
+                </div>
+                <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Model Town SLA at 84%</div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">3 orders exceeded 45 min. Rider shortage — approve overtime.</div>
               </div>
-              <span style="font-size:10px;color:var(--text-tertiary);white-space:nowrap;">3h</span>
             </div>
           </div>
         </div>
 
-        <!-- PRIORITY 2: Revenue Trend + AI Panel -->
-        <div class="grid grid-8-4" style="margin-bottom: var(--space-lg);">
+        <!-- ── SECTION 3: REVENUE INTELLIGENCE + AI BRIEFING ── -->
+        <div class="grid grid-8-4" style="margin-bottom:20px;">
           <div class="card">
             <div class="card-header">
-              <h4>Revenue Trend — Last 30 Days</h4>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <span style="font-size:11px;color:var(--text-tertiary);">MTD: <strong style="color:var(--text-primary);">₨ 47.2M</strong></span>
-                <span style="font-size:11px;color:var(--text-tertiary);margin-left:4px;">|</span>
-                <span style="font-size:11px;color:var(--text-tertiary);margin-left:4px;">Proj: <strong style="color:var(--positive);">₨ 51.8M</strong></span>
-                <button class="btn btn-sm btn-ghost" onclick="updateRevenueChart('daily')">Daily</button>
-                <button class="btn btn-sm btn-secondary" onclick="updateRevenueChart('weekly')">Weekly</button>
+              <h4>Revenue Trajectory</h4>
+              <div style="display:flex;gap:12px;align-items:center;">
+                <span style="font-size:11px;color:var(--text-tertiary);">MTD <strong style="color:var(--text-primary);">₨ 47.2M</strong></span>
+                <span style="font-size:11px;color:var(--text-tertiary);">Forecast <strong style="color:var(--positive);">₨ 51.8M</strong></span>
               </div>
             </div>
             <div class="card-body">
-              <div class="chart-container" style="height: 280px;">
+              <div class="chart-container" style="height:260px;">
                 <canvas id="revenueChart"></canvas>
               </div>
-              <div style="display:flex;gap:var(--space-lg);padding-top:var(--space-sm);border-top:1px solid var(--border-light);margin-top:var(--space-sm);">
-                <div style="flex:1;text-align:center;">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Best Day</div>
-                  <div style="font-size:16px;font-weight:700;">₨ 2.1M</div>
-                  <div style="font-size:11px;color:var(--text-secondary);">Fri, Mar 27</div>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:12px;border-top:1px solid var(--border-light);padding-top:12px;">
+                <div style="text-align:center;border-right:1px solid var(--border-light);">
+                  <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Best Day</div>
+                  <div style="font-size:15px;font-weight:700;margin-top:2px;">₨ 2.1M</div>
+                  <div style="font-size:10px;color:var(--text-secondary);">Fri, Mar 27</div>
                 </div>
-                <div style="flex:1;text-align:center;border-left:1px solid var(--border-light);border-right:1px solid var(--border-light);">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Worst Day</div>
-                  <div style="font-size:16px;font-weight:700;">₨ 1.1M</div>
-                  <div style="font-size:11px;color:var(--text-secondary);">Mon, Mar 3</div>
+                <div style="text-align:center;border-right:1px solid var(--border-light);">
+                  <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Daily Avg</div>
+                  <div style="font-size:15px;font-weight:700;margin-top:2px;">₨ 1.57M</div>
+                  <div style="font-size:10px;color:var(--positive);">↑ 11.3% MoM</div>
                 </div>
-                <div style="flex:1;text-align:center;">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Daily Avg</div>
-                  <div style="font-size:16px;font-weight:700;">₨ 1.57M</div>
-                  <div style="font-size:11px;color:var(--positive);">↑ 11.3% MoM</div>
+                <div style="text-align:center;border-right:1px solid var(--border-light);">
+                  <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Weekend Lift</div>
+                  <div style="font-size:15px;font-weight:700;margin-top:2px;">+38%</div>
+                  <div style="font-size:10px;color:var(--text-secondary);">vs weekday</div>
                 </div>
-                <div style="flex:1;text-align:center;border-left:1px solid var(--border-light);">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Weekend Uplift</div>
-                  <div style="font-size:16px;font-weight:700;">+38%</div>
-                  <div style="font-size:11px;color:var(--text-secondary);">vs weekday avg</div>
+                <div style="text-align:center;">
+                  <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Target Gap</div>
+                  <div style="font-size:15px;font-weight:700;color:var(--warning);margin-top:2px;">₨ 2.8M</div>
+                  <div style="font-size:10px;color:var(--text-secondary);">12 days left</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card" style="">
+          <div class="card" style="display:flex;flex-direction:column;">
             <div class="card-header">
-              <h4><i data-lucide="sparkles" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:4px;"></i>AI Insights</h4>
-              <span class="status blue">3 insights</span>
+              <h4><i data-lucide="sparkles" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px;color:var(--brand-primary);"></i>AI Briefing</h4>
             </div>
-            <div class="card-body" style="display:flex;flex-direction:column;gap:10px;">
-              <div class="insight-card">
-                <div class="insight-icon" style="background:rgba(239,68,68,0.08);"><i data-lucide="alert-triangle" style="width:16px;height:16px;color:var(--negative);"></i></div>
-                <div class="insight-text"><span class="status red" style="font-size:9px;margin-right:4px;">CRITICAL</span> <strong>Gulberg outlet underperforming</strong> — Revenue down 18% WoW. Staff shortage suspected.</div>
+            <div class="card-body" style="flex:1;display:flex;flex-direction:column;gap:10px;">
+              <div class="insight-card" style="flex:1;">
+                <div class="insight-icon" style="background:rgba(239,68,68,0.08);"><i data-lucide="alert-triangle" style="width:14px;height:14px;color:var(--negative);"></i></div>
+                <div class="insight-text"><span class="status red" style="font-size:9px;margin-right:4px;">CRITICAL</span> <strong>Gulberg underperforming</strong> — Revenue -18% WoW. Staff shortage likely. Needs immediate staffing review.</div>
               </div>
-              <div class="insight-card">
-                <div class="insight-icon"><i data-lucide="trending-up" style="width:16px;height:16px;"></i></div>
-                <div class="insight-text"><span class="status green" style="font-size:9px;margin-right:4px;">OPPORTUNITY</span> <strong>Friday revenue spike +34%</strong> — Lotus Lava LTO + social virality. Extend campaign budget.</div>
+              <div class="insight-card" style="flex:1;">
+                <div class="insight-icon"><i data-lucide="trending-up" style="width:14px;height:14px;"></i></div>
+                <div class="insight-text"><span class="status green" style="font-size:9px;margin-right:4px;">OPPORTUNITY</span> <strong>Friday spike +34%</strong> — Lotus Lava + social virality driving peak. Extend weekend campaign budget.</div>
               </div>
-              <div class="insight-card">
-                <div class="insight-icon"><i data-lucide="target" style="width:16px;height:16px;"></i></div>
-                <div class="insight-text"><span class="status amber" style="font-size:9px;margin-right:4px;">ACTION</span> <strong>Google Ads ROAS declining</strong> — 3.1x now vs 4.2x. Reallocate ₨ 150K to TikTok.</div>
+              <div class="insight-card" style="flex:1;">
+                <div class="insight-icon"><i data-lucide="target" style="width:14px;height:14px;"></i></div>
+                <div class="insight-text"><span class="status amber" style="font-size:9px;margin-right:4px;">REBALANCE</span> <strong>Ad spend shift needed</strong> — TikTok 5.2x vs Google 3.1x. Move ₨ 150K for +₨ 315K incremental return.</div>
+              </div>
+              <div class="insight-card" style="flex:1;">
+                <div class="insight-icon" style="background:rgba(64,196,255,0.08);"><i data-lucide="rocket" style="width:14px;height:14px;color:var(--info);"></i></div>
+                <div class="insight-text"><span class="status blue" style="font-size:9px;margin-right:4px;">FORECAST</span> <strong>April projection ₨ 52.5M</strong> — Ramadan + new Strawberry Cheesecake LTO launch Apr 5.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Channel Mix + Outlet Rankings -->
-        <div class="grid grid-6-6" style="margin-bottom: var(--space-lg);">
+        <!-- ── SECTION 4: BUSINESS HEALTH GRID (Channel, Outlets, Products) ── -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;">
+          <!-- Channel Performance -->
           <div class="card">
-            <div class="card-header">
-              <h4>Channel Revenue Mix</h4>
-              <span style="font-size:11px;color:var(--text-tertiary);">vs Last Month</span>
-            </div>
-            <div class="card-body" style="display:flex; align-items:center; gap:24px;">
-              <div style="position:relative; width:180px; height:180px; flex-shrink:0;">
+            <div class="card-header"><h4>Channel Mix</h4></div>
+            <div class="card-body" style="display:flex;align-items:center;gap:16px;">
+              <div style="position:relative;width:120px;height:120px;flex-shrink:0;">
                 <canvas id="channelDonut"></canvas>
-                <div class="donut-center">
-                  <div class="dc-val">₨ 47.2M</div>
-                  <div class="dc-lbl">Total</div>
+                <div class="donut-center" style="font-size:12px;">
+                  <div class="dc-val" style="font-size:14px;">₨ 47.2M</div>
                 </div>
               </div>
-              <div style="flex:1;">
-                <div style="margin-bottom:14px;">
-                  <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span><i data-lucide="store" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px"></i>Dine-in</span><span><strong>₨ 18.9M</strong> <span style="font-size:11px;color:var(--text-tertiary);">(40%)</span></span></div>
-                  <div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar" style="flex:1;"><div class="fill brand" style="width:40%"></div></div><span class="status green" style="font-size:10px;">↑ 8%</span></div>
-                </div>
-                <div style="margin-bottom:14px;">
-                  <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span><i data-lucide="truck" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px"></i>Delivery</span><span><strong>₨ 16.5M</strong> <span style="font-size:11px;color:var(--text-tertiary);">(35%)</span></span></div>
-                  <div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar" style="flex:1;"><div class="fill blue" style="width:35%"></div></div><span class="status green" style="font-size:10px;">↑ 15%</span></div>
-                </div>
-                <div style="margin-bottom:14px;">
-                  <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span><i data-lucide="shopping-bag" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px"></i>Takeaway</span><span><strong>₨ 8.5M</strong> <span style="font-size:11px;color:var(--text-tertiary);">(18%)</span></span></div>
-                  <div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar" style="flex:1;"><div class="fill green" style="width:18%"></div></div><span class="status green" style="font-size:10px;">↑ 4%</span></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;"><span style="color:var(--text-secondary);">Dine-in</span><span style="font-weight:600;">40%</span></div>
+                  <div class="progress-bar" style="height:4px;"><div class="fill brand" style="width:40%"></div></div>
                 </div>
                 <div>
-                  <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span><i data-lucide="smartphone" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px"></i>App Orders</span><span><strong>₨ 3.3M</strong> <span style="font-size:11px;color:var(--text-tertiary);">(7%)</span></span></div>
-                  <div style="display:flex;align-items:center;gap:8px;"><div class="progress-bar" style="flex:1;"><div class="fill amber" style="width:7%"></div></div><span class="status green" style="font-size:10px;">↑ 32%</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;"><span style="color:var(--text-secondary);">Delivery</span><span style="font-weight:600;">35%</span></div>
+                  <div class="progress-bar" style="height:4px;"><div class="fill blue" style="width:35%"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;"><span style="color:var(--text-secondary);">Takeaway</span><span style="font-weight:600;">18%</span></div>
+                  <div class="progress-bar" style="height:4px;"><div class="fill green" style="width:18%"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;"><span style="color:var(--text-secondary);">App</span><span style="font-weight:600;">7% <span style="color:var(--positive);font-size:10px;">↑32%</span></span></div>
+                  <div class="progress-bar" style="height:4px;"><div class="fill amber" style="width:7%"></div></div>
                 </div>
               </div>
-            </div>
-            <div class="card-footer" style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-tertiary);">
-              <span>Fastest growing: <strong style="color:var(--positive);">App Orders (+32% MoM)</strong></span>
-              <span>Delivery share: +2.1 pts vs last quarter</span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <h4>Outlet Performance — All 14 Locations</h4>
-              <button class="btn btn-sm btn-ghost" onclick="navigateTo('outlets')">View All →</button>
-            </div>
-            <div class="card-body" style="padding:0;">
-              <table class="data-table">
-                <thead><tr><th>#</th><th>Outlet</th><th>City</th><th class="text-right">Revenue</th><th class="text-right">AOV</th><th class="text-right">vs Target</th><th>Stat</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>1</strong></td><td>DHA Phase 5</td><td>Lahore</td><td class="text-right">₨ 5.8M</td><td class="text-right">₨ 1,229</td><td class="text-right"><span class="status green">+12%</span></td><td><span style="width:8px;height:8px;border-radius:50%;background:var(--positive);display:inline-block;"></span></td></tr>
-                  <tr><td><strong>2</strong></td><td>Fortress Stadium</td><td>Lahore</td><td class="text-right">₨ 5.2M</td><td class="text-right">₨ 1,244</td><td class="text-right"><span class="status green">+8%</span></td><td><span style="width:8px;height:8px;border-radius:50%;background:var(--positive);display:inline-block;"></span></td></tr>
-                  <tr><td><strong>3</strong></td><td>Clifton</td><td>Karachi</td><td class="text-right">₨ 4.7M</td><td class="text-right">₨ 1,302</td><td class="text-right"><span class="status green">+5%</span></td><td><span style="width:8px;height:8px;border-radius:50%;background:var(--positive);display:inline-block;"></span></td></tr>
-                  <tr><td><strong>4</strong></td><td>F-7 Markaz</td><td>Islamabad</td><td class="text-right">₨ 4.1M</td><td class="text-right">₨ 1,199</td><td class="text-right"><span class="status amber">-2%</span></td><td><span style="width:8px;height:8px;border-radius:50%;background:var(--warning);display:inline-block;"></span></td></tr>
-                  <tr style="background:var(--negative-bg);"><td><strong>13</strong></td><td>Model Town</td><td>Lahore</td><td class="text-right">₨ 2.4M</td><td class="text-right">₨ 1,224</td><td class="text-right"><span class="status red">-12%</span></td><td><span style="width:8px;height:8px;border-radius:50%;background:var(--negative);display:inline-block;"></span></td></tr>
-                  <tr style="background:var(--negative-bg);"><td><strong>14</strong></td><td>Gulberg</td><td>Lahore</td><td class="text-right">₨ 3.1M</td><td class="text-right">₨ 1,302</td><td class="text-right"><span class="status red">-18%</span></td><td><span style="width:8px;height:8px;border-radius:50%;background:var(--negative);display:inline-block;"></span></td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="card-footer" style="display:flex;justify-content:space-between;font-size:11px;">
-              <span style="color:var(--negative);"><strong>2 outlets</strong> below target — action required</span>
-              <span style="color:var(--text-tertiary);">Avg target compliance: 94.6%</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- LTO Health + City Matrix -->
-        <div class="grid grid-8-4" style="margin-bottom: var(--space-lg);">
-          <div class="card">
-            <div class="card-header">
-              <h4><i data-lucide="cookie" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:4px;"></i>LTO Performance — Lotus Lava (March 2026)</h4>
-              <span class="status green">On Track</span>
-            </div>
-            <div class="card-body">
-              <div class="kpi-grid" style="grid-template-columns: repeat(5,1fr); margin-bottom: var(--space-md);">
-                <div style="text-align:center;">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Units Sold</div>
-                  <div style="font-size:22px;font-weight:700;">12,840</div>
-                  <div style="font-size:11px;color:var(--positive);">↑ 22% vs forecast</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Revenue</div>
-                  <div style="font-size:22px;font-weight:700;">₨ 8.3M</div>
-                  <div style="font-size:11px;color:var(--positive);">17.6% of total rev</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Avg Daily Sales</div>
-                  <div style="font-size:22px;font-weight:700;">428</div>
-                  <div style="font-size:11px;color:var(--positive);">Peak: 612 (Fri)</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Margin</div>
-                  <div style="font-size:22px;font-weight:700;">68.4%</div>
-                  <div style="font-size:11px;color:var(--positive);">+6.0 pts vs menu avg</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;">Days Left</div>
-                  <div style="font-size:22px;font-weight:700;color:var(--warning);">12</div>
-                  <div style="font-size:11px;color:var(--warning);">Stock: 78% adequate</div>
-                </div>
-              </div>
-              <div class="chart-container" style="height:180px;">
-                <canvas id="ltoTrendChart"></canvas>
-              </div>
-              <div style="margin-top:var(--space-sm);border-top:1px solid var(--border-light);padding-top:var(--space-sm);">
-                <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-tertiary);margin-bottom:8px;">LTO by Outlet — Top Sellers</div>
-                <div style="display:flex;gap:var(--space-sm);flex-wrap:wrap;">
-                  <div style="flex:1;min-width:140px;background:var(--bg-page);border-radius:var(--radius-sm);padding:8px 12px;">
-                    <div style="font-size:12px;font-weight:600;">DHA Phase 5</div>
-                    <div style="font-size:16px;font-weight:700;">1,420 units</div>
-                    <div style="font-size:10px;color:var(--positive);">₨ 920K · Top Seller</div>
-                  </div>
-                  <div style="flex:1;min-width:140px;background:var(--bg-page);border-radius:var(--radius-sm);padding:8px 12px;">
-                    <div style="font-size:12px;font-weight:600;">Fortress Stadium</div>
-                    <div style="font-size:16px;font-weight:700;">1,280 units</div>
-                    <div style="font-size:10px;color:var(--warning);">₨ 832K · Stock Alert</div>
-                  </div>
-                  <div style="flex:1;min-width:140px;background:var(--bg-page);border-radius:var(--radius-sm);padding:8px 12px;">
-                    <div style="font-size:12px;font-weight:600;">Clifton</div>
-                    <div style="font-size:16px;font-weight:700;">1,140 units</div>
-                    <div style="font-size:10px;color:var(--positive);">₨ 741K · On Track</div>
-                  </div>
-                  <div style="flex:1;min-width:140px;background:var(--bg-page);border-radius:var(--radius-sm);padding:8px 12px;">
-                    <div style="font-size:12px;font-weight:600;">F-7 Markaz</div>
-                    <div style="font-size:16px;font-weight:700;">980 units</div>
-                    <div style="font-size:10px;color:var(--positive);">₨ 637K · On Track</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <h4><i data-lucide="map-pin" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:4px;"></i>City Performance Matrix</h4>
-            </div>
-            <div class="card-body" style="padding:0;">
-              <div style="padding:var(--space-md);">
-                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
-                  <div class="city-card" style="">
-                    <div style="display:flex;justify-content:space-between;align-items:center;">
-                      <div class="city-name">Lahore</div>
-                      <span class="status green" style="font-size:10px;">↑ 14%</span>
-                    </div>
-                    <div class="city-val">₨ 22.8M</div>
-                    <div class="city-metric">7 outlets · 48.3% share</div>
-                    <div style="margin-top:6px;">
-                      <div class="progress-bar" style="height:4px;"><div class="fill brand" style="width:48.3%"></div></div>
-                    </div>
-                  </div>
-                  <div class="city-card" style="">
-                    <div style="display:flex;justify-content:space-between;align-items:center;">
-                      <div class="city-name">Karachi</div>
-                      <span class="status green" style="font-size:10px;">↑ 9%</span>
-                    </div>
-                    <div class="city-val">₨ 12.1M</div>
-                    <div class="city-metric">4 outlets · 25.6% share</div>
-                    <div style="margin-top:6px;">
-                      <div class="progress-bar" style="height:4px;"><div class="fill blue" style="width:25.6%"></div></div>
-                    </div>
-                  </div>
-                  <div class="city-card" style="">
-                    <div style="display:flex;justify-content:space-between;align-items:center;">
-                      <div class="city-name">Islamabad</div>
-                      <span class="status amber" style="font-size:10px;">↑ 2%</span>
-                    </div>
-                    <div class="city-val">₨ 8.2M</div>
-                    <div class="city-metric">2 outlets · 17.4% share</div>
-                    <div style="margin-top:6px;">
-                      <div class="progress-bar" style="height:4px;"><div class="fill green" style="width:17.4%"></div></div>
-                    </div>
-                  </div>
-                  <div class="city-card" style="">
-                    <div style="display:flex;justify-content:space-between;align-items:center;">
-                      <div class="city-name">Faisalabad</div>
-                      <span class="status green" style="font-size:10px;">↑ 28%</span>
-                    </div>
-                    <div class="city-val">₨ 4.1M</div>
-                    <div class="city-metric">1 outlet · 8.7% share</div>
-                    <div style="margin-top:6px;">
-                      <div class="progress-bar" style="height:4px;"><div class="fill amber" style="width:8.7%"></div></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div style="border-top:1px solid var(--border-light);padding:var(--space-sm) var(--space-md);">
-                <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-tertiary);margin-bottom:8px;">City Revenue Share</div>
-                <div style="display:flex;height:8px;border-radius:4px;overflow:hidden;">
-                  <div style="width:48.3%;background:var(--brand-primary);" title="Lahore 48.3%"></div>
-                  <div style="width:25.6%;background:var(--info);" title="Karachi 25.6%"></div>
-                  <div style="width:17.4%;background:var(--positive);" title="Islamabad 17.4%"></div>
-                  <div style="width:8.7%;background:var(--warning);" title="Faisalabad 8.7%"></div>
-                </div>
-                <div style="display:flex;gap:var(--space-md);margin-top:6px;font-size:10px;color:var(--text-tertiary);">
-                  <span><span style="width:8px;height:8px;border-radius:2px;background:var(--brand-primary);display:inline-block;margin-right:3px;"></span>LHR</span>
-                  <span><span style="width:8px;height:8px;border-radius:2px;background:var(--info);display:inline-block;margin-right:3px;"></span>KHI</span>
-                  <span><span style="width:8px;height:8px;border-radius:2px;background:var(--positive);display:inline-block;margin-right:3px;"></span>ISB</span>
-                  <span><span style="width:8px;height:8px;border-radius:2px;background:var(--warning);display:inline-block;margin-right:3px;"></span>FSD</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PRIORITY 4: Real-time Operations (2-column layout) -->
-        <div class="grid grid-6-6" style="margin-bottom: var(--space-lg);">
-          <!-- Live Order Feed -->
-          <div class="card">
-            <div class="card-header">
-              <h4><i data-lucide="radio" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:4px;"></i>Live Order Feed</h4>
-              <span style="display:flex;align-items:center;gap:4px;font-size:11px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--positive);animation:pulse 2s infinite;display:inline-block;"></span>Real-time</span>
-            </div>
-            <div class="card-body" style="padding:0;max-height:280px;overflow-y:auto;">
-              <div class="order-row">
-                <div class="order-id">#CRM-8421</div>
-                <div class="order-channel"><span class="status blue" style="font-size:10px;">Delivery</span></div>
-                <div class="order-items">Lotus Lava x2, Iced Latte</div>
-                <div class="order-time">12s</div>
-                <div class="order-amount">₨ 1,890</div>
-              </div>
-              <div class="order-row">
-                <div class="order-id">#CRM-8420</div>
-                <div class="order-channel"><span class="status green" style="font-size:10px;">Dine-in</span></div>
-                <div class="order-items">Classic Chocolate Chip, Masala Chai x2</div>
-                <div class="order-time">34s</div>
-                <div class="order-amount">₨ 1,420</div>
-              </div>
-              <div class="order-row">
-                <div class="order-id">#CRM-8419</div>
-                <div class="order-channel"><span class="status amber" style="font-size:10px;">App</span></div>
-                <div class="order-items">Box of 6 Assorted, Cold Brew</div>
-                <div class="order-time">1m</div>
-                <div class="order-amount">₨ 3,250</div>
-              </div>
-              <div class="order-row">
-                <div class="order-id">#CRM-8418</div>
-                <div class="order-channel"><span class="status blue" style="font-size:10px;">Delivery</span></div>
-                <div class="order-items">Lotus Lava x1, Double Chocolate x1</div>
-                <div class="order-time">2m</div>
-                <div class="order-amount">₨ 1,640</div>
-              </div>
-              <div class="order-row">
-                <div class="order-id">#CRM-8417</div>
-                <div class="order-channel"><span class="status green" style="font-size:10px;">Dine-in</span></div>
-                <div class="order-items">Box of 12 Assorted</div>
-                <div class="order-time">3m</div>
-                <div class="order-amount">₨ 5,400</div>
-              </div>
-              <div class="order-row">
-                <div class="order-id">#CRM-8416</div>
-                <div class="order-channel"><span class="status gray" style="font-size:10px;">Takeaway</span></div>
-                <div class="order-items">Chocolate Hazelnut Filled x2, Espresso</div>
-                <div class="order-time">4m</div>
-                <div class="order-amount">₨ 1,780</div>
-              </div>
-            </div>
-            <div class="card-footer" style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-tertiary);">
-              <span>Last hour: <strong style="color:var(--text-primary);">142 orders · ₨ 174K</strong></span>
-              <span style="cursor:pointer;color:var(--text-link);">View All →</span>
             </div>
           </div>
 
-          <!-- Operational Pulse + Hourly Heatmap Combined -->
+          <!-- Outlet Scorecard -->
           <div class="card">
             <div class="card-header">
-              <h4><i data-lucide="activity" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:4px;"></i>Operational Pulse</h4>
-              <span class="status blue">Live</span>
+              <h4>Outlet Scorecard</h4>
+              <span style="font-size:11px;color:var(--text-tertiary);">14 locations</span>
             </div>
-            <div class="card-body" style="display:flex;flex-direction:column;gap:var(--space-sm);">
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm);">
-                <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg-page);border-radius:var(--radius-sm);">
-                  <span style="width:32px;height:32px;border-radius:6px;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="clock" style="width:16px;height:16px;color:var(--positive);"></i></span>
-                  <div>
-                    <div style="font-size:11px;color:var(--text-tertiary);">Kitchen Prep</div>
-                    <div style="font-size:16px;font-weight:700;color:var(--positive);">8.2 min</div>
-                  </div>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg-page);border-radius:var(--radius-sm);">
-                  <span style="width:32px;height:32px;border-radius:6px;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="truck" style="width:16px;height:16px;color:var(--info);"></i></span>
-                  <div>
-                    <div style="font-size:11px;color:var(--text-tertiary);">Delivery Time</div>
-                    <div style="font-size:16px;font-weight:700;color:var(--positive);">28 min</div>
-                  </div>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg-page);border-radius:var(--radius-sm);">
-                  <span style="width:32px;height:32px;border-radius:6px;background:rgba(249,115,22,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="star" style="width:16px;height:16px;color:#F97316;"></i></span>
-                  <div>
-                    <div style="font-size:11px;color:var(--text-tertiary);">Google Rating</div>
-                    <div style="font-size:16px;font-weight:700;">4.6</div>
-                  </div>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--negative-bg);border-radius:var(--radius-sm);">
-                  <span style="width:32px;height:32px;border-radius:6px;background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="alert-triangle" style="width:16px;height:16px;color:var(--negative);"></i></span>
-                  <div>
-                    <div style="font-size:11px;color:var(--text-tertiary);">Complaints</div>
-                    <div style="font-size:16px;font-weight:700;color:var(--negative);">1.8%</div>
-                  </div>
-                </div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--positive);flex-shrink:0;"></span>
+                <span style="font-size:12px;flex:1;">DHA Phase 5</span>
+                <span style="font-size:12px;font-weight:600;">₨ 5.8M</span>
+                <span class="status green" style="font-size:10px;">+12%</span>
               </div>
-              <div style="border-top:1px solid var(--border-light);padding-top:var(--space-sm);">
-                <div style="font-size:11px;font-weight:600;color:var(--text-tertiary);margin-bottom:6px;">Revenue by Hour (Today)</div>
-                <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin-bottom:4px;">
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">9A</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">10</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">11</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">12P</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">1</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">2</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">3</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">4</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">5</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">6</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">7P</div>
-                  <div style="text-align:center;font-size:8px;color:var(--text-tertiary);">8</div>
-                </div>
-                <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:2px;">
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.12);" title="₨ 82K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.18);" title="₨ 105K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.30);" title="₨ 148K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.65);" title="₨ 210K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.85);" title="₨ 245K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.45);" title="₨ 168K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.22);" title="₨ 112K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.18);" title="₨ 95K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.35);" title="₨ 155K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.70);" title="₨ 220K"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,1.0);" title="₨ 268K - Peak"></div>
-                  <div style="height:24px;border-radius:3px;background:rgba(217,79,4,0.55);" title="₨ 182K"></div>
-                </div>
-                <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:10px;color:var(--text-tertiary);">
-                  <span>Today: <strong style="color:var(--text-primary);">₨ 1.99M</strong></span>
-                  <span>vs Yesterday: +9.3%</span>
-                </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--positive);flex-shrink:0;"></span>
+                <span style="font-size:12px;flex:1;">Fortress Stadium</span>
+                <span style="font-size:12px;font-weight:600;">₨ 5.2M</span>
+                <span class="status green" style="font-size:10px;">+8%</span>
               </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--positive);flex-shrink:0;"></span>
+                <span style="font-size:12px;flex:1;">Clifton</span>
+                <span style="font-size:12px;font-weight:600;">₨ 4.7M</span>
+                <span class="status green" style="font-size:10px;">+5%</span>
+              </div>
+              <div style="height:1px;background:var(--border-light);margin:2px 0;"></div>
+              <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Needs Attention</div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--negative);flex-shrink:0;"></span>
+                <span style="font-size:12px;flex:1;">Gulberg</span>
+                <span style="font-size:12px;font-weight:600;">₨ 3.1M</span>
+                <span class="status red" style="font-size:10px;">-18%</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--negative);flex-shrink:0;"></span>
+                <span style="font-size:12px;flex:1;">Model Town</span>
+                <span style="font-size:12px;font-weight:600;">₨ 2.4M</span>
+                <span class="status red" style="font-size:10px;">-12%</span>
+              </div>
+              <div style="margin-top:auto;padding-top:6px;border-top:1px solid var(--border-light);font-size:10px;color:var(--text-tertiary);">12 of 14 outlets on target · <span style="color:var(--negative);font-weight:600;">2 below</span></div>
             </div>
           </div>
-        </div>
 
-        <!-- PRIORITY 5: Marketing + Top Products (2-column) -->
-        <div class="grid grid-6-6" style="margin-bottom: var(--space-lg);">
+          <!-- Top Products -->
           <div class="card">
             <div class="card-header">
-              <h4><i data-lucide="megaphone" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:4px;"></i>Marketing Snapshot</h4>
-              <button class="btn btn-sm btn-ghost" onclick="navigateTo('marketing')">Full Dashboard →</button>
-            </div>
-            <div class="card-body" style="padding:0;">
-              <table class="data-table">
-                <thead><tr><th>Platform</th><th class="text-right">Spend</th><th class="text-right">ROAS</th><th>Status</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>Meta (FB+IG)</strong></td><td class="text-right">₨ 1.2M</td><td class="text-right">4.8x</td><td><span class="status green">Optimal</span></td></tr>
-                  <tr><td><strong>TikTok</strong></td><td class="text-right">₨ 680K</td><td class="text-right">5.2x</td><td><span class="status green">High ROAS</span></td></tr>
-                  <tr><td><strong>Google</strong></td><td class="text-right">₨ 420K</td><td class="text-right">3.1x</td><td><span class="status red">Below SLA</span></td></tr>
-                  <tr><td><strong>Influencer</strong></td><td class="text-right">₨ 350K</td><td class="text-right">6.4x</td><td><span class="status green">Top ROI</span></td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="card-footer" style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-tertiary);">
-              <span>Total Spend: <strong style="color:var(--text-primary);">₨ 2.65M</strong></span>
-              <span>Blended ROAS: <strong style="color:var(--positive);">4.6x</strong></span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <h4><i data-lucide="cookie" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:4px;"></i>Top Products Today</h4>
-              <span style="font-size:11px;color:var(--text-tertiary);">by Revenue</span>
+              <h4>Top Products</h4>
+              <span style="font-size:11px;color:var(--text-tertiary);">by revenue today</span>
             </div>
             <div class="card-body" style="display:flex;flex-direction:column;gap:8px;">
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span style="width:24px;height:24px;border-radius:6px;background:var(--brand-primary);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">1</span>
-                <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Lotus Lava</div><div style="font-size:10px;color:var(--text-tertiary);">428 units · LTO</div></div>
-                <div style="text-align:right;"><div style="font-size:13px;font-weight:700;">₨ 278K</div><div style="font-size:10px;color:var(--positive);">↑ 34%</div></div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:20px;height:20px;border-radius:5px;background:var(--brand-primary);color:white;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;">1</span>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:600;">Lotus Lava</div><div style="font-size:10px;color:var(--text-tertiary);">428 units · LTO</div></div>
+                <div style="text-align:right;"><div style="font-size:12px;font-weight:700;">₨ 278K</div><div style="font-size:10px;color:var(--positive);">↑ 34%</div></div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span style="width:24px;height:24px;border-radius:6px;background:var(--text-secondary);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">2</span>
-                <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Classic Chocolate Chip</div><div style="font-size:10px;color:var(--text-tertiary);">312 units · Signature</div></div>
-                <div style="text-align:right;"><div style="font-size:13px;font-weight:700;">₨ 187K</div><div style="font-size:10px;color:var(--positive);">↑ 5%</div></div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:20px;height:20px;border-radius:5px;background:var(--text-tertiary);color:white;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;">2</span>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:600;">Classic Chocolate Chip</div><div style="font-size:10px;color:var(--text-tertiary);">312 units</div></div>
+                <div style="text-align:right;"><div style="font-size:12px;font-weight:700;">₨ 187K</div><div style="font-size:10px;color:var(--positive);">↑ 5%</div></div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span style="width:24px;height:24px;border-radius:6px;background:#B45309;color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">3</span>
-                <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Chocolate Hazelnut Filled</div><div style="font-size:10px;color:var(--text-tertiary);">248 units</div></div>
-                <div style="text-align:right;"><div style="font-size:13px;font-weight:700;">₨ 161K</div><div style="font-size:10px;color:var(--text-secondary);">= 0%</div></div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:20px;height:20px;border-radius:5px;background:var(--text-tertiary);color:white;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;">3</span>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:600;">Chocolate Hazelnut Filled</div><div style="font-size:10px;color:var(--text-tertiary);">248 units</div></div>
+                <div style="text-align:right;"><div style="font-size:12px;font-weight:700;">₨ 161K</div></div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span style="width:24px;height:24px;border-radius:6px;background:var(--border-medium);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">4</span>
-                <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Double Chocolate</div><div style="font-size:10px;color:var(--text-tertiary);">196 units</div></div>
-                <div style="text-align:right;"><div style="font-size:13px;font-weight:700;">₨ 137K</div><div style="font-size:10px;color:var(--positive);">↑ 8%</div></div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:20px;height:20px;border-radius:5px;background:var(--text-tertiary);color:white;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;">4</span>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:600;">Double Chocolate</div><div style="font-size:10px;color:var(--text-tertiary);">196 units</div></div>
+                <div style="text-align:right;"><div style="font-size:12px;font-weight:700;">₨ 137K</div><div style="font-size:10px;color:var(--positive);">↑ 8%</div></div>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;">
-                <span style="width:24px;height:24px;border-radius:6px;background:var(--border-medium);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">5</span>
-                <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Red Velvet</div><div style="font-size:10px;color:var(--text-tertiary);">196 units · Bestseller</div></div>
-                <div style="text-align:right;"><div style="font-size:13px;font-weight:700;">₨ 126K</div><div style="font-size:10px;color:var(--positive);">↑ 22%</div></div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="width:20px;height:20px;border-radius:5px;background:var(--text-tertiary);color:white;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;">5</span>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:600;">Red Velvet</div><div style="font-size:10px;color:var(--text-tertiary);">196 units</div></div>
+                <div style="text-align:right;"><div style="font-size:12px;font-weight:700;">₨ 126K</div><div style="font-size:10px;color:var(--positive);">↑ 22%</div></div>
               </div>
-            </div>
-            <div class="card-footer" style="font-size:11px;color:var(--text-tertiary);">
-              <span>Today: <strong style="color:var(--text-primary);">2,840</strong> items across 42 SKUs</span>
+              <div style="margin-top:auto;padding-top:6px;border-top:1px solid var(--border-light);font-size:10px;color:var(--text-tertiary);">2,840 items today · 42 SKUs</div>
             </div>
           </div>
         </div>
 
-        <!-- Executive Summary Footer -->
-        <div class="card" style="background:linear-gradient(135deg, var(--navy) 0%, #1F2937 100%);color:white;margin-bottom:0;">
-          <div class="card-body" style="padding:var(--space-lg);">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-md);">
-              <div>
-                <h4 style="margin:0;color:white;font-size:16px;"><i data-lucide="layout-dashboard" style="width:18px;height:18px;display:inline;vertical-align:middle;margin-right:6px;"></i>Executive Summary — March 2026</h4>
-                <p style="margin:4px 0 0;font-size:12px;opacity:0.7;">Auto-generated business health report</p>
-              </div>
-              <div style="display:flex;gap:var(--space-sm);">
-                <button class="btn btn-sm" style="background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2);"><i data-lucide="download" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Download PDF</button>
-                <button class="btn btn-sm" style="background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2);"><i data-lucide="mail" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Email Report</button>
+        <!-- ── SECTION 5: OPERATIONS STRIP + GROWTH SIGNALS ── -->
+        <div class="grid grid-6-6" style="margin-bottom:20px;">
+          <!-- Operations Health -->
+          <div class="card">
+            <div class="card-header"><h4>Operations Health</h4><span class="status green" style="font-size:10px;">All systems nominal</span></div>
+            <div class="card-body" style="padding:12px 16px;">
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+                <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg-page);border-radius:var(--radius-sm);">
+                  <span style="width:32px;height:32px;border-radius:8px;background:rgba(0,230,118,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="building-2" style="width:14px;height:14px;color:var(--positive);"></i></span>
+                  <div>
+                    <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;">Outlets</div>
+                    <div style="font-size:18px;font-weight:700;">14/14</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg-page);border-radius:var(--radius-sm);">
+                  <span style="width:32px;height:32px;border-radius:8px;background:rgba(0,230,118,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="clock" style="width:14px;height:14px;color:var(--positive);"></i></span>
+                  <div>
+                    <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;">Prep Time</div>
+                    <div style="font-size:18px;font-weight:700;">8.2<span style="font-size:12px;font-weight:400;"> min</span></div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg-page);border-radius:var(--radius-sm);">
+                  <span style="width:32px;height:32px;border-radius:8px;background:rgba(64,196,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="truck" style="width:14px;height:14px;color:var(--info);"></i></span>
+                  <div>
+                    <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;">Delivery SLA</div>
+                    <div style="font-size:18px;font-weight:700;">92%</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg-page);border-radius:var(--radius-sm);">
+                  <span style="width:32px;height:32px;border-radius:8px;background:rgba(0,230,118,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="recycle" style="width:14px;height:14px;color:var(--positive);"></i></span>
+                  <div>
+                    <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;">Waste Rate</div>
+                    <div style="font-size:18px;font-weight:700;">3.2%</div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-lg);padding:var(--space-md) 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);">
-              <div>
-                <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Month-to-Date Revenue</div>
-                <div style="font-size:28px;font-weight:700;">₨ 47.2M</div>
-                <div style="font-size:12px;color:var(--positive);margin-top:2px;">↑ 12.4% vs Feb · 94.4% of target</div>
-              </div>
-              <div>
-                <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Gross Profit</div>
-                <div style="font-size:28px;font-weight:700;">₨ 29.5M</div>
-                <div style="font-size:12px;color:var(--positive);margin-top:2px;">62.4% margin · +1.2 pts MoM</div>
-              </div>
-              <div>
-                <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Operating Expenses</div>
-                <div style="font-size:28px;font-weight:700;">₨ 14.8M</div>
-                <div style="font-size:12px;opacity:0.7;margin-top:2px;">31.4% of revenue · On budget</div>
-              </div>
-              <div>
-                <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Net Income (Est.)</div>
-                <div style="font-size:28px;font-weight:700;">₨ 14.6M</div>
-                <div style="font-size:12px;color:var(--positive);margin-top:2px;">31.0% net margin · ↑ 18% YoY</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:var(--space-lg);margin-top:var(--space-md);">
-              <div style="flex:1;">
-                <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Key Wins This Month</div>
-                <ul style="margin:0;padding-left:18px;font-size:12px;line-height:1.8;opacity:0.9;">
-                  <li>Lotus Lava LTO exceeded forecast by 22% — ₨ 8.3M revenue contribution</li>
-                  <li>App orders grew 32% MoM — fastest growing channel</li>
-                  <li>Delivery SLA improved to 92% (was 87% in Feb)</li>
-                  <li>Waste rate reduced to 3.2% — ₨ 1.5M cost savings</li>
-                </ul>
-              </div>
-              <div style="flex:1;">
-                <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Areas Requiring Attention</div>
-                <ul style="margin:0;padding-left:18px;font-size:12px;line-height:1.8;opacity:0.9;">
-                  <li>Gulberg outlet: -18% revenue WoW — staffing review needed</li>
-                  <li>Google Ads ROAS dropped to 3.1x — reallocate budget to TikTok</li>
-                  <li>Model Town: delivery SLA at 84% — rider shortage</li>
-                  <li>LTO stock at 78% adequate — scale production 15%</li>
-                </ul>
-              </div>
-              <div style="flex:1;">
-                <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">April Forecast</div>
-                <ul style="margin:0;padding-left:18px;font-size:12px;line-height:1.8;opacity:0.9;">
-                  <li>Projected revenue: ₨ 52.5M (+11.2% MoM)</li>
-                  <li>New LTO launch: Strawberry Cheesecake (Apr 5)</li>
-                  <li>2 new outlets in pipeline (Multan, Sialkot)</li>
-                  <li>Marketing budget increase: +₨ 500K for Ramadan</li>
-                </ul>
+          </div>
+
+          <!-- Growth Signals -->
+          <div class="card">
+            <div class="card-header"><h4>Growth Signals</h4><span style="font-size:11px;color:var(--text-tertiary);">What's moving</span></div>
+            <div class="card-body" style="padding:12px 16px;">
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:var(--radius-sm);background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.1);">
+                  <span style="width:32px;height:32px;border-radius:8px;background:rgba(0,230,118,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="smartphone" style="width:14px;height:14px;color:var(--positive);"></i></span>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;">App Orders +32% MoM</div>
+                    <div style="font-size:10px;color:var(--text-secondary);">Fastest growing channel — ₨ 3.3M</div>
+                  </div>
+                  <span style="font-size:16px;font-weight:700;color:var(--positive);">↑</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:var(--radius-sm);background:rgba(255,107,26,0.04);border:1px solid rgba(255,107,26,0.1);">
+                  <span style="width:32px;height:32px;border-radius:8px;background:rgba(255,107,26,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="cookie" style="width:14px;height:14px;color:var(--brand-primary);"></i></span>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;">Lotus Lava — ₨ 8.3M revenue</div>
+                    <div style="font-size:10px;color:var(--text-secondary);">17.6% of total · 22% above forecast · 12 days left</div>
+                  </div>
+                  <span style="font-size:16px;font-weight:700;color:var(--brand-primary);">★</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:var(--radius-sm);background:rgba(64,196,255,0.04);border:1px solid rgba(64,196,255,0.1);">
+                  <span style="width:32px;height:32px;border-radius:8px;background:rgba(64,196,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="map-pin" style="width:14px;height:14px;color:var(--info);"></i></span>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;">Faisalabad +28% MoM</div>
+                    <div style="font-size:10px;color:var(--text-secondary);">Newest market outperforming. Multan & Sialkot in pipeline.</div>
+                  </div>
+                  <span style="font-size:16px;font-weight:700;color:var(--info);">↑</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- ── SECTION 6: CITY PERFORMANCE STRIP ── -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:0;">
+          <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:14px 16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:12px;font-weight:700;">Lahore</span>
+              <span style="font-size:10px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 6px;border-radius:10px;">↑ 14%</span>
+            </div>
+            <div style="font-size:20px;font-weight:800;">₨ 22.8M</div>
+            <div style="font-size:10px;color:var(--text-tertiary);margin-top:2px;">7 outlets · 48.3% share</div>
+            <div class="progress-bar" style="height:3px;margin-top:6px;"><div class="fill brand" style="width:48.3%"></div></div>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:14px 16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:12px;font-weight:700;">Karachi</span>
+              <span style="font-size:10px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 6px;border-radius:10px;">↑ 9%</span>
+            </div>
+            <div style="font-size:20px;font-weight:800;">₨ 12.1M</div>
+            <div style="font-size:10px;color:var(--text-tertiary);margin-top:2px;">4 outlets · 25.6% share</div>
+            <div class="progress-bar" style="height:3px;margin-top:6px;"><div class="fill blue" style="width:25.6%"></div></div>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:14px 16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:12px;font-weight:700;">Islamabad</span>
+              <span style="font-size:10px;font-weight:600;color:var(--warning);background:rgba(255,171,0,0.1);padding:2px 6px;border-radius:10px;">↑ 2%</span>
+            </div>
+            <div style="font-size:20px;font-weight:800;">₨ 8.2M</div>
+            <div style="font-size:10px;color:var(--text-tertiary);margin-top:2px;">2 outlets · 17.4% share</div>
+            <div class="progress-bar" style="height:3px;margin-top:6px;"><div class="fill green" style="width:17.4%"></div></div>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:14px 16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:12px;font-weight:700;">Faisalabad</span>
+              <span style="font-size:10px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 6px;border-radius:10px;">↑ 28%</span>
+            </div>
+            <div style="font-size:20px;font-weight:800;">₨ 4.1M</div>
+            <div style="font-size:10px;color:var(--text-tertiary);margin-top:2px;">1 outlet · 8.7% share</div>
+            <div class="progress-bar" style="height:3px;margin-top:6px;"><div class="fill amber" style="width:8.7%"></div></div>
+          </div>
+        </div>
+
       </div>
       <!-- ============================================== -->
       <!-- DASHBOARD B: FINANCE & P&L                     -->
