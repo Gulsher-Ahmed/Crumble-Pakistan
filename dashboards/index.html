@@ -200,21 +200,23 @@
         <!-- ── EXECUTIVE GREETING BANNER ── -->
         <div class="exec-greeting">
           <div>
-            <div class="greeting-text">Good afternoon, Agha!</div>
-            <div class="greeting-sub">Here's your business intelligence briefing for March 31, 2026</div>
+            <div class="greeting-text"><i data-lucide="sun" style="width:22px;height:22px;color:var(--warning);display:inline;vertical-align:middle;margin-right:6px;"></i>Good afternoon, Agha!</div>
+            <div class="greeting-sub">Your business intelligence briefing — March 31, 2026 at 2:47 PM PKT</div>
           </div>
           <div class="greeting-stats">
             <div>
               <div class="greeting-stat-label">Today's Revenue</div>
               <div class="greeting-stat-value" style="color:var(--positive);">₨ 1.8M</div>
             </div>
+            <div style="width:1px;height:32px;background:rgba(255,255,255,0.06);"></div>
             <div>
               <div class="greeting-stat-label">Active Outlets</div>
-              <div class="greeting-stat-value">14/14</div>
+              <div class="greeting-stat-value">14<span style="font-size:13px;font-weight:500;color:var(--text-tertiary);">/14</span></div>
             </div>
+            <div style="width:1px;height:32px;background:rgba(255,255,255,0.06);"></div>
             <div>
-              <div class="greeting-stat-label">Customer Satisfaction</div>
-              <div class="greeting-stat-value" style="color:var(--brand-primary);">4.6★</div>
+              <div class="greeting-stat-label">Satisfaction</div>
+              <div class="greeting-stat-value" style="color:var(--brand-primary);">4.6<span style="font-size:13px;">★</span></div>
             </div>
           </div>
         </div>
@@ -222,63 +224,104 @@
         <!-- ── SECTION 1: BUSINESS VITAL SIGNS ── -->
         <div class="section-label">Business Vital Signs</div>
         <div class="di-vitals" style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:24px;">
-          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;position:relative;overflow:hidden;">
+          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;position:relative;overflow:hidden;border-bottom:2px solid rgba(255,107,26,0.3);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
               <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Revenue MTD</span>
-              <span style="width:28px;height:28px;border-radius:8px;background:rgba(255,107,26,0.1);display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;font-weight:700;color:var(--brand-primary);">₨</span></span>
+              <span style="width:30px;height:30px;border-radius:8px;background:rgba(255,107,26,0.12);display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(255,107,26,0.15);"><span style="font-size:14px;font-weight:700;color:var(--brand-primary);">₨</span></span>
             </div>
-            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">₨ 47.2M</div>
+            <div style="font-size:30px;font-weight:800;letter-spacing:-0.02em;line-height:1;">₨ 47.2M</div>
             <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
               <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">↑ 12.4%</span>
               <span style="font-size:11px;color:var(--text-tertiary);">vs Feb</span>
             </div>
-            <div style="margin-top:10px;">
-              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-tertiary);margin-bottom:3px;"><span>Target: ₨ 50M</span><span>94.4%</span></div>
-              <div class="progress-bar" style="height:5px;"><div class="fill brand" style="width:94.4%"></div></div>
+            <div style="margin-top:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-tertiary);margin-bottom:4px;"><span>Target: ₨ 50M</span><span style="color:var(--brand-primary);font-weight:600;">94.4%</span></div>
+              <div style="height:6px;border-radius:3px;background:rgba(255,255,255,0.06);overflow:hidden;position:relative;">
+                <div style="width:94.4%;height:100%;border-radius:3px;background:linear-gradient(90deg, var(--brand-primary), #FF8F4A);position:relative;">
+                  <div style="position:absolute;inset:0;background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);animation:shimmer 2s infinite;"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;">
+          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;position:relative;overflow:hidden;border-bottom:2px solid rgba(0,230,118,0.3);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
               <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Orders</span>
-              <span style="width:28px;height:28px;border-radius:8px;background:rgba(0,230,118,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="shopping-bag" style="width:14px;height:14px;color:var(--positive);"></i></span>
+              <span style="width:30px;height:30px;border-radius:8px;background:rgba(0,230,118,0.12);display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(0,230,118,0.15);"><i data-lucide="shopping-bag" style="width:14px;height:14px;color:var(--positive);"></i></span>
             </div>
-            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">38,420</div>
+            <div style="font-size:30px;font-weight:800;letter-spacing:-0.02em;line-height:1;">38,420</div>
             <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
               <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">↑ 8.7%</span>
               <span style="font-size:11px;color:var(--text-tertiary);">1,281/day</span>
             </div>
+            <div style="margin-top:10px;">
+              <svg width="100%" height="24" viewBox="0 0 140 24" preserveAspectRatio="none" style="display:block;">
+                <path d="M0,20 C20,19 35,18 55,16 C75,14 95,8 115,5 C125,3 135,2 140,2" fill="none" stroke="var(--positive)" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+              </svg>
+            </div>
           </div>
-          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;">
+          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;position:relative;overflow:hidden;border-bottom:2px solid rgba(64,196,255,0.3);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
               <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Gross Margin</span>
-              <span style="width:28px;height:28px;border-radius:8px;background:rgba(64,196,255,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="trending-up" style="width:14px;height:14px;color:var(--info);"></i></span>
+              <span style="width:30px;height:30px;border-radius:8px;background:rgba(64,196,255,0.12);display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(64,196,255,0.15);"><i data-lucide="trending-up" style="width:14px;height:14px;color:var(--info);"></i></span>
             </div>
-            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">62.4%</div>
+            <div style="font-size:30px;font-weight:800;letter-spacing:-0.02em;line-height:1;">62.4%</div>
             <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
               <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">+1.2 pts</span>
               <span style="font-size:11px;color:var(--text-tertiary);">MoM</span>
             </div>
+            <div style="margin-top:10px;">
+              <svg width="100%" height="24" viewBox="0 0 140 24" preserveAspectRatio="none" style="display:block;">
+                <path d="M0,18 C25,17 45,16 65,14 C85,12 100,10 120,9 C130,8 138,7 140,7" fill="none" stroke="var(--info)" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+              </svg>
+            </div>
           </div>
-          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;">
+          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;position:relative;overflow:hidden;border-bottom:2px solid rgba(255,107,26,0.3);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
               <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Avg Ticket</span>
-              <span style="width:28px;height:28px;border-radius:8px;background:rgba(255,107,26,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="receipt" style="width:14px;height:14px;color:var(--brand-primary);"></i></span>
+              <span style="width:30px;height:30px;border-radius:8px;background:rgba(255,107,26,0.12);display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(255,107,26,0.15);"><i data-lucide="receipt" style="width:14px;height:14px;color:var(--brand-primary);"></i></span>
             </div>
-            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">₨ 1,229</div>
+            <div style="font-size:30px;font-weight:800;letter-spacing:-0.02em;line-height:1;">₨ 1,229</div>
             <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
               <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">↑ 3.4%</span>
               <span style="font-size:11px;color:var(--text-tertiary);">vs target</span>
             </div>
+            <div style="margin-top:10px;">
+              <svg width="100%" height="24" viewBox="0 0 140 24" preserveAspectRatio="none" style="display:block;">
+                <path d="M0,16 C25,15 45,17 65,13 C85,9 105,6 125,4 C133,3 138,3 140,3" fill="none" stroke="var(--brand-primary)" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+              </svg>
+            </div>
           </div>
-          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;">
+          <div class="di-vital-card" style="background:linear-gradient(145deg, #0F1923 0%, #1A2332 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);padding:18px 20px;position:relative;overflow:hidden;border-bottom:2px solid rgba(249,115,22,0.3);">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
               <span style="font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Customer Rating</span>
-              <span style="width:28px;height:28px;border-radius:8px;background:rgba(249,115,22,0.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="star" style="width:14px;height:14px;color:#F97316;"></i></span>
+              <span style="width:30px;height:30px;border-radius:8px;background:rgba(249,115,22,0.12);display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(249,115,22,0.15);"><i data-lucide="star" style="width:14px;height:14px;color:#F97316;"></i></span>
             </div>
-            <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;">4.6<span style="font-size:16px;font-weight:400;color:var(--text-tertiary);">/5</span></div>
+            <div style="font-size:30px;font-weight:800;letter-spacing:-0.02em;line-height:1;">4.6<span style="font-size:16px;font-weight:400;color:var(--text-tertiary);">/5</span></div>
             <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
               <span style="font-size:12px;font-weight:600;color:var(--positive);background:rgba(0,230,118,0.1);padding:2px 8px;border-radius:20px;">NPS 72</span>
               <span style="font-size:11px;color:var(--text-tertiary);">↑ 0.2 pts</span>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:3px;align-items:flex-end;height:28px;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <span style="font-size:7px;color:rgba(255,255,255,0.3);">1★</span>
+                <span style="width:100%;height:6px;border-radius:2px;background:rgba(255,255,255,0.06);"></span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <span style="font-size:7px;color:rgba(255,255,255,0.3);">2★</span>
+                <span style="width:100%;height:8px;border-radius:2px;background:var(--positive);opacity:0.6;"></span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <span style="font-size:7px;color:rgba(255,255,255,0.3);">3★</span>
+                <span style="width:100%;height:11px;border-radius:2px;background:var(--positive);opacity:0.7;"></span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <span style="font-size:7px;color:rgba(255,255,255,0.3);">4★</span>
+                <span style="width:100%;height:16px;border-radius:2px;background:var(--positive);opacity:0.85;"></span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <span style="font-size:7px;color:var(--brand-primary);">5★</span>
+                <span style="width:100%;height:22px;border-radius:2px;background:linear-gradient(180deg, var(--brand-primary), #FF8F4A);"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -298,7 +341,8 @@
                   <span style="font-size:10px;color:var(--negative);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Critical</span>
                 </div>
                 <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Gulberg Revenue Down 18%</div>
-                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">Late-night orders dropped 40%. Staff shortage suspected. Review staffing.</div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;margin-bottom:8px;">Late-night orders dropped 40%. Staff shortage suspected. Review staffing.</div>
+                <div style="font-size:10px;font-weight:600;color:var(--negative);cursor:pointer;display:flex;align-items:center;gap:4px;"><i data-lucide="arrow-right" style="width:10px;height:10px;"></i> Review Staffing</div>
               </div>
               <div class="di-decision-item" style="padding:12px;border-radius:var(--radius-md);background:rgba(255,82,82,0.06);border:1px solid rgba(255,82,82,0.12);">
                 <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
@@ -306,7 +350,8 @@
                   <span style="font-size:10px;color:var(--negative);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Stock Risk</span>
                 </div>
                 <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Lotus Lava — Fortress Stadium</div>
-                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">Projected depletion by 4 PM today. Authorize emergency restock.</div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;margin-bottom:8px;">Projected depletion by 4 PM today. Authorize emergency restock.</div>
+                <div style="font-size:10px;font-weight:600;color:var(--negative);cursor:pointer;display:flex;align-items:center;gap:4px;"><i data-lucide="arrow-right" style="width:10px;height:10px;"></i> Authorize Restock</div>
               </div>
               <div class="di-decision-item" style="padding:12px;border-radius:var(--radius-md);background:rgba(255,171,0,0.06);border:1px solid rgba(255,171,0,0.12);">
                 <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
@@ -314,7 +359,8 @@
                   <span style="font-size:10px;color:var(--warning);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Budget</span>
                 </div>
                 <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Google Ads ROAS 3.1x → 4.2x</div>
-                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">Below 4x threshold. Reallocate ₨ 150K to TikTok (5.2x ROAS).</div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;margin-bottom:8px;">Below 4x threshold. Reallocate ₨ 150K to TikTok (5.2x ROAS).</div>
+                <div style="font-size:10px;font-weight:600;color:var(--warning);cursor:pointer;display:flex;align-items:center;gap:4px;"><i data-lucide="arrow-right" style="width:10px;height:10px;"></i> Reallocate Budget</div>
               </div>
               <div class="di-decision-item" style="padding:12px;border-radius:var(--radius-md);background:rgba(255,171,0,0.06);border:1px solid rgba(255,171,0,0.12);">
                 <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
@@ -322,7 +368,8 @@
                   <span style="font-size:10px;color:var(--warning);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Operations</span>
                 </div>
                 <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Model Town SLA at 84%</div>
-                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">3 orders exceeded 45 min. Rider shortage — approve overtime.</div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;margin-bottom:8px;">3 orders exceeded 45 min. Rider shortage — approve overtime.</div>
+                <div style="font-size:10px;font-weight:600;color:var(--warning);cursor:pointer;display:flex;align-items:center;gap:4px;"><i data-lucide="arrow-right" style="width:10px;height:10px;"></i> Approve Overtime</div>
               </div>
             </div>
           </div>
@@ -408,7 +455,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px;">
           <!-- Channel Performance -->
           <div class="card">
-            <div class="card-header"><h4>Channel Mix</h4></div>
+            <div class="card-header"><h4>Channel Mix</h4><span style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">4 channels</span></div>
             <div class="card-body" style="display:flex;align-items:center;gap:16px;">
               <div style="position:relative;width:120px;height:120px;flex-shrink:0;">
                 <canvas id="channelDonut"></canvas>
@@ -693,10 +740,11 @@
           </div>
 
           <!-- Action Buttons -->
-          <div style="display:flex;gap:12px;">
+          <div style="display:flex;gap:12px;align-items:center;">
             <button class="exec-btn"><i data-lucide="file-text" style="width:14px;height:14px;"></i> Full Board Report</button>
             <button class="exec-btn"><i data-lucide="calendar" style="width:14px;height:14px;"></i> April Planning Deck</button>
             <button class="exec-btn"><i data-lucide="download" style="width:14px;height:14px;"></i> Export to PDF</button>
+            <span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">Generated Mar 31, 2026 · 2:47 PM PKT &nbsp;|&nbsp; Confidence: High</span>
           </div>
         </div>
 
