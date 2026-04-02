@@ -1315,3 +1315,96 @@ img { max-width: 100%; }
 
 /* Selection */
 ::selection { background: rgba(255, 107, 26, 0.30); color: var(--text-primary); }
+
+/* ── EXECUTIVE COMMAND CENTRE — PREMIUM DARK THEME ── */
+#page-exec-command .card {
+  background: linear-gradient(135deg, #161B22 0%, #1F2937 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+#page-exec-command .card-header {
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+#page-exec-command .card-header h4 {
+  color: #fff;
+}
+#page-exec-command .exec-summary {
+  background: linear-gradient(135deg, var(--navy) 0%, #1F2937 100%);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+}
+#page-exec-command .exec-summary h3 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#page-exec-command .exec-summary .exec-metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+#page-exec-command .exec-summary .exec-metric-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+#page-exec-command .exec-summary .exec-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+}
+#page-exec-command .exec-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#page-exec-command .exec-summary li {
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+#page-exec-command .exec-summary li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--positive);
+}
+#page-exec-command .exec-summary li.warn::before { background: var(--warning); }
+#page-exec-command .exec-summary li.neg::before { background: var(--negative); }
+#page-exec-command .exec-summary .exec-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#page-exec-command .exec-summary .exec-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
