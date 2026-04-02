@@ -797,12 +797,12 @@
               <div>
                 <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Month-to-Date Revenue</div>
                 <div style="font-size:28px;font-weight:700;">₨ 47.2M</div>
-                <div style="font-size:12px;color:#10B981;margin-top:2px;">↑ 12.4% vs Feb · 94.4% of target</div>
+                <div style="font-size:12px;color:var(--positive);margin-top:2px;">↑ 12.4% vs Feb · 94.4% of target</div>
               </div>
               <div>
                 <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Gross Profit</div>
                 <div style="font-size:28px;font-weight:700;">₨ 29.5M</div>
-                <div style="font-size:12px;color:#10B981;margin-top:2px;">62.4% margin · +1.2 pts MoM</div>
+                <div style="font-size:12px;color:var(--positive);margin-top:2px;">62.4% margin · +1.2 pts MoM</div>
               </div>
               <div>
                 <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Operating Expenses</div>
@@ -812,7 +812,7 @@
               <div>
                 <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Net Income (Est.)</div>
                 <div style="font-size:28px;font-weight:700;">₨ 14.6M</div>
-                <div style="font-size:12px;color:#10B981;margin-top:2px;">31.0% net margin · ↑ 18% YoY</div>
+                <div style="font-size:12px;color:var(--positive);margin-top:2px;">31.0% net margin · ↑ 18% YoY</div>
               </div>
             </div>
             <div style="display:flex;gap:var(--space-lg);margin-top:var(--space-md);">
@@ -937,27 +937,146 @@
         </div>
 
         <!-- P&L Table -->
-        <div class="card">
-          <div class="card-header"><h4>Detailed P&L Statement</h4></div>
-          <div class="card-body" style="padding:0;max-height:400px;overflow-y:auto;">
-            <table class="data-table">
-              <thead><tr><th>Line Item</th><th class="text-right">Mar 2026</th><th class="text-right">Feb 2026</th><th class="text-right">MoM Change</th><th class="text-right">YTD</th><th class="text-right">Budget</th><th class="text-right">Variance</th></tr></thead>
+        <div class="card" style="position:relative;overflow:hidden;">
+          <div class="card-header">
+            <h4>Detailed P&L Statement</h4>
+            <span class="text-tertiary text-sm">March 2026 vs Prior Period</span>
+          </div>
+          <div class="card-body" style="padding:0;max-height:380px;overflow-y:auto;position:relative;">
+            <table class="data-table pnl-table">
+              <thead>
+                <tr>
+                  <th style="width:28%;">Line Item</th>
+                  <th class="text-right" style="width:12%;">Mar 2026</th>
+                  <th class="text-right" style="width:12%;">Feb 2026</th>
+                  <th class="text-right" style="width:12%;">MoM</th>
+                  <th class="text-right" style="width:12%;">YTD</th>
+                  <th class="text-right" style="width:12%;">Budget</th>
+                  <th class="text-right" style="width:12%;">Var %</th>
+                </tr>
+              </thead>
               <tbody>
-                <tr style="font-weight:600;background:#F0FDF4;"><td>Gross Revenue</td><td class="text-right">47.2M</td><td class="text-right">42.0M</td><td class="text-right"><span class="text-positive">+12.4%</span></td><td class="text-right">131.8M</td><td class="text-right">135.0M</td><td class="text-right"><span class="text-negative">-2.4%</span></td></tr>
-                <tr><td>&nbsp;&nbsp;└ Dine-in</td><td class="text-right">18.9M</td><td class="text-right">17.2M</td><td class="text-right"><span class="text-positive">+9.9%</span></td><td class="text-right">52.4M</td><td class="text-right">54.0M</td><td class="text-right"><span class="text-negative">-3.0%</span></td></tr>
-                <tr><td>&nbsp;&nbsp;└ Delivery</td><td class="text-right">16.5M</td><td class="text-right">14.1M</td><td class="text-right"><span class="text-positive">+17.0%</span></td><td class="text-right">44.8M</td><td class="text-right">43.0M</td><td class="text-right"><span class="text-positive">+4.2%</span></td></tr>
-                <tr><td>&nbsp;&nbsp;└ Takeaway</td><td class="text-right">8.5M</td><td class="text-right">7.8M</td><td class="text-right"><span class="text-positive">+9.0%</span></td><td class="text-right">24.1M</td><td class="text-right">25.0M</td><td class="text-right"><span class="text-negative">-3.6%</span></td></tr>
-                <tr><td>&nbsp;&nbsp;└ App</td><td class="text-right">3.3M</td><td class="text-right">2.9M</td><td class="text-right"><span class="text-positive">+13.8%</span></td><td class="text-right">10.5M</td><td class="text-right">13.0M</td><td class="text-right"><span class="text-negative">-19.2%</span></td></tr>
-                <tr style="font-weight:600;"><td>Less: COGS</td><td class="text-right">(16.5M)</td><td class="text-right">(14.5M)</td><td class="text-right"><span class="text-negative">+14.1%</span></td><td class="text-right">(46.2M)</td><td class="text-right">(44.0M)</td><td class="text-right"><span class="text-negative">+5.0%</span></td></tr>
-                <tr style="font-weight:700;background:#F0FDF4;"><td>Gross Profit</td><td class="text-right">30.7M</td><td class="text-right">27.5M</td><td class="text-right"><span class="text-positive">+11.6%</span></td><td class="text-right">85.6M</td><td class="text-right">91.0M</td><td class="text-right"><span class="text-negative">-5.9%</span></td></tr>
-                <tr style="font-weight:600;"><td>Less: OpEx</td><td class="text-right">(18.2M)</td><td class="text-right">(17.1M)</td><td class="text-right"><span class="text-negative">+6.2%</span></td><td class="text-right">(52.8M)</td><td class="text-right">(54.0M)</td><td class="text-right"><span class="text-positive">-2.2%</span></td></tr>
-                <tr style="font-weight:700;background:#DBEAFE;"><td>Net Profit</td><td class="text-right">12.5M</td><td class="text-right">10.4M</td><td class="text-right"><span class="text-positive">+20.2%</span></td><td class="text-right">32.8M</td><td class="text-right">37.0M</td><td class="text-right"><span class="text-negative">-11.4%</span></td></tr>
+                <!-- Revenue Section -->
+                <tr class="pnl-header">
+                  <td colspan="7" style="padding:12px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);background:rgba(255,255,255,0.02);">Revenue</td>
+                </tr>
+                <tr class="pnl-total" style="background:rgba(0,230,118,0.08);">
+                  <td style="font-weight:700;">Gross Revenue</td>
+                  <td class="text-right" style="font-weight:700;font-size:15px;">₨ 47.2M</td>
+                  <td class="text-right">₨ 42.0M</td>
+                  <td class="text-right"><span class="text-positive" style="font-weight:600;">+12.4%</span></td>
+                  <td class="text-right">₨ 131.8M</td>
+                  <td class="text-right">₨ 135.0M</td>
+                  <td class="text-right"><span class="text-negative">-2.4%</span></td>
+                </tr>
+                <tr class="pnl-child">
+                  <td style="padding-left:28px;color:var(--text-secondary);">Dine-in</td>
+                  <td class="text-right">18.9M</td>
+                  <td class="text-right">17.2M</td>
+                  <td class="text-right"><span class="text-positive">+9.9%</span></td>
+                  <td class="text-right">52.4M</td>
+                  <td class="text-right">54.0M</td>
+                  <td class="text-right"><span class="text-negative">-3.0%</span></td>
+                </tr>
+                <tr class="pnl-child">
+                  <td style="padding-left:28px;color:var(--text-secondary);">Delivery</td>
+                  <td class="text-right">16.5M</td>
+                  <td class="text-right">14.1M</td>
+                  <td class="text-right"><span class="text-positive">+17.0%</span></td>
+                  <td class="text-right">44.8M</td>
+                  <td class="text-right">43.0M</td>
+                  <td class="text-right"><span class="text-positive">+4.2%</span></td>
+                </tr>
+                <tr class="pnl-child">
+                  <td style="padding-left:28px;color:var(--text-secondary);">Takeaway</td>
+                  <td class="text-right">8.5M</td>
+                  <td class="text-right">7.8M</td>
+                  <td class="text-right"><span class="text-positive">+9.0%</span></td>
+                  <td class="text-right">24.1M</td>
+                  <td class="text-right">25.0M</td>
+                  <td class="text-right"><span class="text-negative">-3.6%</span></td>
+                </tr>
+                <tr class="pnl-child">
+                  <td style="padding-left:28px;color:var(--text-secondary);">App / Online</td>
+                  <td class="text-right">3.3M</td>
+                  <td class="text-right">2.9M</td>
+                  <td class="text-right"><span class="text-positive">+13.8%</span></td>
+                  <td class="text-right">10.5M</td>
+                  <td class="text-right">13.0M</td>
+                  <td class="text-right"><span class="text-negative">-19.2%</span></td>
+                </tr>
+                
+                <!-- Cost Section -->
+                <tr class="pnl-header">
+                  <td colspan="7" style="padding:12px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);background:rgba(255,255,255,0.02);border-top:1px solid var(--border-medium);">Cost of Goods Sold</td>
+                </tr>
+                <tr class="pnl-expense">
+                  <td style="font-weight:600;">Less: COGS</td>
+                  <td class="text-right" style="font-weight:600;">(₨ 16.5M)</td>
+                  <td class="text-right">(14.5M)</td>
+                  <td class="text-right"><span class="text-negative">+14.1%</span></td>
+                  <td class="text-right">(46.2M)</td>
+                  <td class="text-right">(44.0M)</td>
+                  <td class="text-right"><span class="text-negative">+5.0%</span></td>
+                </tr>
+                <tr class="pnl-subtotal" style="background:rgba(0,230,118,0.06);border-top:2px solid var(--border-medium);">
+                  <td style="font-weight:700;">Gross Profit</td>
+                  <td class="text-right" style="font-weight:700;font-size:15px;">₨ 30.7M</td>
+                  <td class="text-right" style="font-weight:600;">27.5M</td>
+                  <td class="text-right"><span class="text-positive" style="font-weight:600;">+11.6%</span></td>
+                  <td class="text-right" style="font-weight:600;">85.6M</td>
+                  <td class="text-right">91.0M</td>
+                  <td class="text-right"><span class="text-negative">-5.9%</span></td>
+                </tr>
+                <tr class="pnl-margin">
+                  <td style="padding-left:28px;color:var(--text-tertiary);font-style:italic;">Gross Margin</td>
+                  <td class="text-right" style="color:var(--text-tertiary);">65.0%</td>
+                  <td class="text-right" style="color:var(--text-tertiary);">65.5%</td>
+                  <td class="text-right"><span style="color:var(--text-tertiary);">-0.5pp</span></td>
+                  <td class="text-right" style="color:var(--text-tertiary);">65.0%</td>
+                  <td class="text-right" style="color:var(--text-tertiary);">67.4%</td>
+                  <td class="text-right"><span class="text-negative">-2.4pp</span></td>
+                </tr>
+                
+                <!-- OpEx Section -->
+                <tr class="pnl-header">
+                  <td colspan="7" style="padding:12px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);background:rgba(255,255,255,0.02);border-top:1px solid var(--border-medium);">Operating Expenses</td>
+                </tr>
+                <tr class="pnl-expense">
+                  <td style="font-weight:600;">Less: OpEx</td>
+                  <td class="text-right" style="font-weight:600;">(₨ 18.2M)</td>
+                  <td class="text-right">(17.1M)</td>
+                  <td class="text-right"><span class="text-negative">+6.2%</span></td>
+                  <td class="text-right">(52.8M)</td>
+                  <td class="text-right">(54.0M)</td>
+                  <td class="text-right"><span class="text-positive">-2.2%</span></td>
+                </tr>
+                
+                <!-- Net Profit -->
+                <tr class="pnl-net" style="background:rgba(64,196,255,0.10);border-top:2px solid var(--border-medium);">
+                  <td style="font-weight:800;font-size:14px;">Net Profit</td>
+                  <td class="text-right" style="font-weight:800;font-size:16px;color:var(--info);">₨ 12.5M</td>
+                  <td class="text-right" style="font-weight:600;">10.4M</td>
+                  <td class="text-right"><span class="text-positive" style="font-weight:700;">+20.2%</span></td>
+                  <td class="text-right" style="font-weight:700;">32.8M</td>
+                  <td class="text-right">37.0M</td>
+                  <td class="text-right"><span class="text-negative" style="font-weight:600;">-11.4%</span></td>
+                </tr>
+                <tr class="pnl-margin">
+                  <td style="padding-left:28px;color:var(--text-tertiary);font-style:italic;">Net Margin</td>
+                  <td class="text-right" style="color:var(--info);">26.5%</td>
+                  <td class="text-right" style="color:var(--text-tertiary);">24.8%</td>
+                  <td class="text-right"><span class="text-positive">+1.7pp</span></td>
+                  <td class="text-right" style="color:var(--text-tertiary);">24.9%</td>
+                  <td class="text-right" style="color:var(--text-tertiary);">27.4%</td>
+                  <td class="text-right"><span class="text-negative">-2.5pp</span></td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
         <!-- Financial KPI Row 2 -->
-        <div class="kpi-grid" style="grid-template-columns: repeat(6,1fr);margin-bottom:var(--space-lg);">
+        <div class="kpi-grid" style="grid-template-columns: repeat(6,1fr);margin-bottom:var(--space-lg);margin-top:var(--space-lg);">
           <div class="kpi-card"><div class="kpi-label">EBITDA</div><div class="kpi-value">₨ 15.8M</div><div class="kpi-change up">↑ 11.2%</div></div>
           <div class="kpi-card"><div class="kpi-label">EBITDA Margin</div><div class="kpi-value">33.5%</div><div class="kpi-change up">↑ 0.4pp</div></div>
           <div class="kpi-card"><div class="kpi-label">Working Capital</div><div class="kpi-value">₨ 8.4M</div><div class="kpi-change neutral">Healthy</div></div>
@@ -1127,10 +1246,10 @@
             <table class="data-table">
               <thead><tr><th>Outlet</th><th class="text-right">Morning<br>6AM–12PM</th><th class="text-right">Afternoon<br>12–5PM</th><th class="text-right">Evening<br>5–9PM</th><th class="text-right">Night<br>9PM–12AM</th><th class="text-right">Late Night<br>12–3AM</th><th class="text-right">Total</th></tr></thead>
               <tbody>
-                <tr><td><strong>DHA Phase 5</strong></td><td class="text-right" style="background:#DCFCE7;">680K</td><td class="text-right" style="background:#86EFAC;color:#166534;">1.2M</td><td class="text-right" style="background:#FEF08A;color:#854D0E;">1.8M</td><td class="text-right" style="background:#FCA5A5;color:#991B1B;">1.5M</td><td class="text-right" style="background:#DCFCE7;">620K</td><td class="text-right"><strong>5.8M</strong></td></tr>
-                <tr><td><strong>Fortress Stadium</strong></td><td class="text-right" style="background:#DCFCE7;">520K</td><td class="text-right" style="background:#86EFAC;color:#166534;">1.1M</td><td class="text-right" style="background:#FEF08A;color:#854D0E;">1.6M</td><td class="text-right" style="background:#86EFAC;color:#166534;">1.3M</td><td class="text-right" style="background:#DCFCE7;">700K</td><td class="text-right"><strong>5.2M</strong></td></tr>
-                <tr><td><strong>Clifton</strong></td><td class="text-right" style="background:#DCFCE7;">490K</td><td class="text-right" style="background:#86EFAC;color:#166534;">1.0M</td><td class="text-right" style="background:#FEF08A;color:#854D0E;">1.5M</td><td class="text-right" style="background:#86EFAC;color:#166534;">1.2M</td><td class="text-right" style="background:#DCFCE7;">510K</td><td class="text-right"><strong>4.7M</strong></td></tr>
-                <tr><td><strong>Gulberg</strong></td><td class="text-right" style="background:#DCFCE7;">410K</td><td class="text-right" style="background:#DCFCE7;">680K</td><td class="text-right" style="background:#86EFAC;color:#166534;">1.0M</td><td class="text-right" style="background:#DCFCE7;">620K</td><td class="text-right" style="background:#FCA5A5;color:#991B1B;">390K</td><td class="text-right"><strong>3.1M</strong></td></tr>
+                <tr><td><strong>DHA Phase 5</strong></td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">680K</td><td class="text-right" style="background:rgba(0,230,118,0.20);color:var(--positive);">1.2M</td><td class="text-right" style="background:rgba(255,215,64,0.18);color:var(--warning);">1.8M</td><td class="text-right" style="background:rgba(255,82,82,0.18);color:var(--negative);">1.5M</td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">620K</td><td class="text-right"><strong>5.8M</strong></td></tr>
+                <tr><td><strong>Fortress Stadium</strong></td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">520K</td><td class="text-right" style="background:rgba(0,230,118,0.20);color:var(--positive);">1.1M</td><td class="text-right" style="background:rgba(255,215,64,0.18);color:var(--warning);">1.6M</td><td class="text-right" style="background:rgba(0,230,118,0.20);color:var(--positive);">1.3M</td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">700K</td><td class="text-right"><strong>5.2M</strong></td></tr>
+                <tr><td><strong>Clifton</strong></td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">490K</td><td class="text-right" style="background:rgba(0,230,118,0.20);color:var(--positive);">1.0M</td><td class="text-right" style="background:rgba(255,215,64,0.18);color:var(--warning);">1.5M</td><td class="text-right" style="background:rgba(0,230,118,0.20);color:var(--positive);">1.2M</td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">510K</td><td class="text-right"><strong>4.7M</strong></td></tr>
+                <tr><td><strong>Gulberg</strong></td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">410K</td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">680K</td><td class="text-right" style="background:rgba(0,230,118,0.20);color:var(--positive);">1.0M</td><td class="text-right" style="background:rgba(0,230,118,0.10);color:var(--positive);">620K</td><td class="text-right" style="background:rgba(255,82,82,0.18);color:var(--negative);">390K</td><td class="text-right"><strong>3.1M</strong></td></tr>
               </tbody>
             </table>
           </div>
@@ -1911,9 +2030,9 @@
         </div>
 
         <!-- Stock Matrix -->
-        <div class="card">
+        <div class="card" style="overflow:hidden;">
           <div class="card-header"><h4>Stock Position by Outlet</h4></div>
-          <div class="card-body" style="padding:0;overflow-x:auto;">
+          <div class="card-body" style="padding:0;overflow:auto;max-height:280px;">
             <table class="data-table">
               <thead><tr><th>Outlet</th><th>Classic Choc</th><th>Red Velvet</th><th>Lotus Lava</th><th>Double Choc</th><th>Peanut Butter</th><th>Overall</th></tr></thead>
               <tbody>
@@ -2484,7 +2603,7 @@
                   <div class="kanban-meta">Batch #K-216 · 90% packed</div>
                 </div>
               </div>
-              <div class="kanban-column" style="background:#F0FDF4;">
+              <div class="kanban-column" style="background:rgba(0,230,118,0.08);">
                 <div class="kanban-column-header" style="color:var(--positive);">Ready to Dispatch <span class="count" style="background:var(--positive);color:white;">6</span></div>
                 <div class="kanban-card" style="">
                   <div class="kanban-title">→ DHA Phase 5</div>
