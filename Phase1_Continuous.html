@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crumble Pakistan — Phase 1: Sales & Marketing Intelligence</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+  :root {
+    --ink: #1A1A2E;
+    --ink-light: #2D2D44;
+    --ink-muted: #6B7280;
+    --ink-faint: #9CA3AF;
+    --accent: #E8500A;
+    --accent-light: #FF6B1A;
+    --bg: #FFFFFF;
+    --bg-warm: #FAFAF8;
+    --bg-section: #F8F7F4;
+    --border: #E5E5E0;
+    --border-light: #F0EFEB;
+    --positive: #059669;
+    --blue: #2563EB;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page {
+    size: 1400px 200in;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: white;
+    line-height: 1.7;
+    font-size: 10.5pt;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ══════════════ COVER PAGE ══════════════ */
+  .cover {
+    width: 100%;
+    min-height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(160deg, #0D1117 0%, #1A1A2E 40%, #1F1435 100%);
+    color: white;
+  }
+
+  .cover-top {
+    padding: 60px 120px 0;
+  }
+
+  .cover-logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .cover-accent-line {
+    width: 48px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-top: 14px;
+  }
+
+  .cover-center {
+    padding: 0 120px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cover-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 22px;
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .cover-subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    max-width: 440px;
+  }
+
+  .cover-bottom {
+    padding: 0 120px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    line-height: 2;
+  }
+
+  .cover-meta strong {
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+
+  .cover-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 6px 14px;
+    border-radius: 4px;
+  }
+
+  /* ══════════════ CONTENT ══════════════ */
+  .content {
+    width: 100%;
+    max-width: 100%;
+    padding: 52px 120px 60px;
+  }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 36px;
+  }
+
+  .page-header-left {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ── Letter Opening ── */
+  .letter-opening {
+    font-size: 11.5pt;
+    line-height: 1.85;
+    color: var(--ink-light);
+    margin-bottom: 32px;
+  }
+
+  .letter-opening .greeting {
+    font-size: 12.5pt;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .letter-opening p {
+    margin-bottom: 14px;
+  }
+
+  /* ── Section Headers ── */
+  .section-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin-top: 26px;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--ink-light);
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 11px;
+    color: var(--ink-light);
+  }
+
+  /* ── Lists ── */
+  ul, ol {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+
+  li {
+    margin-bottom: 6px;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+
+  li::marker {
+    color: var(--accent);
+  }
+
+  /* ── Highlight Boxes ── */
+  .key-questions {
+    background: var(--bg-section);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .key-questions p {
+    font-size: 10.5pt;
+    font-style: italic;
+    color: var(--ink-muted);
+    margin-bottom: 7px;
+  }
+
+  .key-questions p:last-child { margin-bottom: 0; }
+
+  .info-card {
+    background: var(--bg-section);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 18px 0;
+  }
+
+  .info-card h4 {
+    margin-top: 0;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  /* ── Timeline ── */
+  .timeline { margin: 20px 0; }
+
+  .timeline-row {
+    display: flex;
+    gap: 18px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-light);
+    align-items: flex-start;
+  }
+
+  .timeline-row:last-child { border-bottom: none; }
+
+  .timeline-week {
+    min-width: 96px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    padding-top: 1px;
+  }
+
+  .timeline-desc { flex: 1; }
+  .timeline-desc li { font-size: 10.5pt; margin-bottom: 5px; }
+
+  /* ── Deliverables Grid ── */
+  .deliverables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0;
+  }
+
+  .deliverable-item {
+    background: var(--bg-section);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .deliverable-item .d-icon { font-size: 18px; margin-bottom: 6px; display: block; }
+  .deliverable-item .d-title { font-size: 11.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .deliverable-item .d-desc { font-size: 10px; color: var(--ink-muted); line-height: 1.5; }
+
+  /* ── Commercials ── */
+  .commercial-summary {
+    display: flex;
+    gap: 18px;
+    margin: 20px 0;
+  }
+
+  .summary-box {
+    flex: 1;
+    background: var(--bg-section);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 22px;
+    text-align: center;
+  }
+
+  .summary-box .label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+
+  .summary-box .value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .commercial-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 10.5pt;
+  }
+
+  .commercial-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .commercial-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--ink-light);
+  }
+
+  .commercial-table tr:last-child td { border-bottom: none; }
+
+  .commercial-table .total td {
+    font-weight: 700;
+    color: var(--ink);
+    border-top: 2px solid var(--border);
+    border-bottom: none;
+  }
+
+  .amount {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Scope Items ── */
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0;
+  }
+
+  .scope-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10.5pt;
+    color: var(--ink-light);
+  }
+
+  .scope-item .check {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background: rgba(5,150,105,0.08);
+    color: var(--positive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Notes List ── */
+  .notes-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 16px 0;
+  }
+
+  .notes-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: 10.5pt;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  .notes-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--ink-faint);
+  }
+
+  /* ── Closing ── */
+  .closing {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+
+  .closing p { margin-bottom: 10px; }
+
+  .signature { margin-top: 32px; }
+  .signature .name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+  .signature .role { font-size: 10.5pt; color: var(--ink-muted); }
+
+  .section-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  .accent-bar {
+    width: 36px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ COVER ══════════════ -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Crumble Pakistan</div>
+    <div class="cover-accent-line"></div>
+  </div>
+  <div class="cover-center">
+    <div class="cover-label">Phase 1 Proposal</div>
+    <div class="cover-title">Sales &amp; Marketing<br>Intelligence</div>
+    <div class="cover-subtitle">A focused engagement to build a reliable decision layer around revenue, product movement, and marketing effectiveness.</div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <strong>Prepared for</strong> — Agha<br>
+      <strong>Prepared by</strong> — Gulsher Ahmed<br>
+      <strong>Date</strong> — April 2026
+    </div>
+    <div class="cover-badge">Phase 1</div>
+  </div>
+</div>
+
+<!-- ══════════════ ALL CONTENT — ONE CONTINUOUS FLOW ══════════════ -->
+<div class="content">
+  <div class="page-header">
+    <div class="page-header-left">Crumble Pakistan — Phase 1 Proposal</div>
+  </div>
+
+  <!-- Letter -->
+  <div class="letter-opening">
+    <span class="greeting">Dear Agha,</span>
+    <p>Following our recent discussion, I've tightened the Phase 1 scope so we stay focused strictly on Sales and Marketing, while ensuring the output remains commercially useful and not just another reporting layer.</p>
+    <p>At this stage, the goal is not to widen coverage, but to build a reliable decision layer around revenue, product movement, and marketing effectiveness.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 01: Approach -->
+  <span class="section-num">01</span>
+  <h2>Approach</h2>
+  <p>The first step will be to understand what is actually driving movement in the business, and then structure reporting around those drivers.</p>
+  <p>The system will aim to answer:</p>
+  <div class="key-questions">
+    <p>What is driving revenue movement?</p>
+    <p>Which products or campaigns are genuinely adding value?</p>
+    <p>What is real performance versus growth that appears inflated due to an expanding base?</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 02: Sales Side -->
+  <span class="section-num">02</span>
+  <h2>Sales Side</h2>
+  <p style="font-style:italic;color:var(--ink-muted);margin-bottom:20px;">What is happening in revenue — and why?</p>
+  <p>The sales layer will be structured to reflect how the business actually operates.</p>
+
+  <h3>Core Revenue Tracking</h3>
+  <ul>
+    <li>Hourly, daily, weekly, and monthly revenue trends</li>
+    <li>Daypart contribution</li>
+    <li>AOV and ticket size distribution</li>
+    <li>Branch-level and product-level movement</li>
+    <li>Trend shifts in demand, not just top sellers</li>
+  </ul>
+
+  <h3>LTO / Monthly Drop Intelligence</h3>
+  <p>This will be treated as a separate analytical layer rather than being merged into general product reporting. The system will track:</p>
+  <ul>
+    <li>Revenue contribution of each monthly LTO</li>
+    <li>Units sold and share within category</li>
+    <li>Performance comparison against previous LTO launches</li>
+    <li>Repeat potential of previously launched cookies</li>
+    <li>Whether an LTO is generating incremental sales or shifting demand from existing products</li>
+    <li>Performance curve post-launch (spike → stabilization → decline)</li>
+  </ul>
+
+  <h3>Product Behaviour</h3>
+  <ul>
+    <li>Product lifecycle behaviour</li>
+    <li>Cannibalization between items</li>
+    <li>Price-tier behaviour across classic, special, and LTO</li>
+    <li>Attachment patterns (e.g., whether certain cookies increase soft serve or shake sales alongside them)</li>
+  </ul>
+
+  <div class="section-divider"></div>
+
+  <!-- 03: External Drivers -->
+  <span class="section-num">03</span>
+  <h2>External Drivers</h2>
+  <p style="font-style:italic;color:var(--ink-muted);margin-bottom:20px;">What influences demand beyond the product itself?</p>
+  <p>This layer will help explain variations that standard reporting does not capture.</p>
+
+  <h3>Weather / Temperature Impact</h3>
+  <p>For a product like cookies, and especially for soft serve and shakes, external conditions can materially influence demand. This analysis will include:</p>
+  <ul>
+    <li>Sales against temperature bands</li>
+    <li>Weather sensitivity by category</li>
+    <li>Impact of colder days on shakes and soft serve contribution</li>
+    <li>Product-level resilience across different conditions</li>
+    <li>Whether campaign timing should be adjusted based on expected weather patterns</li>
+  </ul>
+
+  <h3>Calendar Behaviour</h3>
+  <ul>
+    <li>Weekend vs weekday patterns</li>
+    <li>Start-of-month, mid-month, and end-of-month spending shifts</li>
+    <li>Impact of monthly LTO release timing</li>
+    <li>Seasonal and holiday effects</li>
+  </ul>
+
+  <div class="section-divider"></div>
+
+  <!-- 04: Marketing Side -->
+  <span class="section-num">04</span>
+  <h2>Marketing Side</h2>
+  <p>Given the follower base is continuously growing, raw metrics alone will not provide accurate insights.</p>
+
+  <h3>Normalization</h3>
+  <ul>
+    <li>Engagement relative to follower base</li>
+    <li>Reach relative to audience size</li>
+    <li>Saves and shares relative to exposure</li>
+    <li>Baseline-adjusted post performance</li>
+  </ul>
+
+  <h3>Content Breakdown</h3>
+  <ul>
+    <li>Reels vs carousels vs static vs stories</li>
+    <li>Hook strength and retention behaviour</li>
+    <li>Content that drives attention vs content that drives action</li>
+    <li>Separation of creative quality vs distribution-driven performance</li>
+  </ul>
+
+  <h3>Trend Direction</h3>
+  <ul>
+    <li>Month-on-month trajectory</li>
+    <li>Performance acceleration or slowdown</li>
+    <li>Signs of content fatigue</li>
+    <li>Whether growth is broad-based or driven by isolated spikes</li>
+  </ul>
+
+  <div class="section-divider"></div>
+
+  <!-- 05: Connecting Marketing to Sales -->
+  <span class="section-num">05</span>
+  <h2>Connecting Marketing to Sales</h2>
+  <p>Initial Phase 1 linkage will focus on:</p>
+  <ul>
+    <li>Comparing launch periods versus baseline periods</li>
+    <li>Understanding lag between content push and sales response</li>
+    <li>Evaluating whether specific formats or campaigns support LTO performance</li>
+    <li>Identifying whether demand lift is sustained or short-term</li>
+    <li>Mapping campaign timing against revenue movement where relation exists</li>
+  </ul>
+
+  <div class="info-card">
+    <h4>Note</h4>
+    <p style="margin-bottom:0;">This layer will begin as exploratory. Any factors identified as having direct or indirect relationships will be incorporated into the reporting structure.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 06: Execution Plan -->
+  <span class="section-num">06</span>
+  <h2>Execution Plan</h2>
+
+  <div class="timeline">
+    <div class="timeline-row">
+      <div class="timeline-week">Weeks 1–4</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Confirm data access and structure</li>
+          <li>Finalize metric definitions</li>
+          <li>Lock category logic and normalization rules</li>
+          <li>Build initial clean datasets for sales and marketing</li>
+          <li>Start early dashboard views for revenue trends and category performance</li>
+          <li>Validate data accuracy and business logic with real outputs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-week">Weeks 5–8</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Expand dashboards to include LTO tracking and product behaviour</li>
+          <li>Add AOV, ticket size distribution, and basket analysis</li>
+          <li>Build marketing performance layer with normalized metrics</li>
+          <li>Refine dashboards based on actual usability and feedback</li>
+          <li>Start structured analysis of campaign timing and performance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-week">Weeks 9–12</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Layer deeper analysis (weather impact, campaign-to-sales relationships, launch curves)</li>
+          <li>Refine all dashboards to ensure clarity and decision usability</li>
+          <li>Stabilize data pipelines and reporting structure</li>
+          <li>Finalize dashboards for day-to-day use</li>
+          <li>Ensure outputs are clean, reliable, and ready for scale in future phases</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 07: Expected Outcome -->
+  <span class="section-num">07</span>
+  <h2>Expected Outcome</h2>
+  <p>By the end of Phase 1, the following will be in place:</p>
+
+  <div class="deliverables">
+    <div class="deliverable-item">
+      <span class="d-icon">📊</span>
+      <div class="d-title">Sales Performance Dashboard</div>
+      <div class="d-desc">Revenue, daypart, AOV, and trend analysis</div>
+    </div>
+    <div class="deliverable-item">
+      <span class="d-icon">🍪</span>
+      <div class="d-title">LTO Performance Tracker</div>
+      <div class="d-desc">Launch impact, repeat potential, cannibalization</div>
+    </div>
+    <div class="deliverable-item">
+      <span class="d-icon">📦</span>
+      <div class="d-title">Product Behaviour View</div>
+      <div class="d-desc">Lifecycle, basket analysis, price tiers</div>
+    </div>
+    <div class="deliverable-item">
+      <span class="d-icon">📱</span>
+      <div class="d-title">Marketing Performance Dashboard</div>
+      <div class="d-desc">Normalized metrics and content insights</div>
+    </div>
+    <div class="deliverable-item">
+      <span class="d-icon">🌤️</span>
+      <div class="d-title">External Factors Analysis</div>
+      <div class="d-desc">Weather and calendar impact on demand</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- 08: Engagement & Commercials -->
+  <span class="section-num">08</span>
+  <h2>Engagement &amp; Commercials</h2>
+
+  <div class="commercial-summary">
+    <div class="summary-box">
+      <div class="label">Duration</div>
+      <div class="value">12 Weeks</div>
+    </div>
+    <div class="summary-box">
+      <div class="label">Total Investment</div>
+      <div class="value">PKR 500,000</div>
+    </div>
+  </div>
+
+  <h3>Payment Breakdown</h3>
+  <table class="commercial-table">
+    <thead>
+      <tr>
+        <th>Milestone</th>
+        <th>Timeline</th>
+        <th style="text-align:right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Month 1</td>
+        <td>Weeks 1–4</td>
+        <td style="text-align:right" class="amount">PKR 150,000</td>
+      </tr>
+      <tr>
+        <td>Month 2</td>
+        <td>Weeks 5–8</td>
+        <td style="text-align:right" class="amount">PKR 150,000</td>
+      </tr>
+      <tr>
+        <td>Month 3 — Final review &amp; handover</td>
+        <td>Weeks 9–12</td>
+        <td style="text-align:right" class="amount">PKR 200,000</td>
+      </tr>
+      <tr class="total">
+        <td>Total</td>
+        <td></td>
+        <td style="text-align:right" class="amount">PKR 500,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="color:var(--ink-muted);">Payments will be milestone-based, tied to key deliverables across the 12-week timeline, and released upon completion and validation.</p>
+
+  <h3>Scope of Responsibility</h3>
+  <div class="scope-grid">
+    <div class="scope-item"><span class="check">✓</span> Data Engineering</div>
+    <div class="scope-item"><span class="check">✓</span> Data Analysis</div>
+    <div class="scope-item"><span class="check">✓</span> Dashboard Development (Power BI)</div>
+    <div class="scope-item"><span class="check">✓</span> Analytical Structuring &amp; Business Interpretation</div>
+  </div>
+  <p style="color:var(--ink-muted);">This will be handled independently during Phase 1.</p>
+
+  <div class="section-divider"></div>
+
+  <!-- 09: Notes on Scope -->
+  <span class="section-num">09</span>
+  <h2>Notes on Scope</h2>
+  <ul class="notes-list">
+    <li>The earlier expansion into multiple areas was exploratory, but Phase 1 will remain strictly focused on Sales and Marketing</li>
+    <li>The intent is not only to build reporting, but also to uncover patterns that may not be immediately visible through standard metrics</li>
+    <li>Any meaningful relationships identified during this phase will be documented for future strategic use</li>
+    <li>All work shall be properly documented to ensure continuity and scalability</li>
+    <li>A weekly sync will be scheduled to review progress, align on findings, and adjust direction where needed</li>
+    <li>Any infrastructure or tooling costs required for execution (excluding the work laptop) will be covered by the organization</li>
+  </ul>
+
+  <div class="section-divider"></div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <p>Let me know if this direction works for you. Once aligned, I will proceed with locking definitions and initiating the data layer.</p>
+    <div class="signature">
+      <div class="name">Gulsher Ahmed</div>
+      <div class="role">BI Consultant</div>
+      <div class="role" style="color:var(--ink-faint);">Crumble Pakistan</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
