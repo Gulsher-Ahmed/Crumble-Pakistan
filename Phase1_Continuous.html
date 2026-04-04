@@ -7,6 +7,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 
   :root {
     --ink: #1A1A2E;
@@ -114,11 +115,11 @@
   }
 
   .cover-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 42px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 46px;
     font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
     margin-bottom: 20px;
   }
 
@@ -324,38 +325,54 @@
   .deliverables {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin: 20px 0;
+    gap: 16px;
+    margin: 24px 0;
   }
 
   .deliverable-item {
     background: var(--bg-section);
     border: 1px solid var(--border-light);
     border-radius: 8px;
-    padding: 16px 18px;
+    padding: 24px 22px;
   }
 
   .deliverable-item .d-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: rgba(232,80,10,0.08);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0D1117, #1A1A2E);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(13,17,23,0.15);
   }
   .deliverable-item .d-icon svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--accent);
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent-light);
     fill: none;
-    stroke-width: 1.8;
+    stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-  .deliverable-item .d-title { font-size: 11.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-  .deliverable-item .d-desc { font-size: 10px; color: var(--ink-muted); line-height: 1.5; }
+  .deliverable-item .d-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .deliverable-item .d-desc {
+    font-size: 11px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  .deliverables .deliverable-item.full-width {
+    grid-column: 1 / -1;
+  }
 
   /* ── Commercials ── */
   .commercial-summary {
@@ -504,6 +521,32 @@
     background: var(--accent);
     border-radius: 2px;
     margin-bottom: 20px;
+  }
+
+  /* ── Section with Image ── */
+  .section-with-image {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .section-with-image .section-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .section-with-image .section-image {
+    width: 280px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .section-with-image .section-image img {
+    width: 100%;
+    border-radius: 12px;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
   }
 </style>
 </head>
@@ -730,27 +773,27 @@
     <div class="deliverable-item">
       <span class="d-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16V10"/><path d="M11 16V6"/><path d="M15 16v-4"/><path d="M19 16V8"/></svg></span>
       <div class="d-title">Sales Performance Dashboard</div>
-      <div class="d-desc">Revenue, daypart, AOV, and trend analysis</div>
+      <div class="d-desc">Revenue trends, daypart contribution, AOV distribution, and branch-level performance tracking</div>
     </div>
     <div class="deliverable-item">
       <span class="d-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
       <div class="d-title">LTO Performance Tracker</div>
-      <div class="d-desc">Launch impact, repeat potential, cannibalization</div>
+      <div class="d-desc">Launch impact curves, repeat potential scoring, and cannibalization analysis across drops</div>
     </div>
     <div class="deliverable-item">
       <span class="d-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg></span>
       <div class="d-title">Product Behaviour View</div>
-      <div class="d-desc">Lifecycle, basket analysis, price tiers</div>
+      <div class="d-desc">Lifecycle tracking, basket &amp; attachment analysis, and price-tier performance mapping</div>
     </div>
     <div class="deliverable-item">
       <span class="d-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
       <div class="d-title">Marketing Performance Dashboard</div>
-      <div class="d-desc">Normalized metrics and content insights</div>
+      <div class="d-desc">Normalized engagement metrics, content format comparison, and trend direction insights</div>
     </div>
-    <div class="deliverable-item">
+    <div class="deliverable-item full-width">
       <span class="d-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg></span>
       <div class="d-title">External Factors Analysis</div>
-      <div class="d-desc">Weather and calendar impact on demand</div>
+      <div class="d-desc">Weather and temperature impact modelling, calendar-driven demand patterns, and campaign timing optimization</div>
     </div>
   </div>
 
