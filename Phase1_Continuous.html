@@ -548,6 +548,80 @@
     border-radius: 12px;
     filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
   }
+
+  /* ══════════════ RESPONSIVE ══════════════ */
+  @media (max-width: 768px) {
+    .cover {
+      flex-direction: column;
+      min-height: auto;
+    }
+    .cover-left {
+      padding: 40px 24px 32px;
+    }
+    .cover-right {
+      width: 100%;
+      padding: 0 24px 40px;
+    }
+    .cover-right img {
+      max-height: 360px;
+    }
+    .cover-title {
+      font-size: 32px;
+    }
+    .cover-subtitle {
+      font-size: 13px;
+    }
+    .cover-bottom {
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .content {
+      padding: 32px 20px 40px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .deliverables {
+      grid-template-columns: 1fr;
+    }
+
+    .commercial-summary {
+      flex-direction: column;
+    }
+
+    .scope-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-row {
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .timeline-week {
+      min-width: unset;
+    }
+
+    .section-with-image {
+      flex-direction: column;
+    }
+    .section-with-image .section-image {
+      width: 100%;
+      padding-top: 0;
+    }
+
+    .commercial-table {
+      font-size: 9.5pt;
+    }
+    .commercial-table th,
+    .commercial-table td {
+      padding: 10px 8px;
+    }
+  }
 </style>
 </head>
 <body>
