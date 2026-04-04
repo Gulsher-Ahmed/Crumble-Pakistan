@@ -47,14 +47,38 @@
     width: 100%;
     min-height: 900px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
     background: linear-gradient(160deg, #0D1117 0%, #1A1A2E 40%, #1F1435 100%);
     color: white;
+    overflow: hidden;
+  }
+
+  .cover-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 40px 56px 120px;
+    min-width: 0;
+  }
+
+  .cover-right {
+    width: 42%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 60px 60px 0;
+  }
+
+  .cover-right img {
+    max-width: 100%;
+    max-height: 700px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.4));
   }
 
   .cover-top {
-    padding: 60px 120px 0;
+    margin-bottom: 40px;
   }
 
   .cover-logo {
@@ -74,7 +98,6 @@
   }
 
   .cover-center {
-    padding: 0 120px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -108,7 +131,7 @@
   }
 
   .cover-bottom {
-    padding: 0 120px 56px;
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -488,22 +511,27 @@
 
 <!-- ══════════════ COVER ══════════════ -->
 <div class="cover">
-  <div class="cover-top">
-    <div class="cover-logo">Crumble Pakistan</div>
-    <div class="cover-accent-line"></div>
-  </div>
-  <div class="cover-center">
-    <div class="cover-label">Phase 1 Proposal</div>
-    <div class="cover-title">Sales &amp; Marketing<br>Intelligence</div>
-    <div class="cover-subtitle">A focused engagement to build a reliable decision layer around revenue, product movement, and marketing effectiveness.</div>
-  </div>
-  <div class="cover-bottom">
-    <div class="cover-meta">
-      <strong>Prepared for</strong> — Agha Usman<br>
-      <strong>Prepared by</strong> — Gulsher Ahmed<br>
-      <strong>Date</strong> — 04 April 2026
+  <div class="cover-left">
+    <div class="cover-top">
+      <div class="cover-logo">Crumble Pakistan</div>
+      <div class="cover-accent-line"></div>
     </div>
-    <div class="cover-badge">Phase 1</div>
+    <div class="cover-center">
+      <div class="cover-label">Phase 1 Proposal</div>
+      <div class="cover-title">Sales &amp; Marketing<br>Intelligence</div>
+      <div class="cover-subtitle">A focused engagement to build a reliable decision layer around revenue, product movement, and marketing effectiveness.</div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-meta">
+        <strong>Prepared for</strong> — Agha Usman<br>
+        <strong>Prepared by</strong> — Gulsher Ahmed<br>
+        <strong>Date</strong> — 04 April 2026
+      </div>
+      <div class="cover-badge">Phase 1</div>
+    </div>
+  </div>
+  <div class="cover-right">
+    <img src="assets/crumble_hero.png" alt="Crumble Pakistan">
   </div>
 </div>
 
